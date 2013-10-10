@@ -1,0 +1,39 @@
+{
+  "name": "Templates",
+  "description": "Test proyec",
+  "type": "certified",
+  "launch_path": "/index.html",
+  "orientation": "portrait-primary",
+  "fullscreen": true,
+  "developer": {
+    "name": "Template Test",
+    "url": "https://name.domain/path"
+  },
+  "permissions": {
+    "storage":{},
+    "device-storage:pictures":{ "access": "readwrite" },
+    "camera":{},
+    "geolocation":{},
+    "audio-channel-notification":{}
+  },
+  "activities": {
+  },
+  "locales": {
+    "es-MX": {
+      "name": "Plantilla",
+      "description": "Plantilla para app en ffos"
+    },
+    "en-US": {
+      "name": "Template",
+      "description": "Tenplate for apps on ffos"
+    }
+  },
+  "default_locale": "es-MX",
+  "icons": {
+    "60": "/style/icons/template_60.png",
+    "90": "/style/icons/template_90.png",
+    "120": "/style/icons/template_120.png",
+    "128": "/style/icons/template_128.png"
+  }
+}
+
