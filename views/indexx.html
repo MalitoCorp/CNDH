@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<title>Comision nacional de los derechos humanos</title>
+      <link href="icons/styles/action_icons.css" rel="stylesheet" type="text/css">
+      <link href="icons/styles/media_icons.css" rel="stylesheet" type="text/css">
+      <link href="util.css" rel="stylesheet" type="text/css">
+      <link href="style/buttons.css" rel="stylesheet" type="text/css">
+      <link href="style_unstable/toolbars.css" rel="stylesheet" type="text/css">
+      <link href="style_unstable/tabs.css" rel="stylesheet" type="text/css">
+      <link href="icons/styles/media_icons.css" rel="stylesheet" type="text/css">
+      <!--iconos -->
+      <link rel="stylesheet" type="text/css" href="icons/styles/action_icons.css">
+      <link rel="stylesheet" type="text/css" href="icons/styles/media_icons.css">
+      <link rel="stylesheet" type="text/css" href="icons/styles/comms_icons.css">
+      <link rel="stylesheet" type="text/css" href="icons/styles/settings_icons.css">
+      <link rel="stylesheet" type="text/css" href="style/headers.css">
+      <link rel="stylesheet" type="text/css" href="style_unstable/lists.css">
+      <link rel="stylesheet" type="text/css" href="style_unstable/tabs.css">
+      <link rel="stylesheet" type="text/css" href="style_unstable/toolbars.css">
+      <link rel="stylesheet" href="fonts.css">
+
+      <link rel="stylesheet" type="text/css" href="cross_browser.css">
+      <style type="text/css" media="screen">
+
+ 
+  #logo{
+    width: 80%;
+    margin: 30px auto;
+    display: block;
+
+  }
+  .bottom{
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    height: 80px;
+  }
+  a[role="button"]{
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+  }
+  .contacts-phone{
+    transform: scaleX(-1);
+     } 
+
+   </style>
+	</head>
+    <body>
+     
+    <img id="logo" src="images/logo_cndh.png">
+      <a href="form.html" id="call" class="recommend" role="button">Reportar</a>
+      <ul role="tablist" data-items="2" class="bottom">
+      <li id="ƒ≤" role="tab">
+        <a id="llamada"class="icon comms-icon contacts-phone">Llamar</a>
+        <div role="tabpanel"></div>
+      </li>
+       <li id="panel2" role="tab">
+        <a class="icon comms-icon contacts-location">dialer</a>
+        <div role="tabpanel"></div>
+      </li>
+      </ul>
+      <script>
+
+        document.getElementById('llamada').addEventListener('click', call, false);
+
+        function call(){
+          var call = new MozActivity({
+            name:"dial",
+            data: {
+              number: "+5555-9999"
+            }
+          });
+        }
+
+
+
+
+
+      </script>
+	 </body>
+</html>
