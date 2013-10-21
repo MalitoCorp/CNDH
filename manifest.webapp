@@ -2,7 +2,7 @@
 
   "name": "Reporte CNDH",
   "description": "CNDH Reports App",
-  "launch_path": "/views/main.html",
+  "launch_path": "/index.html",
   "name": "Building Blocks",
   "description": "Building Blocks Demo App",
   "launch_path": "views/main.html",
