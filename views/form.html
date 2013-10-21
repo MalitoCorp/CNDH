@@ -184,6 +184,14 @@
     .landscape section[role="region"]#drawer > header:first-child {
       /* Whatever needs to be changed on landscape */
     }
+
+    #fecha{
+      width: 99%;
+    }
+
+    #dependencia{
+      width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -197,6 +205,7 @@
       <form>
         <p>
           <select id="dependencia">
+            <option selected disabled value="">Selecciona una opción</option>
             <option>IMSS</option>
             <option>SEDENA</option>
             <option>CFE</option>
@@ -217,7 +226,7 @@
         </p>
 
         <p>
-          <input id="correo" type="text" placeholder="Correo electrónico">
+          <input id="correo" type="email" placeholder="Correo electrónico">
           <button type="reset">Clear</button>
         </p>
 
@@ -238,7 +247,7 @@
         <p>
           <!--
           <button class="recommend" onclick="return nuevaVentana('loading.html')">Enviar</button>-->
-          <button class="recomend" id="go">Enviar</button>
+          <button class="recommend" id="go">Enviar</button>
         </p>
 
         <script type="text/javascript">
@@ -288,7 +297,9 @@
         var fecha = $('#fecha').val();
         var reincide = $('#reincide').val();
 
-        alert(dependencia + nombre + apellido + correo + descripcion + fecha + reincide);
+        //alert(dependencia + nombre + apellido + correo + descripcion + fecha + reincide);
+         window.open("loading.html?" + dependencia + nombre + apellido + correo + descripcion + fecha + reincide);
+
       });
     });
 
