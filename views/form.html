@@ -196,7 +196,7 @@
       <header><h1>¡Bienvenido!</h1><h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2></header>
       <form>
         <p>
-          <select label="Selecciona una opción">
+          <select id="dependencia">
             <option>IMSS</option>
             <option>SEDENA</option>
             <option>CFE</option>
@@ -207,36 +207,38 @@
           </select>
         </p>
         <p>
-          <input type="text" placeholder="Nombre(s)">
+          <input id="nombre" type="text" placeholder="Nombre(s)">
           <button type="reset">Clear</button>
         </p>
 
         <p>
-          <input type="text" placeholder="Apellido paterno">
+          <input id="apellido" type="text" placeholder="Apellidos">
           <button type="reset">Clear</button>
         </p>
 
         <p>
-          <input type="text" placeholder="Apellido materno">
+          <input id="correo" type="text" placeholder="Correo electrónico">
           <button type="reset">Clear</button>
         </p>
 
         <p>
-          <textarea placeholder="Descripción de la situación"></textarea>
+          <textarea id="descripcion" placeholder="Descripción de la situación"></textarea>
         </p>
 
         <p>
-          <input type="date" placeholder="Fecha de incidente"/>
+          <input id="fecha" type="date" placeholder="Fecha de incidente"/>
         </p>
 
         <header><h2>He vivido la misma situación más de una ocasión</h2></header>
         <label class="pack-switch">
-          <input type="checkbox">
+          <input id="reincide" type="checkbox">
           <span></span>
         </label>
         
         <p>
-          <button class="recommend" onclick="return nuevaVentana('loading.html')">Enviar</button>
+          <!--
+          <button class="recommend" onclick="return nuevaVentana('loading.html')">Enviar</button>-->
+          <button class="recomend" id="go">Enviar</button>
         </p>
 
         <script type="text/javascript">
@@ -251,7 +253,46 @@
 
   <script type="text/javascript" defer src="../js/status.js"></script>
   <script type="text/javascript" defer src="../js/seekbars.js"></script>
-  <script type="text/javascript" defer src="../js/app.js"></script>
+  
+
+  <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+
+      // fix the checked bug.
+      // 'solucion pacheca'
+      // set to off
+      $('#reincide').val('off');
+      // when the check is clicked
+      $('#reincide').on('click', function(){
+
+        var $this = $(this);
+        var value = $this.val();
+
+        if(value == "on"){
+          $this.val('off');
+        }else{
+          $this.val('on');
+        }
+      });
+      
+      $('#go').on('click', function(){
+
+        
+        var dependencia = $('#dependencia option:selected').val(); 
+        var nombre = $('#nombre').val();
+        var apellido = $('#apellido').val();
+        var correo = $('#correo').val();
+        var descripcion = $('#descripcion').val();
+        var fecha = $('#fecha').val();
+        var reincide = $('#reincide').val();
+
+        alert(dependencia + nombre + apellido + correo + descripcion + fecha + reincide);
+      });
+    });
+
+  </script>
 
 </body>
 </html>
