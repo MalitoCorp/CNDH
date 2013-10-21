@@ -1,11 +1,7 @@
 {
-
   "name": "Reporte CNDH",
   "description": "CNDH Reports App",
   "launch_path": "/index.html",
-  "name": "Building Blocks",
-  "description": "Building Blocks Demo App",
-  "launch_path": "views/main.html",
   "icons": {
     "128": "/images/app_icon_128.png",
     "60": "/images/app_icon_60.png"
