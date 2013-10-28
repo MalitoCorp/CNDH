@@ -269,7 +269,11 @@
           </ul>
         </section>
 
- <p><a href="#newcomment" id="go"><button class="recommend">Enviar</button></a></p>
+
+ <p><a href="#newcomment" id="go"><button class="recommend" >Enviar</button></a></p>
+
+ 
+
 
     </article>
     </section>
@@ -328,6 +332,8 @@
       
       $('#go').on('click', function(){
 
+
+
         
         var dependencia = $('#dependencia option:selected').val(); 
         var nombre = $('#nombre').val();
@@ -337,8 +343,18 @@
         var fecha = $('#fecha').val();
         var reincide = $('#reincide').val();
 
+        var xhr = new XMLHttpRequest({ mozSystem: true });
         
-
+        xhr.open("get", "http://hiramperez.net/ffos/test.php", true);
+        console.log('entro asdfsfd');
+        xhr.onload = function(e) {
+          if (xhr.status === 200 || xhr.status === 0) {
+          
+            console.log(xhr.response);
+          } else {
+          // An error happened
+          }
+}
       });
     });
 
