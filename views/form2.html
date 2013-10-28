@@ -260,6 +260,7 @@
     </article>
     </section>
 
+    <!-- confirm page-->
   <section>
     <form role="dialog" data-type="confirm" id="newcomment">
       <section>
@@ -274,6 +275,60 @@
 
   <script type="text/javascript" defer src="../js/status.js"></script>
   <script type="text/javascript" defer src="../js/seekbars.js"></script>
+
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+
+      // fix the checked bug.
+      // 'solucion pacheca'
+      // set to off
+      $('#reincide').val('off');
+      // when the check is clicked
+      $('#reincide').on('click', function(){
+
+        var $this = $(this);
+        // get the input value.
+        var value = $this.val();
+
+        //change the input value.
+        if(value == "on"){
+          $this.val('off');
+        }else{
+          $this.val('on');
+        }
+      });
+
+      //hide '#otro' input
+      $("#otro").hide();
+
+      // hide or show the '#otro' input
+      $('#dependencia').change(function(){
+        console.log('entro');
+        if( $('#dependencia option:selected').val() == "Otro" ){
+          $("#otro").show();
+        }else{
+          $("#otro").hide();
+        }
+      });
+      
+      $('#go').on('click', function(){
+
+        
+        var dependencia = $('#dependencia option:selected').val(); 
+        var nombre = $('#nombre').val();
+        var apellido = $('#apellido').val();
+        var correo = $('#correo').val();
+        var descripcion = $('#descripcion').val();
+        var fecha = $('#fecha').val();
+        var reincide = $('#reincide').val();
+
+        
+
+      });
+    });
+
+  </script>
 
 </body>
 </html>
