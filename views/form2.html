@@ -230,6 +230,11 @@
           </select>
         </p>
         <p>
+          <input id="otro" type="text" placeholder="Dependencia">
+          
+        </p>
+        <p>
+        <p>
           <input id="nombre" type="text" placeholder="Nombre(s)">
         </p>
 
@@ -276,6 +281,7 @@
   <script type="text/javascript" defer src="../js/status.js"></script>
   <script type="text/javascript" defer src="../js/seekbars.js"></script>
 
+  <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script>
   <script type="text/javascript">
 
     $(document).ready(function(){
@@ -304,7 +310,7 @@
 
       // hide or show the '#otro' input
       $('#dependencia').change(function(){
-        console.log('entro');
+        //console.log($('#dependencia option:selected').val());
         if( $('#dependencia option:selected').val() == "Otro" ){
           $("#otro").show();
         }else{
