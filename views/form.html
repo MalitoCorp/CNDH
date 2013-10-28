@@ -235,6 +235,10 @@
           </select>
         </p>
         <p>
+          <input id="otro" type="text" placeholder="Dependencia">
+          <button type="reset">Clear</button>
+        </p>
+        <p>
           <input id="nombre" type="text" placeholder="Nombre(s)">
           <button type="reset">Clear</button>
         </p>
@@ -312,12 +316,27 @@
       $('#reincide').on('click', function(){
 
         var $this = $(this);
+        // get the input value.
         var value = $this.val();
 
+        //change the input value.
         if(value == "on"){
           $this.val('off');
         }else{
           $this.val('on');
+        }
+      });
+
+      //hide '#otro' input
+      $("#otro").hide();
+
+      // hide or show the '#otro' input
+      $('#dependencia').change(function(){
+        console.log('entro');
+        if( $('#dependencia option:selected').val() == "Otro" ){
+          $("#otro").show();
+        }else{
+          $("#otro").hide();
         }
       });
       
