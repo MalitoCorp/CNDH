@@ -37,9 +37,8 @@
 
   <!-- Additional markup to make Building Blocks kind of cross browser -->
   <link rel="stylesheet" href="../cross_browser.css">
-
-  <style>
-    #index {
+<style>
+#index {
       height: 100%;
     }
     [data-position="right"] {
@@ -193,20 +192,17 @@
       width: 100%;
     }
 
-    #about{
+    #newcomment{
       position: fixed;
       -moz-transform: translateX(100%);
       -moz-transition: -moz-transform 1s;
     }
 
-    #about:target{
+    #newcomment:target{
       -moz-transform: translateX(0%);
     }
-    .mover{
-      -moz-transform: translateX(-100%);
-      -moz-transition: -moz-transform 1s;
-    }
-  </style>
+</style>
+
 </head>
 <body>
     <section id="drawer" role="region">
@@ -214,9 +210,8 @@
       <a id="btn-input-areas-back" href="../index.html"><span class="icon icon-back">back</span></a>
       <h1>Reportar problema</h1>
     </header>
-    <article class="content scrollable header">
-      <header><h1>¡Bienvenido!</h1><h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2></header>
-      <form>
+      <article class="content scrollable header">
+        <header><h1>¡Bienvenido!</h1><h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2></header>
         <p>
           <ul><li>
             <a role="button" class="icon icon-dialog">
@@ -236,17 +231,14 @@
         </p>
         <p>
           <input id="nombre" type="text" placeholder="Nombre(s)">
-          <button type="reset">Clear</button>
         </p>
 
         <p>
           <input id="apellido" type="text" placeholder="Apellidos">
-          <button type="reset">Clear</button>
         </p>
 
         <p>
           <input id="correo" type="email" placeholder="Correo electrónico">
-          <button type="reset">Clear</button>
         </p>
 
         <p>
@@ -262,84 +254,26 @@
           <input id="reincide" type="checkbox">
           <span></span>
         </label>
-        
-        <p>
-          <!--
-          <button class="recommend" onclick="return nuevaVentana('loading.html')">Enviar</button>-->
-          <button class="recommend" id="go">Enviar</button>
-        </p>
-      </form>
 
-        <script type="text/javascript">
-        document.querySelector("#go").addEventListener('click',function(){
-        document.querySelector("#about").addClass('mover');
-        });
-        /*function nuevaVentana(ventana) {
-          window.open(ventana);
-          return false;
-        }*/
-        </script>
+ <p><a href="#newcomment"><button class="recommend" id="go">Enviar</button></a></p>
 
     </article>
     </section>
 
-    <section id="about">
-      <form role="dialog" data-type="confirm">
-        <section>
-          <h1>Por favor espere</h1>
-          <h2>Estamos generando su reporte</h2>
-          <!-- Note: inline style only for demo purposes -->
-          <p style="text-align: center;"><progress></progress></p>
+  <section>
+    <form role="dialog" data-type="confirm" id="newcomment">
+      <section>
+        <h1>Por favor espere</h1>
+        <h2>Estamos generando su reporte</h2>
+        <!-- Note: inline style only for demo purposes -->
+        <p style="text-align: center;"><progress></progress></p>
       </section>
       <menu><button class="full" onclick="return nuevaVen('form.html')">Cancel</button></menu>
     </form>
-    </section>
+  </section>
 
   <script type="text/javascript" defer src="../js/status.js"></script>
   <script type="text/javascript" defer src="../js/seekbars.js"></script>
-  
-
-  <script type="text/javascript" src="../js/jquery-2.0.3.min.js"></script>
-  <script type="text/javascript">
-
-    $(document).ready(function(){
-
-      // fix the checked bug.
-      // 'solucion pacheca'
-      // set to off
-      $('#reincide').val('off');
-      // when the check is clicked
-      $('#reincide').on('click', function(){
-
-        var $this = $(this);
-        var value = $this.val();
-
-        if(value == "on"){
-          $this.val('off');
-        }else{
-          $this.val('on');
-        }
-      });
-      
-      $('#go').on('click', function(){
-
-        
-        var dependencia = $('#dependencia option:selected').val(); 
-        var nombre = $('#nombre').val();
-        var apellido = $('#apellido').val();
-        var correo = $('#correo').val();
-        var descripcion = $('#descripcion').val();
-        var fecha = $('#fecha').val();
-        var reincide = $('#reincide').val();
-
-        //alert(dependencia + nombre + apellido + correo + descripcion + fecha + reincide);
-         //window.open("loading.html?" + dependencia + nombre + apellido + correo + descripcion + fecha + reincide);
-
-      });
-    });
-
-  </script>
 
 </body>
 </html>
-
