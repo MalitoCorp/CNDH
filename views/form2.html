@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no" />
   <title>Formulario</title>
+
   <!-- Building blocks -->
   <link rel="stylesheet" href="../style/action_menu.css">
   <link rel="stylesheet" href="../style/buttons.css">
@@ -34,12 +35,11 @@
   <!-- Util CSS: some extra tricks -->
   <link rel="stylesheet" href="../util.css">
   <link rel="stylesheet" href="../fonts.css">
-
-  <!-- Additional markup to make Building Blocks kind of cross browser -->
-  <link rel="stylesheet" href="../cross_browser.css">
 <style>
-#index {
+    html, body {
       height: 100%;
+      margin: 0;
+      padding: 0;
     }
     [data-position="right"] {
       position: absolute;
@@ -205,6 +205,8 @@
 
 </head>
 <body>
+
+  <!-- Form -->
     <section id="drawer" role="region">
       <header class="fixed">
       <a id="btn-input-areas-back" href="../index.html"><span class="icon icon-back">back</span></a>
@@ -231,7 +233,6 @@
         </p>
         <p>
           <input id="otro" type="text" placeholder="Dependencia">
-          
         </p>
         <p>
         <p>
@@ -265,8 +266,7 @@
     </article>
     </section>
 
-    <!-- confirm page-->
-  <section>
+    <!-- Loading page -->
     <form role="dialog" data-type="confirm" id="newcomment">
       <section>
         <h1>Por favor espere</h1>
@@ -274,9 +274,9 @@
         <!-- Note: inline style only for demo purposes -->
         <p style="text-align: center;"><progress></progress></p>
       </section>
-      <menu><button class="full" onclick="return nuevaVen('form.html')">Cancel</button></menu>
     </form>
-  </section>
+
+
 
   <script type="text/javascript" defer src="../js/status.js"></script>
   <script type="text/javascript" defer src="../js/seekbars.js"></script>
