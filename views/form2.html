@@ -219,11 +219,6 @@
       <article class="content scrollable header">
         <header><h1>¡Bienvenido!</h1><h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2></header>
         <p>
-          <ul><li>
-            <a role="button" class="icon icon-dialog">
-              Selecciona una opción
-            </a>
-          </li></ul>
           <select id="dependencia" role="button" class="icon icon-dialog">
             <option selected disabled value="">Selecciona una opción</option>
             <option>IMSS</option>
@@ -334,12 +329,13 @@
 
 
 
-        // get the form data
+        
         var dependencia = $('#dependencia option:selected').val(); 
-        var nombre      = $('#nombre').val();
-        var apellido    = $('#apellido').val();
-        var correo      = $('#correo').val();
+        var nombre = $('#nombre').val();
+        var apellido = $('#apellido').val();
+        var correo = $('#correo').val();
         var descripcion = $('#descripcion').val();
+<<<<<<< HEAD
         var fecha       = $('#fecha').val();
         var reincide    = $('#reincide').val();
 
@@ -364,11 +360,24 @@
         request.send();
 
 
+=======
+        var fecha = $('#fecha').val();
+        var reincide = $('#reincide').val();
+
+        var xhr = new XMLHttpRequest({ mozSystem: true });
+        
+        xhr.open("get", "http://hiramperez.net/ffos/test.php", true);
+        console.log('entro asdfsfd');
+        xhr.onload = function(e) {
+          if (xhr.status === 200 || xhr.status === 0) {
+          
+            console.log(xhr.response);
+          } else {
+          // An error happened
+          }
+}
+>>>>>>> 3b9d3b21eb498811ba4b99f9e3bc2d9ab1d0de28
       });
-
-
-
-
     });
 
   </script>

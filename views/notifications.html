@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no" />
-  <meta http-equiv="refresh" content="3;URL='confirm.html'" />
   <title>Formulario</title>
   <!-- Building blocks -->
   <link rel="stylesheet" href="../style/confirms.css">
@@ -187,15 +186,16 @@
 </head>
 <body>
 	<section id="drawer" role="region">
-    	<form role="dialog" data-type="confirm">
-  			<section>
-    			<h1>Por favor espere</h1>
-    			<h2>Estamos generando su reporte</h2>
-    			<!-- Note: inline style only for demo purposes -->
-    			<p style="text-align: center;"><progress></progress></p>
-			</section>
-		</form>
-  	</section>
+      <header class="fixed">
+      <a id="btn-input-areas-back" href="../index.html"><span class="icon icon-back">back</span></a>
+      <h1>Notificaciones</h1>
+    </header>
+      <article class="content scrollable header" style="text-align: center;"><br /><br /><br />
+        <header><h1>Para continuar con tu denuncia, asiste a</h1></header><br />
+        <a href="#"><h2>Calle Centenario, del. Venustiano Carranza. México, D.F.</h2></a><br /><br />
+        <h2><p>Folio:</p><p><span id="folio">HDEF423</p></span></h2>
+   </article>
+    </section>
 
 	<script type="text/javascript" defer src="../js/status.js"></script>
 	<script type="text/javascript" defer src="../js/seekbars.js"></script>
