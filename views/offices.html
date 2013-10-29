@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no" />
-  <meta http-equiv="refresh" content="3;URL='confirm.html'" />
   <title>Formulario</title>
   <!-- Building blocks -->
   <link rel="stylesheet" href="../style/confirms.css">
@@ -187,15 +186,59 @@
 </head>
 <body>
 	<section id="drawer" role="region">
-    	<form role="dialog" data-type="confirm">
-  			<section>
-    			<h1>Por favor espere</h1>
-    			<h2>Estamos generando su reporte</h2>
-    			<!-- Note: inline style only for demo purposes -->
-    			<p style="text-align: center;"><progress></progress></p>
-			</section>
-		</form>
-  	</section>
+      <header class="fixed">
+      <a id="btn-input-areas-back" href="../index.html"><span class="icon icon-back">back</span></a>
+      <h1>Ubicar oficina</h1>
+    </header>
+      <article class="content scrollable header">
+        <section data-type="list">
+          <ul>
+            <li>
+              <a href="#">
+                <p>México D.F.</p>
+                <p>Calle Centenario, del. Venustiano Carranza</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <p>Querétaro</p>
+                <p>Calle 2 de Noviembre, col. Corregidora</p>
+              </a>
+            </li>
+             <li>
+              <a href="#">
+                <p>Nuevo León</p>
+                <p>Calle fundidora, col. Nuevo México</p>
+              </a>
+            </li>
+             <li>
+              <a href="#">
+                <p>Guanajuato</p>
+                <p>Calle León, col. Zapatero</p>
+              </a>
+            </li>
+             <li>
+              <a href="#">
+                <p>Yucatán</p>
+                <p>Calle Cobre, col. Zapoteco</p>
+              </a>
+            </li>
+             <li>
+              <a href="#">
+                <p>Chiapas</p>
+                <p>Calle 3 de marzo, col. Centro</p>
+              </a>
+            </li>
+             <li>
+              <a href="#">
+                <p>Puebla</p>
+                <p>Calle Arcoiris, col. Sol</p>
+              </a>
+            </li>
+          </ul>
+        </section>
+   </article>
+    </section>
 
 	<script type="text/javascript" defer src="../js/status.js"></script>
 	<script type="text/javascript" defer src="../js/seekbars.js"></script>

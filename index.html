@@ -209,15 +209,20 @@
     <section id="drawer" role="region">
         <img id="logo" src="images/logo_cndh.png">
         <button class="recommend" role="button" onclick="newWindow()">Reportar</button>
-        <ul role="tablist" data-items="2" class="bottom">
+        <ul role="tablist" data-items="3" class="bottom">
           <li id="panel1" role="tab">
             <!--a id="llamada" class="icon comms-icon calllog-outgoingcall">Llamar</a-->
-            <a id="llamada">Llamar</a>
+            <a id="help">Ayuda</a>
             <div role="tabpanel"></div>
           </li>
           <li id="panel2" role="tab">
             <!--a class="icon settings-icon gps">Oficinas</a-->
-            <a id="ubicacion">Oficinas</a>
+            <a id="ubicacion" href="views/offices.html">Oficinas</a>
+            <div role="tabpanel"></div>
+          </li>
+          <li id="panel3" role="tab">
+            <!--a class="icon settings-icon gps">Oficinas</a-->
+            <a id="notification" href="views/notifications.html">Reportes</a>
             <div role="tabpanel"></div>
           </li>
         </ul>

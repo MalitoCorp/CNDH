@@ -219,11 +219,6 @@
       <article class="content scrollable header">
         <header><h1>¡Bienvenido!</h1><h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2></header>
         <p>
-          <ul><li>
-            <a role="button" class="icon icon-dialog">
-              Selecciona una opción
-            </a>
-          </li></ul>
           <select id="dependencia" role="button" class="icon icon-dialog">
             <option selected disabled value="">Selecciona una opción</option>
             <option>IMSS</option>
@@ -334,8 +329,8 @@
 
 
 
-        
-        var dependencia = $('#dependencia option:selected').val(); 
+        // get the form data
+        var dependencia = $('#dependencia option:selected').val();
         var nombre = $('#nombre').val();
         var apellido = $('#apellido').val();
         var correo = $('#correo').val();
@@ -343,19 +338,29 @@
         var fecha = $('#fecha').val();
         var reincide = $('#reincide').val();
 
-        var xhr = new XMLHttpRequest({ mozSystem: true });
-        
-        xhr.open("get", "http://hiramperez.net/ffos/test.php", true);
-        console.log('entro asdfsfd');
-        xhr.onload = function(e) {
-          if (xhr.status === 200 || xhr.status === 0) {
-          
-            console.log(xhr.response);
-          } else {
-          // An error happened
+        var url = "http://hiramperez.net/ffos/test.php";
+
+        var request = new XMLHttpRequest({ mozSystem: true }); // for FFOS
+        request.open("get", url, true);
+        request.onreadystatechange = function() {
+
+          if (request.readyState == 4) {
+            if (request.status == 200 || request.status == 0) {
+              
+              var data = request.responseText;
+
+              // for test
+              var fecha = data.fecha;
+              //$('#fecha').append('<span>' + fecha + '</span>');
+
+            }
           }
-}
+        } // end .onreadystatechange
+        request.send();
+
+        
       });
+
     });
 
   </script>
