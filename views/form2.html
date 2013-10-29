@@ -278,6 +278,7 @@
       <section>
         <h1>Por favor espere</h1>
         <h2>Estamos generando su reporte</h2>
+        <p id="resultado"></p>
         <!-- Note: inline style only for demo purposes -->
         <p style="text-align: center;"><progress></progress></p>
       </section>
@@ -361,7 +362,7 @@
               var data = request.responseText;
 
               
-              //$('#fecha').append('<span>' + fecha + '</span>');
+              $('#resultado').append('<span>' + data + '</span>');
               console.log(data);
             }
           }
