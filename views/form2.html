@@ -329,55 +329,28 @@
 
 
 
-        // get the form data
-<<<<<<< HEAD
-        var dependencia = $('#dependencia option:selected').val();
+        
+        var dependencia = $('#dependencia option:selected').val(); 
         var nombre = $('#nombre').val();
         var apellido = $('#apellido').val();
         var correo = $('#correo').val();
-=======
-        var dependencia = $('#dependencia option:selected').val(); 
-        var nombre      = $('#nombre').val();
-        var apellido    = $('#apellido').val();
-        var correo      = $('#correo').val();
->>>>>>> 7e635b1fb063095acb0894cc82ced4cd1fca18ae
         var descripcion = $('#descripcion').val();
-        var fecha       = $('#fecha').val();
-        var reincide    = $('#reincide').val();
+        var fecha = $('#fecha').val();
+        var reincide = $('#reincide').val();
 
-        var url = "http://hiramperez.net/ffos/test.php";
-
-        var request = new XMLHttpRequest({ mozSystem: true }); // for FFOS
-        request.open("get", url, true);
-        request.onreadystatechange = function() {
-
-          if (request.readyState == 4) {
-            if (request.status == 200 || request.status == 0) {
-              
-              var data = request.responseText;
-
-              // for test
-              var fecha = data.fecha;
-              //$('#fecha').append('<span>' + fecha + '</span>');
-
-            }
-          }
-<<<<<<< HEAD
-        } // end .onreadystatechange
-=======
-        } // end  .onreadystatechange
->>>>>>> 7e635b1fb063095acb0894cc82ced4cd1fca18ae
-        request.send();
-
+        var xhr = new XMLHttpRequest({ mozSystem: true });
         
+        xhr.open("get", "http://hiramperez.net/ffos/test.php", true);
+        console.log('entro asdfsfd');
+        xhr.onload = function(e) {
+          if (xhr.status === 200 || xhr.status === 0) {
+          
+            console.log(xhr.response);
+          } else {
+          // An error happened
+          }
+}
       });
-
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 7e635b1fb063095acb0894cc82ced4cd1fca18ae
     });
 
   </script>
