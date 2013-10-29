@@ -339,10 +339,10 @@
         var fecha       = $('#fecha').val();
         var reincide    = $('#reincide').val();
 
-        var url = "http://hiramperez.net/ffos/test.php";
+        var url = "http://hiramperez.net/ffos/test.php?";
 
         var request = new XMLHttpRequest({ mozSystem: true }); // for FFOS
-        request.open("get", url, true);
+        request.open("post", url, true);
         request.onreadystatechange = function() {
 
           if (request.readyState == 4) {
@@ -350,8 +350,7 @@
               
               var data = request.responseText;
 
-              // for test
-              var fecha = data.fecha;
+              
               //$('#fecha').append('<span>' + fecha + '</span>');
               console.log(data);
             }
@@ -361,21 +360,9 @@
 
 
 
-        var fecha = $('#fecha').val();
-        var reincide = $('#reincide').val();
-
-        var xhr = new XMLHttpRequest({ mozSystem: true });
+       
         
-        xhr.open("get", "http://hiramperez.net/ffos/test.php", true);
-        console.log('entro asdfsfd');
-        xhr.onload = function(e) {
-          if (xhr.status === 200 || xhr.status === 0) {
-          
-            console.log(xhr.response);
-          } else {
-          // An error happened
-          }
-}
+        
 
       });
     });
