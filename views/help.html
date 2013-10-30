@@ -37,9 +37,6 @@
   <link rel="stylesheet" href="../fonts.css">
 
   <style>
-    #index {
-      height: 100%;
-    }
     [data-position="right"] {
       position: absolute;
       top: 0;
@@ -182,67 +179,219 @@
     .landscape section[role="region"]#drawer > header:first-child {
       /* Whatever needs to be changed on landscape */
     }
+
+    [data-type="list"] aside.icon-callout {
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MDAzRTc0NDcxNTU2MTFFMjg1RkRBQkIxMEI1NkNEN0EiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MDAzRTc0NDgxNTU2MTFFMjg1RkRBQkIxMEI1NkNEN0EiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowMDNFNzQ0NTE1NTYxMUUyODVGREFCQjEwQjU2Q0Q3QSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowMDNFNzQ0NjE1NTYxMUUyODVGREFCQjEwQjU2Q0Q3QSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PncAgYwAAAHfSURBVHjarJZNKERRFMffzCATJaIUSVGU1IhsUGODlYmNj7KQSZGipCgrKWUhZaKU2PiKjYmsLJSIEhvKSqnJYiILpSYv/kfn1e10n+m9mX/9mnvu3HfPu+fcc+/zBNtCBuQHi2ASJAx3ygKd4FDt9PLvMhgDm4Z70UsegFXpoBkMs90PFozUNMIv/KcM1WBNgxewpnm4BBzZTOxT2uPApJB7kIM3NArEYPqzG0RFfwDcOVhNKa3gHHRp3mYPtIBbpT8ubPlMQLEpAjFysKNxYK3iXfTFQIONgzzwwe0NMGolOcoxl5oDzy6SvAXC6i6ifb+kGXjlcOIETxzW1QHF60mTUCf64tCYOgeWd1NsNV+KNWH4yiuqrTbloQg0sl3ASb5OxYFX2DMi4fOgKp0OPkGI40nKBce8srQ4IN2DQcWuBKegOF0OSPtgQrHrwaWbcKlJlqLk/oBWtvPBEIdP1kgZr/TViQODzykq/w62M0E76OPznyIwAHbZOdXSozqBh2+0ZOrhy8ifZJzJoY0ky4EuJ0GbM0ueqCt8/TpyQLoBNTYXkdQU2KZ7OlkOdAfaCTgDTaDwn7G1INvrsn4uQB1/hcRtxqyDWacrUPXN2zXCxZnDu+wB9HIozV8BBgCRzF4kkpLxhwAAAABJRU5ErkJggg==);
+    }
+
+    #settings-list { background-color: #eff0eb; }
+    #settings-list li { border-color: #dcdcdc; }
+    #settings-list button { max-width: 8rem; margin: 1rem 1rem 0 0; }
+    #settings-list aside label { margin: 0 1rem 0 0; height: 100%; }
+    #settings-list > header h2 { margin: 0 1.5rem; }
+
+    #newcomment, #languaje, #privacy, #buttons {
+      position: fixed;
+      -moz-transform: translateX(100%);
+      -moz-transition: -moz-transform 1s;
+    }
+
+    #newcomment:target, #languaje:target, #privacy:target, #buttons:target {
+      -moz-transform: translateX(0%);
+    }
+
+    .primary:target {
+      -moz-transform: translateX(0%);
+    }
+
+    #size{
+      width: 100%;
+    }
   </style>
 </head>
 <body>
-	<section id="drawer" role="region">
+	<section id="drawer" role="region" class="primary">
       <header class="fixed">
       <a id="btn-input-areas-back" href="../index.html"><span class="icon icon-back">back</span></a>
-      <h1>Ubicar oficina</h1>
+      <h1>Ayuda</h1>
     </header>
       <article class="content scrollable header">
         <section data-type="list">
           <ul>
             <li>
-              <a href="#">
-                <p>México D.F.</p>
-                <p>Calle Centenario, del. Venustiano Carranza</p>
+              <a href="#newcomment">
+                <p>Acerca</p>
               </a>
             </li>
             <li>
-              <a href="#">
-                <p>Querétaro</p>
-                <p>Calle 2 de Noviembre, col. Corregidora</p>
+              <a id="btn-buttons" href="#buttons">
+                <p>Preguntas frecuentes</p>
               </a>
             </li>
              <li>
-              <a href="#">
-                <p>Nuevo León</p>
-                <p>Calle fundidora, col. Nuevo México</p>
+              <a href="#languaje">
+                <p>Idioma</p>
               </a>
             </li>
              <li>
-              <a href="#">
-                <p>Guanajuato</p>
-                <p>Calle León, col. Zapatero</p>
+              <a href="#privacy">
+                <p>Políticas de privacidad</p>
               </a>
             </li>
-             <li>
-              <a href="#">
-                <p>Yucatán</p>
-                <p>Calle Cobre, col. Zapoteco</p>
+            <li id="settings-list" role="region" class="skin-organic">
+              <a id="call">
+                <aside class="icon icon-callout"></aside>
+                <p>Llamar</p>
               </a>
             </li>
-             <li>
-              <a href="#">
-                <p>Chiapas</p>
-                <p>Calle 3 de marzo, col. Centro</p>
-              </a>
-            </li>
-             <li>
-              <a href="#">
-                <p>Puebla</p>
-                <p>Calle Arcoiris, col. Sol</p>
-              </a>
-            </li>
-          </ul>
         </section>
-   </article>
-    </section>
+      </article>
+  </section>
+
+  <form role="dialog" data-type="confirm" id="newcomment">
+      <section>
+        <h1><span id="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></h1>
+        <menu id="acept">
+          <button class="recommend" id="size" onclick="newWindow()">OK</button>
+        </menu>
+      </section>
+    </form>
+
+    <form role="dialog" data-type="value-selector" id="languaje">
+      <section class="scrollable">
+        <h1>Selecciona idioma</h1>
+        <ol role="listbox">
+          <li><label> <span>Español</span></label></li>
+          <li><label> <span>Náhuatl</span></label></li>
+        </ol>
+      </section>
+      <menu>
+        <button class="affirmative full" onclick="newWindow()">OK</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="privacy">
+      <section>
+        <h1><span id="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.</span></h1>
+        <menu id="acept">
+          <button class="recommend" id="size" onclick="newWindow()">OK</button>
+        </menu>
+      </section>
+    </form>
+
+    <section role="region" id="buttons" data-position="right">
+    <header class="fixed">
+      <a id="btn-buttons-back" href="#"><span class="icon icon-back">back</span></a>
+      <h1>Buttons</h1>
+    </header>
+
+    <article class="content scrollable header">
+      <header><h2>Normal</h2></header>
+      <div>
+        <button>Default</button>
+        <button class="recommend">Recommend</button>
+        <button class="danger">Danger</button>
+       </div>
+
+      <header><h2>Disabled</h2></header>
+      <div>
+        <button disabled>Default</button>
+        <a href="#" role="button" aria-disabled="true" class="recommend">Recommend</a>
+        <button disabled class="danger">Danger</button>
+      </div>
+
+      <header><h2>Disabled with dark background</h2></header>
+      <div>
+        <button disabled>Default</button>
+        <a href="#" role="button" aria-disabled="true" class="recommend">Recommend</a>
+        <button disabled class="danger">Danger</button>
+      </div>
+
+      <header><h2>Button List</h2></header>
+      <div>
+        <ul>
+          <li>
+            <button>Default</button>
+          </li>
+          <li>
+            <button disabled="disabled">Disabled</button>
+          </li>
+          <li>
+            <button class="icon icon-view">
+              View Name
+            </button>
+          </li>
+          <li>
+            <button disabled="disabled" class="icon icon-view">
+              View Name
+            </button>
+          </li>
+          <li>
+            <a role="button" class="icon icon-dialog">
+              Tuesday September 18, 2012
+            </a>
+          </li>
+          <li>
+            <a role="button" aria-disabled="true" class="icon icon-dialog">
+              Tuesday September 18, 2012
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <header><h2>Button List (compact mode)</h2></header>
+      <div>
+        <ul class="compact">
+          <li>
+            <label>Description</label>
+            <button class="icon icon-dialog">Action 1</button>
+          </li>
+          <li>
+            <label>Description</label>
+            <button class="icon icon-dialog">Action 2</button>
+          </li>
+          <li>
+            <label>This is a large description for this action</label>
+            <button class="icon icon-dialog" disabled >Action 3 (disabled)</button>
+          </li>
+        </ul>
+      </div>
+    </article>
+  </section>
 
 	<script type="text/javascript" defer src="../js/status.js"></script>
 	<script type="text/javascript" defer src="../js/seekbars.js"></script>
 	<script type="text/javascript" defer src="../js/app.js"></script>
+  <script>
+      document.getElementById('call').addEventListener('click', call, false);
+      function call(){
+        var call = new MozActivity({
+          name:"dial",
+          data: {
+            number: "+5555-9999"
+          }
+        });
+      }
+      function newWindow() {
+      location.href="#primary";
+    }
+  </script>
 
 </body>
 </html>

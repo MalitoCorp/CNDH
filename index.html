@@ -212,7 +212,7 @@
         <ul role="tablist" data-items="3" class="bottom">
           <li id="panel1" role="tab">
             <!--a id="llamada" class="icon comms-icon calllog-outgoingcall">Llamar</a-->
-            <a id="help" href="views/offices.html">Ayuda</a>
+            <a id="help" href="views/help.html">Ayuda</a>
             <div role="tabpanel"></div>
           </li>
           <li id="panel2" role="tab">
@@ -231,20 +231,6 @@
           function newWindow() {
             location.href="views/form2.html";
           }
-        </script>
-
-        <script>
-
-            document.getElementById('llamada').addEventListener('click', call, false);
-
-            function call(){
-              var call = new MozActivity({
-                name:"dial",
-                data: {
-                  number: "+5555-9999"
-                }
-              });
-            }
         </script>
     </section>
 
