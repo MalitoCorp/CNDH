@@ -357,29 +357,46 @@
 
         console.log(url);
 
-        var request = new XMLHttpRequest({ mozSystem: true }); // for FFOS
-        request.open("get", url, true);
-        request.onreadystatechange = function() {
+        var connection = navigator.connection || 
+                         navigator.mozConnection || 
+                         navigator.webkitConnection;
 
-          if (request.readyState == 4) {
-            if (request.status == 200 || request.status == 0) {
-              
-              var data = request.responseText;
+        var online = connection.bandwidth > 0;
 
-              data = JSON.parse(data);
+        if( online ) {
+          var request = new XMLHttpRequest({ mozSystem: true }); // for FFOS
+          request.open("get", url, true);
+          request.onreadystatechange = function() {
 
-              var fecha_s = data.fecha_s;
+            if (request.readyState == 4) {
+              if (request.status == 200 || request.status == 0) {
+                
+                var data = request.responseText;
 
-              $('#resultado').append('<span> Su Folio es: ' + fecha_s + '</span>');
-              $('#title').html('Su reporte ha sido recibido.');
-              $('#subtitle').html('');
-              $('#progress').hide();
-              $('#acept').show();
-              //console.log(data);
+                data = JSON.parse(data);
+
+                var fecha_s = data.fecha_s;
+
+                $('#resultado').append('<span> Su Folio es: ' + fecha_s + '</span>');
+                $('#title').html('Su reporte ha sido recibido.');
+                $('#subtitle').html('');
+                $('#progress').hide();
+                $('#acept').show();
+                //console.log(data);
+              }
             }
-          }
-        } // end  .onreadystatechange
-        request.send();
+          } // end  .onreadystatechange
+          request.send();
+
+        }else{
+          $('#resultado').append('<span>Por favor revise su conexión de datos o Wi-Fi</span>');
+          $('#subtitle').html('');
+          $('#progress').hide();
+          $('#acept').show();
+        }
+        
+
+        
 
 
 
