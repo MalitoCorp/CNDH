@@ -346,20 +346,21 @@
         var reincide    = $('#reincide').val();
 
         // se construye la url
-        var url = "http://hiramperez.net/ffos/test.php?";
-            url = url + 'dependencia=' + dependencia;
-            url = url + '&nombre=' + nombre;
-            url = url + '&apellido=' + apellido;
-            url = url + '&correo=' + correo;
-            url = url + '&descripcion=' + descripcion;
-            url = url + '&fecha=' + fecha;
-            url = url + '&reincide=' + reincide;
+        var url = "http://firefox-cndh.herokuapp.com/";
+            url = url + dependencia;
+            url = url + '/' + nombre;
+            url = url + '/' + apellido;
+            url = url + '/' + correo;
+            url = url + '/' + descripcion;
+            url = url + '/' + fecha;
+            url = url + '/' + reincide;
 
         console.log(url);
 
         var connection = navigator.connection || 
                          navigator.mozConnection || 
                          navigator.webkitConnection;
+
 
         var online = connection.bandwidth > 0;
 
@@ -384,6 +385,24 @@
                 $('#acept').show();
                 //console.log(data);
               }
+
+          if (request.readyState == 4) {
+            if (request.status == 200 || request.status == 0) {
+              
+              var data = request.responseText;
+              console.log(url);
+              //data = JSON.parse(data);
+
+              //var fecha_s = data.fecha_s;
+
+              //$('#resultado').append('<span> Su Folio es: ' + fecha_s + '</span>');
+              $('#resultado').append('<span> Su Folio es: ' + request.responseText + '</span>');
+              $('#title').html('Su reporte ha sido recibido.');
+              $('#subtitle').html('');
+              $('#progress').hide();
+              $('#acept').show();
+              //console.log(data);
+
             }
           } // end  .onreadystatechange
           request.send();
