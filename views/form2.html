@@ -365,12 +365,13 @@
             if (request.status == 200 || request.status == 0) {
               
               var data = request.responseText;
+              console.log(url);
+              //data = JSON.parse(data);
 
-              data = JSON.parse(data);
+              //var fecha_s = data.fecha_s;
 
-              var fecha_s = data.fecha_s;
-
-              $('#resultado').append('<span> Su Folio es: ' + fecha_s + '</span>');
+              //$('#resultado').append('<span> Su Folio es: ' + fecha_s + '</span>');
+              $('#resultado').append('<span> Su Folio es: ' + request.responseText + '</span>');
               $('#title').html('Su reporte ha sido recibido.');
               $('#subtitle').html('');
               $('#progress').hide();
