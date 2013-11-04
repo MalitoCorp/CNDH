@@ -347,13 +347,13 @@
 
         // se construye la url
         var url = "http://hiramperez.net/ffos/test.php?";
-            url = url + 'dependencia=' + dependencia;
-            url = url + '&nombre=' + nombre;
-            url = url + '&apellido=' + apellido;
-            url = url + '&correo=' + correo;
-            url = url + '&descripcion=' + descripcion;
-            url = url + '&fecha=' + fecha;
-            url = url + '&reincide=' + reincide;
+            url = url + dependencia;
+            url = url + '/' + nombre;
+            url = url + '/' + apellido;
+            url = url + '/' + correo;
+            url = url + '/' + descripcion;
+            url = url + '/' + fecha;
+            url = url + '/' + reincide;
 
         console.log(url);
 

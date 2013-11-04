@@ -190,13 +190,13 @@
     #settings-list aside label { margin: 0 1rem 0 0; height: 100%; }
     #settings-list > header h2 { margin: 0 1.5rem; }
 
-    #newcomment, #languaje, #privacy, #buttons {
+    #newcomment, #languaje, #privacy{
       position: fixed;
       -moz-transform: translateX(100%);
       -moz-transition: -moz-transform 1s;
     }
 
-    #newcomment:target, #languaje:target, #privacy:target, #buttons:target {
+    #newcomment:target, #languaje:target, #privacy:target, #questions:target {
       -moz-transform: translateX(0%);
     }
 
@@ -224,7 +224,7 @@
               </a>
             </li>
             <li>
-              <a id="btn-buttons" href="#buttons">
+              <a href="#questions">
                 <p>Preguntas frecuentes</p>
               </a>
             </li>
@@ -295,85 +295,20 @@
       </section>
     </form>
 
-    <section role="region" id="buttons" data-position="right">
-    <header class="fixed">
-      <a id="btn-buttons-back" href="#"><span class="icon icon-back">back</span></a>
-      <h1>Buttons</h1>
-    </header>
-
-    <article class="content scrollable header">
-      <header><h2>Normal</h2></header>
-      <div>
-        <button>Default</button>
-        <button class="recommend">Recommend</button>
-        <button class="danger">Danger</button>
-       </div>
-
-      <header><h2>Disabled</h2></header>
-      <div>
-        <button disabled>Default</button>
-        <a href="#" role="button" aria-disabled="true" class="recommend">Recommend</a>
-        <button disabled class="danger">Danger</button>
-      </div>
-
-      <header><h2>Disabled with dark background</h2></header>
-      <div>
-        <button disabled>Default</button>
-        <a href="#" role="button" aria-disabled="true" class="recommend">Recommend</a>
-        <button disabled class="danger">Danger</button>
-      </div>
-
-      <header><h2>Button List</h2></header>
-      <div>
-        <ul>
-          <li>
-            <button>Default</button>
-          </li>
-          <li>
-            <button disabled="disabled">Disabled</button>
-          </li>
-          <li>
-            <button class="icon icon-view">
-              View Name
-            </button>
-          </li>
-          <li>
-            <button disabled="disabled" class="icon icon-view">
-              View Name
-            </button>
-          </li>
-          <li>
-            <a role="button" class="icon icon-dialog">
-              Tuesday September 18, 2012
-            </a>
-          </li>
-          <li>
-            <a role="button" aria-disabled="true" class="icon icon-dialog">
-              Tuesday September 18, 2012
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <header><h2>Button List (compact mode)</h2></header>
-      <div>
-        <ul class="compact">
-          <li>
-            <label>Description</label>
-            <button class="icon icon-dialog">Action 1</button>
-          </li>
-          <li>
-            <label>Description</label>
-            <button class="icon icon-dialog">Action 2</button>
-          </li>
-          <li>
-            <label>This is a large description for this action</label>
-            <button class="icon icon-dialog" disabled >Action 3 (disabled)</button>
-          </li>
-        </ul>
-      </div>
-    </article>
-  </section>
+    <section id="drawer" role="region">
+      <article class="content scrollable header">
+        <h1><span id="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.</span></h1>
+        <menu id="acept">
+          <button class="recommend" id="size" onclick="newWindow()">OK</button>
+        </menu>
+      </article>
+    </section>
 
 	<script type="text/javascript" defer src="../js/status.js"></script>
 	<script type="text/javascript" defer src="../js/seekbars.js"></script>
