@@ -190,13 +190,13 @@
     #settings-list aside label { margin: 0 1rem 0 0; height: 100%; }
     #settings-list > header h2 { margin: 0 1.5rem; }
 
-    #newcomment, #languaje, #privacy{
+    #about, #languaje, #privacy, #questions{
       position: fixed;
       -moz-transform: translateX(100%);
       -moz-transition: -moz-transform 1s;
     }
 
-    #newcomment:target, #languaje:target, #privacy:target, #questions:target {
+    #about:target, #languaje:target, #privacy:target, #questions:target {
       -moz-transform: translateX(0%);
     }
 
@@ -219,7 +219,7 @@
         <section data-type="list">
           <ul>
             <li>
-              <a href="#newcomment">
+              <a href="#about">
                 <p>Acerca</p>
               </a>
             </li>
@@ -248,7 +248,7 @@
       </article>
   </section>
 
-  <form role="dialog" data-type="confirm" id="newcomment">
+  <form role="dialog" data-type="confirm" id="about">
       <section>
         <h1><span id="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -266,6 +266,44 @@
         </menu>
       </section>
     </form>
+
+    <form data-position="right" id="questions">
+      <section role="region">
+        <header class="fixed">
+      <a id="btn-switches-back" href="#primary"><span class="icon icon-back">back</span></a>
+      <h1>Preguntas frecuentes</h1>
+    </header>
+      <article class="content scrollable header">
+        <section data-type="list">
+          <ul>
+            <li>
+              <a href="#newcomment">
+                <p>¿Cómo llamar a la CNDH?</p>
+                <p>Ingresar a la opción "ayuda", y presionar el botón "llamar"</p>
+              </a>
+            </li>
+            <li>
+              <a href="#questions">
+                <p>¿Cuánto tiempo pasa para dar seguimiento a mi caso?</p>
+                <p>Por lo general, el operador designado de la CNDH determina el tiempo indicado</p>
+              </a>
+            </li>
+             <li>
+              <a href="#languaje">
+                <p>¿Cómo saber que centro es el más cercano?</p>
+                <p>En la opción "oficinas" se puede visualizar las distintas ubicaciones de la CNDH</p>
+              </a>
+            </li>
+             <li>
+              <a href="#privacy">
+                <p>¿Dónde llevo el seguimiento de mi caso?</p>
+                <p>En la opción "reportes", se visualiza los distintos reportes creados y el status de este</p>
+              </a>
+            </li>
+        </section>
+      </article>
+      </section>
+  </form>
 
     <form role="dialog" data-type="value-selector" id="languaje">
       <section class="scrollable">
@@ -294,22 +332,7 @@
         </menu>
       </section>
     </form>
-
-    <section id="drawer" role="region">
-      <article class="content scrollable header">
-        <h1><span id="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.</span></h1>
-        <menu id="acept">
-          <button class="recommend" id="size" onclick="newWindow()">OK</button>
-        </menu>
-      </article>
-    </section>
-
+    
 	<script type="text/javascript" defer src="../js/status.js"></script>
 	<script type="text/javascript" defer src="../js/seekbars.js"></script>
 	<script type="text/javascript" defer src="../js/app.js"></script>
@@ -323,6 +346,7 @@
           }
         });
       }
+
       function newWindow() {
       location.href="#primary";
     }
