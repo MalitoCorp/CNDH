@@ -223,8 +223,10 @@
       <article class="content scrollable header">
         <header><h1>¡Bienvenido!</h1><h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2></header>
         <p>
-          <select id="dependencia" role="button" class="icon icon-dialog">
-            <option selected disabled value="">Selecciona una opción</option>
+          <ul>
+            <li>
+          <span class="button icon icon-dialog">
+            <select name="region.current" id="dependencia">
             <option>IMSS</option>
             <option>SEDENA</option>
             <option>CFE</option>
@@ -233,6 +235,9 @@
             <option>PGR</option>
             <option>Otro</option>
           </select>
+        </span>
+          </li>
+        </ul>
         </p>
         <p>
           <input id="otro" type="text" placeholder="Dependencia">
@@ -291,7 +296,6 @@
       </section>
     </form>
 
-    <!--  -->
 
   <script type="text/javascript" defer src="../js/status.js"></script>
   <script type="text/javascript" defer src="../js/seekbars.js"></script>
