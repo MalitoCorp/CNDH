@@ -23,6 +23,9 @@
   <link rel="stylesheet" href="../style_unstable/toolbars.css">
   <link rel="stylesheet" href="../style_unstable/value_selector.css">
 
+  <!-- leaf -->
+  <link rel="stylesheet" href="../style/leaflet.css">
+
   <!-- Icons -->
   <link rel="stylesheet" href="../icons/styles/action_icons.css">
   <link rel="stylesheet" href="../icons/styles/media_icons.css">
@@ -194,7 +197,7 @@
         <section data-type="list">
           <ul>
             <li>
-              <a href="#">
+              <a href="#" id="venustiano" data-image="../images/maps/venus.png" data-x="40.1" data-y="-6.3">
                 <p>México D.F.</p>
                 <p>Calle Centenario, del. Venustiano Carranza</p>
               </a>
@@ -238,11 +241,49 @@
           </ul>
         </section>
    </article>
+   <article id="maps">
+      <div id="map"></div>
+   </article>
     </section>
 
+    <script type="text/javascript" src="../js/leaflet.js"></script>
+
+    <script type="text/javascript">
+
+      document.querySelector('#venustiano').addEventListener('click', function(){
+        var x          = this.getAttribute("data-x"),
+            y          = this.getAttribute("data-y"),
+            image_path = this.getAttribute("data-image");
+        
+        var connection = navigator.connection || 
+                             navigator.mozConnection || 
+                             navigator.webkitConnection;
+
+        var online = connection.bandwidth > 0;
+
+        if(online){
+
+          console.log('Está en línea y se conecta para mostrar el mapa');
+          // llama a la api de los mapas para mostrarlo
+
+          var map = L.map('map').setView([51.505, -0.09], 13);
+          
+          L.tileLayer('http://{s}.tile.cloudmade.com/33b5e39349fd4094bf3b9e20f92b1701/997/256/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    maxZoom: 18
+}).addTo(map);
+        }else{
+          // muestra el mapa de la ruta
+        }
+
+        
+      });
+    </script>
+
+    
 	<script type="text/javascript" defer src="../js/status.js"></script>
 	<script type="text/javascript" defer src="../js/seekbars.js"></script>
-	<script type="text/javascript" defer src="../js/app.js"></script>
+	
 
 </body>
 </html>
