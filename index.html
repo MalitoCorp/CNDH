@@ -185,9 +185,9 @@
       /* Whatever needs to be changed on landscape */
     }
 
-    @media only screen and (width : 320px) {
+    @media only screen and (max-width : 322px) {
       #logo {
-        width: 80%;
+        width: 75%;
         margin: 10%;
       }
 
@@ -205,7 +205,7 @@
       }
     }
 
-    @media only screen and (width : 360px) {
+    @media only screen and (min-width : 323px) and (max-width: 478px) {
       #logo {
         width: 80%;
         margin: 15% 10% 10% 10%;
@@ -226,15 +226,15 @@
       }
     }
 
-    @media only screen and (width : 480px) {
+    @media only screen and (min-width : 479px) and (max-width: 574px) {
       #logo {
         width: 40%;
-        margin: 5% 0 0 5%;
+        margin: 4% 0 0 5%;
       }
 
       button[role="button"] {
         width: 45%;
-        margin: 0 0 40% 5%;
+        margin: 0 0 40% 6%;
         z-index: 2;
       }
       .bottom {
@@ -244,10 +244,10 @@
       }
     }
 
-    @media only screen and (min-width : 600px) {
+    @media only screen and (min-width: 575px) {
       #logo {
         width: 35%;
-        margin: 5% 0 0 5%;
+        margin: 2.5% 0 0 5%;
       }
 
       button[role="button"] {
@@ -265,7 +265,7 @@
 </head>
 <body>
     <section id="drawer" role="region">
-        <img id="logo" src="images/logo_cndh.png">
+        <img id="logo" src="images/logo_cndh.jpg">
         <button class="recommend" role="button" onclick="newWindow()">Reportar</button>
         <ul role="tablist" data-items="3" class="bottom">
           <li id="panel1" role="tab">
