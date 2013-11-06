@@ -185,11 +185,25 @@
     }
 
     #fecha {
-      width: 99%;
+      width: 115%;
+      height: 100%;
+      margin-left: -6%;
+      font-size: 1em;
+      padding-left: 5%;
     }
 
     #dependencia {
-      width: 100%;
+      width: 122%;
+      height: 80%;
+      margin-left: -7%;
+      border:none;
+      background: transparent;
+      opacity: 0;
+    }
+
+    #option {
+      position: absolute;
+      opacity: 0.6;
     }
 
     #newcomment {
@@ -225,19 +239,20 @@
         <p>
           <ul>
             <li>
-          <span class="button icon icon-dialog">
-            <select name="region.current" id="dependencia">
-            <option>IMSS</option>
-            <option>SEDENA</option>
-            <option>CFE</option>
-            <option>SEP</option>
-            <option>PF</option>
-            <option>PGR</option>
-            <option>Otro</option>
-          </select>
-        </span>
-          </li>
-        </ul>
+              <span class="button icon icon-dialog">
+                <span id="option">Selecciona una opción</span>
+                <select name="region.current" id="dependencia">
+                  <option>IMSS</option>
+                  <option>SEDENA</option>
+                  <option>CFE</option>
+                  <option>SEP</option>
+                  <option>PF</option>
+                  <option>PGR</option>
+                  <option>Otro</option>
+                </select>
+              </span>
+            </li>
+          </ul>
         </p>
         <p>
           <input id="otro" type="text" placeholder="Dependencia">
@@ -260,7 +275,13 @@
         </p>
 
         <p>
-          <input id="fecha" type="date" placeholder="Fecha de incidente"/>
+          <ul>
+            <li>
+              <span class="button icon icon-dialog">
+                <input id="fecha" type="date" placeholder="Fecha de incidente"/>
+              </span>
+            </li>
+        </ul>
         </p>
 
         <section data-type="list">
