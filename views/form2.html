@@ -206,6 +206,7 @@
     #option {
       position: absolute;
       opacity: 0.6;
+      font-weight: 400;
     }
 
     #newcomment {
@@ -242,7 +243,7 @@
           <ul>
             <li>
               <span class="button icon icon-dialog">
-                <span id="option">Selecciona una opción</span>
+                <span id="option">Seleccione dependencia</span>
                 <select name="region.current" id="dependencia">
                   <option>IMSS</option>
                   <option>SEDENA</option>
@@ -442,20 +443,24 @@
         }
         
 
-        
-
-
-
-       
-        
-        
-
       });
     });
 
     function newWindow() {
       location.href="../index.html";
     }
+
+  </script>
+
+  <script type="text/javascript">
+
+    $( "#dependencia" ).change(function(){
+      var str = "";
+      $( "select option:selected" ).each(function(){
+      str = $( this ).text();
+    });
+    
+      $( "#option" ).text( str );}).select();
   </script>
 
 </body>
