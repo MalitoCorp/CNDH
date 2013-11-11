@@ -222,10 +222,6 @@
     li > h2 {
       padding-left: 5%;
     }
-
-    #size{
-      width: 100%;
-    }
 </style>
 
 </head>
@@ -243,8 +239,9 @@
           <ul>
             <li>
               <span class="button icon icon-dialog">
-                <span id="option">Seleccione dependencia</span>
+                <span id="option"></span>
                 <select name="region.current" id="dependencia">
+                  <option>Selecciona dependencia</option>
                   <option>IMSS</option>
                   <option>SEDENA</option>
                   <option>CFE</option>
@@ -315,7 +312,7 @@
         <!-- Note: inline style only for demo purposes -->
         <p style="text-align: center;" id="progress"><progress></progress></p>
         <menu id="acept">
-          <button class="recommend" id="size" onclick="newWindow()">OK</button>
+          <button class="recommend recommend affirmative full" onclick="newWindow()">OK</button>
         </menu>
       </section>
     </form>
@@ -455,12 +452,16 @@
   <script type="text/javascript">
 
     $( "#dependencia" ).change(function(){
+      if( $('#dependencia option:selected').val() == "Otro" ){
+          $("#otro").show();
+        }else{
+          $("#otro").hide();
+        }
       var str = "";
       $( "select option:selected" ).each(function(){
       str = $( this ).text();
     });
-    
-      $( "#option" ).text( str );}).select();
+      $( "#option" ).text( str );}).change();
   </script>
 
 </body>

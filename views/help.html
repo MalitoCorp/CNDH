@@ -190,13 +190,13 @@
     #settings-list aside label { margin: 0 1rem 0 0; height: 100%; }
     #settings-list > header h2 { margin: 0 1.5rem; }
 
-    #about, #languaje, #privacy, #questions{
+    #about, #languaje, #privacy, #questions, #question1, #question2, #question3, #question4, #question5, #question6 {
       position: fixed;
       -moz-transform: translateX(100%);
       -moz-transition: -moz-transform 1s;
     }
 
-    #about:target, #languaje:target, #privacy:target, #questions:target {
+    #about:target, #languaje:target, #privacy:target, #questions:target, #question1:target, #question2:target, #question3:target, #question4:target, #question5:target, #question6:target {
       -moz-transform: translateX(0%);
     }
 
@@ -204,8 +204,13 @@
       -moz-transform: translateX(0%);
     }
 
-    #size{
+    #select_lang {
+      position: absolute;
       width: 100%;
+      height: 100%;
+      border:none;
+      background: transparent;
+      opacity: 0;
     }
   </style>
 </head>
@@ -230,7 +235,12 @@
             </li>
              <li>
               <a href="#languaje">
-                <p>Idioma</p>
+                <select id="select_lang">
+                        <option>Español</option>
+                        <option>Náhuatl</option>
+                      </select>
+                      <p>Idioma</p>
+                      
               </a>
             </li>
              <li>
@@ -262,7 +272,7 @@
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></h1>
         <menu id="acept">
-          <button class="recommend" id="size" onclick="newWindow()">OK</button>
+          <button class="recommend affirmative full" onclick="newWindow()">OK</button>
         </menu>
       </section>
     </form>
@@ -277,25 +287,39 @@
         <section data-type="list">
           <ul>
             <li>
-              <a href="#newcomment">
+              <a href="#question1">
+                <p>¿Qué quejas son competentes ante la CNDH?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question2">
+                <p>¿Qué quejas no son competentes ante la CNDH?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question3">
                 <p>¿Cómo llamar a la CNDH?</p>
                 <p>Ingresar a la opción "ayuda", y presionar el botón "llamar"</p>
               </a>
             </li>
             <li>
-              <a href="#questions">
+              <a href="#question4">
                 <p>¿Cuánto tiempo pasa para dar seguimiento a mi caso?</p>
                 <p>Por lo general, el operador designado de la CNDH determina el tiempo indicado</p>
               </a>
             </li>
              <li>
-              <a href="#languaje">
+              <a href="#question5">
                 <p>¿Cómo saber que centro es el más cercano?</p>
                 <p>En la opción "oficinas" se puede visualizar las distintas ubicaciones de la CNDH</p>
               </a>
             </li>
              <li>
-              <a href="#privacy">
+              <a href="#question6">
                 <p>¿Dónde llevo el seguimiento de mi caso?</p>
                 <p>En la opción "reportes", se visualiza los distintos reportes creados y el status de este</p>
               </a>
@@ -305,18 +329,17 @@
       </section>
   </form>
 
-    <form role="dialog" data-type="value-selector" id="languaje">
-      <section class="scrollable">
+    <!--form role="dialog" data-type="value-selector" id="languaje">
         <h1>Selecciona idioma</h1>
         <ol role="listbox">
           <li><label> <span>Español</span></label></li>
           <li><label> <span>Náhuatl</span></label></li>
         </ol>
-      </section>
-      <menu>
-        <button class="affirmative full" onclick="newWindow()">OK</button>
-      </menu>
-    </form>
+        <menu>
+          <button>Cancel</button>
+          <button class="recommend affirmative" onclick="newWindow()">OK</button>
+        </menu>
+    </form-->
 
     <form role="dialog" data-type="confirm" id="privacy">
       <section>
@@ -328,11 +351,73 @@
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.</span></h1>
         <menu id="acept">
-          <button class="recommend" id="size" onclick="newWindow()">OK</button>
+          <button class="recommend affirmative full" onclick="newWindow()">OK</button>
         </menu>
       </section>
     </form>
     
+
+    <!-- Questions -->
+    <form role="dialog" data-type="confirm" id="question1">
+      <section>
+        <h1>¿Qué quejas son competentes ante la CNDH?</h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">OK</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question2">
+      <section>
+        <h1>¿Qué quejas no son competentes ante la CNDH?</h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">OK</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question3">
+      <section>
+        <h1>¿Cómo llamar a la CNDH?</h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">OK</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question4">
+      <section>
+        <h1>¿Cuánto tiempo pasa para dar seguimiento a mi caso?</h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">OK</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question5">
+      <section>
+        <h1>¿Cómo saber que centro es el más cercano?</h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">OK</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question6">
+      <section>
+        <h1>¿Dónde llevo el seguimiento de mi caso?</h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">OK</button>
+      </menu>
+    </form>
+
 	<script type="text/javascript" defer src="../js/status.js"></script>
 	<script type="text/javascript" defer src="../js/seekbars.js"></script>
 	<script type="text/javascript" defer src="../js/app.js"></script>
@@ -347,8 +432,12 @@
         });
       }
 
-      function newWindow() {
+    function newWindow() {
       location.href="#primary";
+    }
+
+    function back_question() {
+      location.href="#questions";
     }
   </script>
 
