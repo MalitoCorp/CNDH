@@ -217,19 +217,19 @@
         <section data-type="list">
           <ul>
             <li>
-              <a href="#df" id="venustiano" data-image="../images/maps/venus.png" data-x="40.1" data-y="-6.3">
+              <a href="#df" id="venustiano" class="sede" data-image="../images/maps/venus.png" data-x="40.1" data-y="-6.3">
                 <p>México D.F.</p>
                 <p>Calle Centenario, del. Venustiano Carranza</p>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#" class="sede">
                 <p>Querétaro</p>
                 <p>Calle 2 de Noviembre, col. Corregidora</p>
               </a>
             </li>
              <li>
-              <a href="#">
+              <a href="#" class="sede">
                 <p>Nuevo León</p>
                 <p>Calle fundidora, col. Nuevo México</p>
               </a>
@@ -277,24 +277,43 @@
 
     <script type="text/javascript">
 
+
+
+      [].forEach.call( document.querySelectorAll('.sede'), function(el) {
+        el.addEventListener('click', function() {
+          // aqui carga el mapa segun el elemento en el que se dio clic
+          console.log(this);
+        }, false);
+      });
       
-      
-        
-        var connection = navigator.connection || 
+
+
+      /*
+      document.querySelector('#venustiano').addEventListener('click', function(){
+
+
+
+        var newH1Element = document.createElement("h1");
+
+        newH1Element.innerHTML = "aqui va el mapa de la venustiano";
+
+        document.getElementById('maps').appendChild(newH1Element);
+      });
+      */
+      var connection = navigator.connection || 
                              navigator.mozConnection || 
                              navigator.webkitConnection;
 
-        var online = connection.bandwidth > 0;
+      var online = connection.bandwidth > 0;
 
-        if(online){
+      if(online){
 
-          // se muestra el mapa
-        }else{
-          // muestra el mapa de la ruta
-        }
+        // se muestra el mapa
+      }else{
+        // muestra el mapa de la ruta
+      }
 
-        
-      });
+      
 
     function newWindow() {
       location.href="#primary";
