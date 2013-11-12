@@ -185,11 +185,30 @@
     .landscape section[role="region"]#drawer > header:first-child {
       /* Whatever needs to be changed on landscape */
     }
+
+
+    html, body, #map {
+      height: 100%;
+
+    #df {
+      position: fixed;
+      -moz-transform: translateX(100%);
+      -moz-transition: -moz-transform 1s;
+    }
+
+    #df:target {
+      -moz-transform: translateX(0%);
+    }
+
+    .primary:target {
+      -moz-transform: translateX(0%);
+
+    }
   </style>
   <script src="../js/leaflet.js" type="text/javascript"></script>
 </head>
 <body>
-	<section id="drawer" role="region">
+	<section id="drawer" role="region" class="primary">
       <header class="fixed">
       <a id="btn-input-areas-back" href="../index.html"><span class="icon icon-back">back</span></a>
       <h1>Ubicar oficina</h1>
@@ -198,7 +217,7 @@
         <section data-type="list">
           <ul>
             <li>
-              <a href="#" id="venustiano" data-image="../images/maps/venus.png" data-x="40.1" data-y="-6.3">
+              <a href="#df" id="venustiano" data-image="../images/maps/venus.png" data-x="40.1" data-y="-6.3">
                 <p>México D.F.</p>
                 <p>Calle Centenario, del. Venustiano Carranza</p>
               </a>
@@ -241,11 +260,20 @@
             </li>
           </ul>
         </section>
-   </article>
-   <article id="maps">
-      <div id="map"></div>
-   </article>
+      </article>
+  </section>
+
+  <form data-position="right" id="df">
+    <section role="region">
+      <header class="fixed">
+        <a id="btn-switches-back" href="#primary"><span class="icon icon-back">back</span></a>
+        <h1>México D.F.</h1>
+      </header>
+      <article class="content scrollable header">
+        <div id="maps"></div>
+      </article>
     </section>
+  </form>
 
     <script type="text/javascript">
 
@@ -267,6 +295,10 @@
 
         
       });
+
+    function newWindow() {
+      location.href="#primary";
+    }
     </script>
 
     
