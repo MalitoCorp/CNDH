@@ -186,6 +186,7 @@
       /* Whatever needs to be changed on landscape */
     }
   </style>
+  <script src="../js/leaflet.js" type="text/javascript"></script>
 </head>
 <body>
 	<section id="drawer" role="region">
@@ -246,14 +247,10 @@
    </article>
     </section>
 
-    <script type="text/javascript" src="../js/leaflet.js"></script>
-
     <script type="text/javascript">
 
-      document.querySelector('#venustiano').addEventListener('click', function(){
-        var x          = this.getAttribute("data-x"),
-            y          = this.getAttribute("data-y"),
-            image_path = this.getAttribute("data-image");
+      
+      
         
         var connection = navigator.connection || 
                              navigator.mozConnection || 
@@ -263,15 +260,7 @@
 
         if(online){
 
-          console.log('Está en línea y se conecta para mostrar el mapa');
-          // llama a la api de los mapas para mostrarlo
-
-          var map = L.map('map').setView([51.505, -0.09], 13);
-          
-          L.tileLayer('http://{s}.tile.cloudmade.com/33b5e39349fd4094bf3b9e20f92b1701/997/256/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-    maxZoom: 18
-}).addTo(map);
+          // se muestra el mapa
         }else{
           // muestra el mapa de la ruta
         }
