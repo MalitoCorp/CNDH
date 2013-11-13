@@ -206,7 +206,8 @@
     }
   </style>
 
-  <script src="../js/modestmaps.js" type="text/javascript"></script>
+  <!--<script src="../js/modestmaps.js" type="text/javascript"></script>-->
+  <script src="../js/leaflet.js" type="text/javascript"></script>
   <script src="../js/tile.stamen.js" type="text/javascript"></script>
 
 </head>
@@ -226,7 +227,7 @@
               </a>
             </li>
             <li>
-              <a href="#df" class="sede">
+              <a href="#df" class="sede" data-image="../images/maps/venus.png" data-lat="19.37" data-lon="-99.1576">
                 <p class="ciudad">Querétaro</p>
                 <p class="direccion">Calle 2 de Noviembre, col. Corregidora</p>
               </a>
@@ -281,7 +282,7 @@
 
     <script type="text/javascript">
 
-
+    var layer = new L.StamenTileLayer("terrain");
 
       [].forEach.call( document.querySelectorAll('.sede'), function(el) {
         el.addEventListener('click', function() {
@@ -296,9 +297,16 @@
           // set the 'city Title' in map screen
           document.querySelector('.city-title').innerHTML = city;
 
+          
+          var map = new L.Map("map", {
+                          center: new L.LatLng(latitude, longitude),
+                          zoom: 18
+          });
+          map.addLayer(layer);
+          /*
           var layer = new MM.StamenTileLayer("toner");
           var map = new MM.Map("map", layer);
-          map.setCenterZoom(new MM.Location(latitude, longitude), 18);
+          map.setCenterZoom(new MM.Location(latitude, longitude), 18);*/
 
           console.log('Estado y dirección: ' + city + '-' + address);
           console.log('titulo de la ciuidad: ' + city);
