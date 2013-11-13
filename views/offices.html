@@ -218,44 +218,44 @@
           <ul>
             <li>
               <a href="#df" id="venustiano" class="sede" data-image="../images/maps/venus.png" data-x="40.1" data-y="-6.3">
-                <p>México D.F.</p>
-                <p>Calle Centenario, del. Venustiano Carranza</p>
+                <p class="ciudad">México D.F.</p>
+                <p class="direccion">Calle Centenario, del. Venustiano Carranza</p>
               </a>
             </li>
             <li>
-              <a href="#" class="sede">
-                <p>Querétaro</p>
-                <p>Calle 2 de Noviembre, col. Corregidora</p>
+              <a href="#df" class="sede">
+                <p class="ciudad">Querétaro</p>
+                <p class="direccion">Calle 2 de Noviembre, col. Corregidora</p>
               </a>
             </li>
              <li>
-              <a href="#" class="sede">
-                <p>Nuevo León</p>
-                <p>Calle fundidora, col. Nuevo México</p>
+              <a href="#df" class="sede">
+                <p class="ciudad">Nuevo León</p>
+                <p class="direccion">Calle fundidora, col. Nuevo México</p>
               </a>
             </li>
              <li>
-              <a href="#">
-                <p>Guanajuato</p>
-                <p>Calle León, col. Zapatero</p>
-              </a>
-            </li>
-             <li>
-              <a href="#">
-                <p>Yucatán</p>
-                <p>Calle Cobre, col. Zapoteco</p>
+              <a href="#df">
+                <p class="ciudad">Guanajuato</p>
+                <p class="direccion">Calle León, col. Zapatero</p>
               </a>
             </li>
              <li>
               <a href="#">
-                <p>Chiapas</p>
-                <p>Calle 3 de marzo, col. Centro</p>
+                <p class="ciudad">Yucatán</p>
+                <p class="direccion">Calle Cobre, col. Zapoteco</p>
               </a>
             </li>
              <li>
               <a href="#">
-                <p>Puebla</p>
-                <p>Calle Arcoiris, col. Sol</p>
+                <p class="ciudad">Chiapas</p>
+                <p class="direccion">Calle 3 de marzo, col. Centro</p>
+              </a>
+            </li>
+             <li>
+              <a href="#">
+                <p class="ciudad">Puebla</p>
+                <p class="direccion">Calle Arcoiris, col. Sol</p>
               </a>
             </li>
           </ul>
@@ -267,9 +267,10 @@
     <section role="region">
       <header class="fixed">
         <a id="btn-switches-back" href="#primary"><span class="icon icon-back">back</span></a>
-        <h1>México D.F.</h1>
+        <h1 class="city-title">lol</h1>
       </header>
       <article class="content scrollable header">
+        <!-- maps container -->
         <div id="maps"></div>
       </article>
     </section>
@@ -281,7 +282,17 @@
 
       [].forEach.call( document.querySelectorAll('.sede'), function(el) {
         el.addEventListener('click', function() {
-          // aqui carga el mapa segun el elemento en el que se dio clic
+          var city        = this.querySelector('.ciudad').innerHTML,
+              address     = this.querySelector('.direccion').innerHTML,
+              x_coord     = this.getAttribute('data-x'),
+              y_coord     = this.getAttribute('data-y'),
+              map_path    = this.getAttribute('data-image'); 
+
+          // set the 'city Title' in map screen
+          document.querySelector('.city-title').innerHTML = city;
+
+          console.log('Estado y dirección: ' + city + '-' + address);
+          console.log('titulo de la ciuidad: ' + city);
           console.log(this);
         }, false);
       });
