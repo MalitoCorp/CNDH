@@ -205,7 +205,10 @@
 
     }
   </style>
-  <script src="../js/leaflet.js" type="text/javascript"></script>
+
+  <script src="../js/modestmaps.js" type="text/javascript"></script>
+  <script src="../js/tile.stamen.js" type="text/javascript"></script>
+
 </head>
 <body>
 	<section id="drawer" role="region" class="primary">
@@ -217,7 +220,7 @@
         <section data-type="list">
           <ul>
             <li>
-              <a href="#df" id="venustiano" class="sede" data-image="../images/maps/venus.png" data-x="40.1" data-y="-6.3">
+              <a href="#df" id="venustiano" class="sede" data-image="../images/maps/venus.png" data-lat="19.32150" data-lon="-99.22037">
                 <p class="ciudad">México D.F.</p>
                 <p class="direccion">Calle Centenario, del. Venustiano Carranza</p>
               </a>
@@ -267,11 +270,11 @@
     <section role="region">
       <header class="fixed">
         <a id="btn-switches-back" href="#primary"><span class="icon icon-back">back</span></a>
-        <h1 class="city-title">lol</h1>
+        <h1 class="city-title">Sede CNDH</h1>
       </header>
       <article class="content scrollable header">
         <!-- maps container -->
-        <div id="maps"></div>
+        <div id="map"></div>
       </article>
     </section>
   </form>
@@ -282,15 +285,20 @@
 
       [].forEach.call( document.querySelectorAll('.sede'), function(el) {
         el.addEventListener('click', function() {
-          
+
           var city        = this.querySelector('.ciudad').innerHTML,
               address     = this.querySelector('.direccion').innerHTML,
-              x_coord     = this.getAttribute('data-x'),
-              y_coord     = this.getAttribute('data-y'),
-              map_path    = this.getAttribute('data-image'); 
+              latitude    = this.getAttribute('data-lat'),
+              longitude   = this.getAttribute('data-lon'),
+              map_path    = this.getAttribute('data-image');
+
 
           // set the 'city Title' in map screen
           document.querySelector('.city-title').innerHTML = city;
+
+          var layer = new MM.StamenTileLayer("toner");
+          var map = new MM.Map("map", layer);
+          map.setCenterZoom(new MM.Location(latitude, longitude), 18);
 
           console.log('Estado y dirección: ' + city + '-' + address);
           console.log('titulo de la ciuidad: ' + city);
