@@ -282,6 +282,7 @@
 
       [].forEach.call( document.querySelectorAll('.sede'), function(el) {
         el.addEventListener('click', function() {
+          
           var city        = this.querySelector('.ciudad').innerHTML,
               address     = this.querySelector('.direccion').innerHTML,
               x_coord     = this.getAttribute('data-x'),
