@@ -207,7 +207,7 @@
   </style>
 
   <!--<script src="../js/modestmaps.js" type="text/javascript"></script>-->
-  <script src="../js/leaflet.js" type="text/javascript"></script>
+  <!--<script src="../js/leaflet.js" type="text/javascript"></script>-->
   <script src="../js/tile.stamen.js" type="text/javascript"></script>
 
 </head>
@@ -280,13 +280,32 @@
     </section>
   </form>
 
+    <!-- Google maps API -->
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0XYLMBbNN3vsy7PqgzgjnnSc90Dc9ItE&sensor=true">
+    </script>
+
     <script type="text/javascript">
 
-    var layer = new L.StamenTileLayer("terrain");
+      function initMap(lat, lon){
+
+        var mapOptions = {
+          center    : new google.maps.LatLng(lat, lon),
+          zoom      : 18,
+          zoomControlOptions: {
+            style: google.maps.ZoomControlStyle.SMALL
+          },
+          mapTypeId : google.maps.MapTypeId.ROADMAP
+        }
+
+        var map = new google.maps.Map(document.getElementById("map"),
+        mapOptions);
+      }
 
       [].forEach.call( document.querySelectorAll('.sede'), function(el) {
         el.addEventListener('click', function() {
 
+          // Get data element
           var city        = this.querySelector('.ciudad').innerHTML,
               address     = this.querySelector('.direccion').innerHTML,
               latitude    = this.getAttribute('data-lat'),
@@ -297,16 +316,7 @@
           // set the 'city Title' in map screen
           document.querySelector('.city-title').innerHTML = city;
 
-          
-          var map = new L.Map("map", {
-                          center: new L.LatLng(latitude, longitude),
-                          zoom: 18
-          });
-          map.addLayer(layer);
-          /*
-          var layer = new MM.StamenTileLayer("toner");
-          var map = new MM.Map("map", layer);
-          map.setCenterZoom(new MM.Location(latitude, longitude), 18);*/
+          initMap(latitude, longitude);
 
           console.log('Estado y dirección: ' + city + '-' + address);
           console.log('titulo de la ciuidad: ' + city);
