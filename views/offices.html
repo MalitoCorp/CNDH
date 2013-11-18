@@ -287,10 +287,12 @@
 
     <script type="text/javascript">
 
-      function initMap(lat, lon){
+      function initMap(lat, lon, title){
+
+        var latlon = new google.maps.LatLng(lat,lon);
 
         var mapOptions = {
-          center    : new google.maps.LatLng(lat, lon),
+          center    : latlon,
           zoom      : 18,
           zoomControlOptions: {
             style: google.maps.ZoomControlStyle.SMALL
@@ -300,6 +302,14 @@
 
         var map = new google.maps.Map(document.getElementById("map"),
         mapOptions);
+
+        var marker = new google.maps.Marker({
+          position : latlon,
+          title    : title
+        });
+
+        marker.setMap(map);
+
       }
 
       [].forEach.call( document.querySelectorAll('.sede'), function(el) {
@@ -316,7 +326,7 @@
           // set the 'city Title' in map screen
           document.querySelector('.city-title').innerHTML = city;
 
-          initMap(latitude, longitude);
+          initMap(latitude, longitude, city);
 
           console.log('Estado y dirección: ' + city + '-' + address);
           console.log('titulo de la ciuidad: ' + city);
