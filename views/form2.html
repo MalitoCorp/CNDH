@@ -438,14 +438,12 @@
           } // end  .onreadystatechange
           request.send();
 
-        }else{
-          $('#resultado').append('<span>Por favor revise su conexión de datos o Wi-Fi</span>');
-          $('#subtitle').html('');
-          $('#progress').hide();
-          $('#acept').show();
-        }
-        
-
+          }else{
+            $('#resultado').append('<span>Por favor revise su conexión de datos o Wi-Fi</span>');
+            $('#subtitle').html('');
+            $('#progress').hide();
+            $('#acept').show();
+          }
       });
     });
 
