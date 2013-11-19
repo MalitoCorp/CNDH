@@ -271,6 +271,10 @@
         </p>
 
         <p>
+          <input id="telefono" type="text" placeholder="Teléfono contacto">
+        </p>
+
+        <p>
           <textarea id="descripcion" placeholder="Descripción de la situación"></textarea>
         </p>
 
@@ -366,6 +370,7 @@
         var apellido = $('#apellido').val();
         var correo = $('#correo').val();
         var descripcion = $('#descripcion').val();
+        var telefono   = $('#telefono').val();
 
         var fecha       = $('#fecha').val();
         var reincide    = $('#reincide').val();
@@ -376,6 +381,7 @@
             url = url + '/' + nombre;
             url = url + '/' + apellido;
             url = url + '/' + correo;
+            url = url + '/' + telefono;
             url = url + '/' + descripcion;
             url = url + '/' + fecha;
             url = url + '/' + reincide;
