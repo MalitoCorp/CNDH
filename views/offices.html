@@ -204,6 +204,12 @@
       -moz-transform: translateX(0%);
 
     }
+
+    #status{
+      position: fixed;
+      top: 0;
+      z-index: 99;
+    }
   </style>
 
   <!--<script src="../js/modestmaps.js" type="text/javascript"></script>-->
@@ -386,7 +392,10 @@
       </header>
       <article class="content scrollable header">
         <!-- maps container -->
-        <div id="map"></div>
+        <section role="status">
+          <p id="adress">Holaaaaaaaaaaaaaaaa</p>
+        </section>
+        <div id="map"></div> 
       </article>
     </section>
   </form>
@@ -468,10 +477,13 @@
         }, false);
       }); */
 
+<<<<<<< HEAD
 
 
     
 
+=======
+>>>>>>> 3fd2ba67d6210d75bffcb652204e565fac96105f
     function newWindow() {
       location.href="#primary";
     }
