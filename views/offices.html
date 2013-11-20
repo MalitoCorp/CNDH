@@ -236,7 +236,7 @@
         <section data-type="list">
           <ul>
             <li>
-              <a href="#df" class="sede" data-image="../images/maps/venus.png" data-lat="19.32150" data-lon="-99.22037">
+              <a href="#df" class="sede" data-image="../images/logo_cndh.png" data-lat="19.32150" data-lon="-99.22037">
                 <p class="ciudad">México D.F.</p>
                 <p class="direccion">Periférico Sur #3469, San Jerónimo Lídice</p>
               </a>
@@ -374,7 +374,7 @@
               </a>
             </li>
             <li>
-              <a href="#df" class="sede" data-image="../images/maps/venus.png" data-lat="20.99346" data-lon="-89.62163">
+              <a href="#df" class="sede" data-image="../images/logo_cndh.png" data-lat="20.99346" data-lon="-89.62163">
                 <p class="ciudad">Yucatán</p>
                 <p class="direccion">Calle 60 entre 23 y 25 Col. Alcala Martín </p>
               </a>
@@ -407,75 +407,63 @@
 
     <script type="text/javascript">
 
-    var condition = navigator.onLine;
+    var online = navigator.onLine;
+    //var online = false;
 
+    [].forEach.call( document.querySelectorAll('.sede'), function(el) {
+      el.addEventListener('click', function() {
 
-    alert(condition);
-    /*
-         
-      
-      function initMap(lat, lon, title){
+        if(online){
+            // Get data element
+          var city        = this.querySelector('.ciudad').innerHTML,
+              address     = this.querySelector('.direccion').innerHTML,
+              latitude    = this.getAttribute('data-lat'),
+              longitude   = this.getAttribute('data-lon');
 
-        var latlon = new google.maps.LatLng(lat,lon);
+          // set the 'city Title' in map screen
+          document.querySelector('.city-title').innerHTML = city;
 
-        var mapOptions = {
-          center    : latlon,
-          zoom      : 18,
-          zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.SMALL
-          },
-          mapTypeId : google.maps.MapTypeId.ROADMAP
-        }
+          function initMap(lat, lon, title){
 
-        var map = new google.maps.Map(document.getElementById("map"),
-        mapOptions);
+            var latlon = new google.maps.LatLng(lat,lon);
 
-        var marker = new google.maps.Marker({
-          position : latlon,
-          title    : title,
-          animation: google.maps.Animation.DROP
-        });
+            var mapOptions = {
+              center    : latlon,
+              zoom      : 18,
+              zoomControlOptions: {
+                style: google.maps.ZoomControlStyle.SMALL
+              },
+              mapTypeId : google.maps.MapTypeId.ROADMAP
+            }
 
-        marker.setMap(map);
+            var map = new google.maps.Map(document.getElementById("map"),
+            mapOptions);
 
-      }
+            var marker = new google.maps.Marker({
+              position : latlon,
+              title    : title,
+              animation: google.maps.Animation.DROP
+            });
 
-      [].forEach.call( document.querySelectorAll('.sede'), function(el) {
-        el.addEventListener('click', function() {
+            marker.setMap(map);
 
-          // Get connection status
-          var connection = navigator.connection || 
-                           navigator.mozConnection || 
-                           navigator.webkitConnection;
-
-          var online = connection.bandwidth > 0;
-
-          if(online){
-              // Get data element
-            var city        = this.querySelector('.ciudad').innerHTML,
-                address     = this.querySelector('.direccion').innerHTML,
-                latitude    = this.getAttribute('data-lat'),
-                longitude   = this.getAttribute('data-lon'),
-                map_path    = this.getAttribute('data-image');
-
-            // set the 'city Title' in map screen
-            document.querySelector('.city-title').innerHTML = city;
-
-            initMap(latitude, longitude, city);
-
-            console.log('Estado y dirección: ' + city + '-' + address);
-            console.log('titulo de la ciuidad: ' + city);
-            console.log(this);
-
-          }else{
-            // muestra el mapa de la ruta
-            // TODO: desplegar mensaje de que no se tienen conexión o 
-            //       poner mapa offline (imagen || captura de pantalla)
-            alert('No tiene conexión de datos o WiFi');
           }
+
+          initMap(latitude, longitude, city);
+
+        }else{
+          alert('Para mejores resultados, active Wi-fi o datos');
+          var imagePath = this.getAttribute('data-image');
+          var imageElement = document.createElement("img");
+
+          imageElement.setAttribute('src', imagePath);
+
+          document.querySelector('#map').appendChild(imageElement);
+          console.log(imageElement);
+        }
   
         }, false);
-      }); */
+      }); 
     function newWindow() {
       location.href="#primary";
     }
