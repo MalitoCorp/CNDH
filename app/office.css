@@ -193,17 +193,11 @@ section.status {
 }
 
 section .down {
-  margin-bottom: -6.3rem;
+  bottom: -6.3rem;
   /*display: none;*/
-  transition:margin-bottom 1s;
+  transition:bottom 1s;
 }
 
-section.status p{
-  position: relative;
-}
-
-section .down{
-}
 
 .gm-style {
       height: 100% !important;

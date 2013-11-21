@@ -7,7 +7,7 @@ setTimeout(function (){
 }, 4000);
 
 $('.ocultar').addEventListener('click', function (){
-    $('.status p').classList.remove('down');
+    $('.status').classList.remove('down');
 });
 
 
