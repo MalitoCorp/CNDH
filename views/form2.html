@@ -338,14 +338,14 @@
   <script type="text/javascript">
 
     // Form fields
-    var dependencia = "";
-    var nombre = "";
-    var apellido = "";
-    var correo = "";
-    var descripcion = "";
-    var telefono   = "";
-    var fecha       = "";
-    var reincide    = "";
+    var dependencia = ""
+    , nombre = ""
+    , apellido = ""
+    , correo = ""
+    , descripcion = ""
+    , telefono   = ""
+    , fecha       = ""
+    , reincide    = "";
 
     $('#go').addEventListener('click', function(){
 
@@ -386,7 +386,7 @@
 
               var spanElement = document.createElement("span");
 
-              spanElement.innerHTML = '<span> Su Folio es: ' + fecha_s + '</span>';
+              spanElement.innerHTML = 'Su Folio es: {{data.folio}}';
 
               $('#resultado').appendChild(spanElement);
               $('#title').innerHTML = 'Su reporte ha sido recibido y está siendo atendido';
