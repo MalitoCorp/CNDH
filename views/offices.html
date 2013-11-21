@@ -187,9 +187,23 @@
     }
 
 
-    html, body, #map {
+    html, body {
       height: 100%;
     }
+
+    #map {
+      position: static !important; 
+    }
+
+    .fot{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 40px;
+      background-color: black;
+      width: 0;
+    }
+
     #df {
       position: fixed;
       -moz-transform: translateX(100%);
@@ -219,7 +233,7 @@
 </head>
 <body>
 	<section id="drawer" role="region" class="primary">
-      <header class="fixed">
+    <header class="fixed">
       <a id="btn-input-areas-back" href="../index.html"><span class="icon icon-back">back</span></a>
       <h1>Ubicar oficina</h1>
     </header>
@@ -243,15 +257,12 @@
               </a>
             </li>
             <li>
-<<<<<<< HEAD
               <a href="#df" class="sede" data-image="../images/maps/venus.png" data-lat="19.33045" data-lon="-99.21067">
                 <p class="ciudad">Del. Magdalena Contreras</p>
                 <p class="direccion">Periférico Sur #3453, San Jerónimo Lídice, C. P. 10200</p>
               </a>
             </li>
             <li>
-=======
->>>>>>> 14b7415268c2e309c4fd3ca0241cb273d4d760c3
               <a href="#df" class="sede" data-image="../images/maps/venus.png" data-lat="19.35291" data-lon="-99.19614">
                 <p class="ciudad">Del. Álvaro Obregón</p>
                 <p class="direccion">Avenida Periférico Sur #1922 Tlacopac, C. P. 01049</p>
@@ -296,7 +307,7 @@
                 <p class="direccion">Boulevard Sánchez Taboada No. 4499, Locales 5 y 17 Plaza Guadalupe, Zona Río, C. P. 22010</p>
               </a>
             </li>
-            </ul>
+          </ul>
         <header>Baja California Sur</header>
           <ul>
             <li>
@@ -305,7 +316,7 @@
                 <p class="direccion">Calle Mutualismo #460 Col. Centro, C. P. 23000</p>
               </a>
             </li>
-            </ul>
+          </ul>
         <header>Chiapas</header>
           <ul>
             <li>
@@ -320,7 +331,7 @@
                 <p class="direccion">2ª Calle Poniente, N° 20-A, Col. Centro, C. P. 30700</p>
               </a>
             </li>
-            </ul>
+          </ul>
         <header>Chihuahua</header>
           <ul>
             <li>
@@ -329,69 +340,102 @@
                 <p class="direccion">Av. Paseo Triunfo de la República No. 2416, local 1, Col. Partido Escobedo, C. P. 32300</p>
               </a>
             </li>
+          </ul>
+        <header>Coahuila</header>
+          <ul>
             <li>
               <a href="#df" class="sede" data-image="../images/maps/venus.png" data-lat="25.55677" data-lon="-103.44395">
-                <p class="ciudad">Coahuila</p>
+                <p class="ciudad">Torreón</p>
                 <p class="direccion">Calle Eulogio Ortíz #32 Col. Ampliación Los Ángeles, C. P. 27140</p>
               </a>
             </li>
+          </ul>
+        <header>Guerrero</header>
+          <ul>
             <li>
               <a href="#df" class="sede" data-image="../images/maps/venus.png" data-lat="16.85037" data-lon="-99.85016">
-                <p class="ciudad">Guerrero</p>
+                <p class="ciudad">Acapulco</p>
                 <p class="direccion">Calle Cristobal Colón #12 Fraccionamiento Costa Azul, C. P. 39850</p>
               </a>
             </li>
+          </ul>
+        <header>Michoacán</header>
+          <ul>
             <li>
               <a href="#df" class="sede" data-image="../images/maps/venus.png" data-lat="20.99346" data-lon="-89.62163">
-                <p class="ciudad">Michoacán</p>
+                <p class="ciudad">Morelia</p>
                 <p class="direccion">Avenida del Estudiante No. 102 entre Acueducto y Primer Privada del Estudiante Col. del Empleado, C. P. 58280</p>
               </a>
             </li>
+          </ul>
+        <header>Nuevo León</header>
+          <ul>
             <li>
               <a href="#df" class="sede" data-image="../images/maps/venus.png" data-lat="25.68423" data-lon="-100.31661">
-                <p class="ciudad">Nuevo León</p>
+                <p class="ciudad">Monterrey</p>
                 <p class="direccion">Av. Francisco I. Madero #447 Zona Centro, C. P. 20000</p>
               </a>
             </li>
+          </ul>
+        <header>Oaxaca</header>
+          <ul>
             <li>
               <a href="#df" class="sede" data-image="../images/maps/venus.png" data-lat="16.56378" data-lon="-95.10126">
-                <p class="ciudad">Oaxaca</p>
+                <p class="ciudad">Ixtepec</p>
                 <p class="direccion">Av. México S/N, Esquina Nicolás Bravo Col. Estación, C. P. 70110</p>
               </a>
             </li>
+          </ul>
+        <header>San Luis Potosí</header>
+          <ul>
             <li>
               <a href="#df" class="sede" data-image="../images/maps/venus.png" data-lat="22.13657" data-lon="-101.00684">
                 <p class="ciudad">San Luis Potosí</p>
                 <p class="direccion">Calle Valentín Gama No. 865, Col. Las Águilas, C. P. 78260</p>
               </a>
             </li>
+          </ul>
+        <header>Sonora</header>
+          <ul>
             <li>
               <a href="#df" class="sede" data-image="../images/maps/venus.png" data-lat="31.32215" data-lon="-110.94917">
-                <p class="ciudad">Sonora</p>
+                <p class="ciudad">Nogales</p>
                 <p class="direccion">Av. Álvaro Obregón No. 360 Altos, Col. Centro, C. P. 84000</p>
               </a>
             </li>
+          </ul>
+        <header>Tabasco</header>
+          <ul>
             <li>
               <a href="#df" class="sede" data-image="../images/maps/venus.png" data-lat="17.99930" data-lon="-92.93008">
-                <p class="ciudad">Tabasco</p>
+                <p class="ciudad">Villahermosa</p>
                 <p class="direccion">Av. Ruiz Cortines 54 Col. Magisterial, C. P. 86040</p>
               </a>
             </li>
+          </ul>
+        <header>Tamaulipas</header>
+          <ul>
             <li>
               <a href="#df" class="sede" data-image="../images/maps/venus.png" data-lat="26.09020" data-lon="-98.27019">
-                <p class="ciudad">Tamaulipas</p>
+                <p class="ciudad">Reynosa</p>
                 <p class="direccion">Calle Ortiz Rubio No. 801, Locales 6 y 10, Col. Medardo González, C. P. 88550</p>
               </a>
             </li>
+          </ul>
+        <header>Veracruz</header>
+          <ul>
             <li>
               <a href="#df" class="sede" data-image="../images/maps/venus.png" data-lat="18.14643" data-lon="-94.41889">
-                <p class="ciudad">Veracruz</p>
+                <p class="ciudad">Coatzacoalcos</p>
                 <p class="direccion">Av. Zaragoza No. 102, Col. Centro, C. P. 96400</p>
               </a>
             </li>
+          </ul>
+        <header>Yucatán</header>
+          <ul>
             <li>
               <a href="#df" class="sede" data-image="../images/logo_cndh.png" data-lat="20.99346" data-lon="-89.62163">
-                <p class="ciudad">Yucatán</p>
+                <p class="ciudad">Mérida</p>
                 <p class="direccion">Calle 60 entre 23 y 25 Col. Alcala Martín, C. P. 97050</p>
               </a>
             </li>
@@ -408,10 +452,10 @@
       </header>
       <article class="content scrollable header">
         <!-- maps container -->
-        <section role="status">
+        <div id="map"></div> 
+        <section class="fot">
           <p id="adress">Holaaaaaaaaaaaaaaaa</p>
         </section>
-        <div id="map"></div> 
       </article>
     </section>
   </form>
