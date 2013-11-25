@@ -361,7 +361,7 @@
 
       if(online){
         // se construye la url
-        var url = "http://firefox-cndh.herokuapp.com/";
+        /*var url = "http://firefox-cndh.herokuapp.com/";
             url += 'dependencia';
             url += '/' + nombre;
             url += '/' + apellido;
@@ -369,8 +369,8 @@
             url += '/' + telefono;
             url += '/' + descripcion;
             url += '/' + fecha;
-            url += '/' + reincide;
-
+            url += '/' + reincide;*/
+var url = "http://firefox-cndh.herokuapp.com/search/?dependencia=1&nombre=Anzas&apellidoPat=Anzax&apellidoMat=jaja&correo=dkdw&descripcion=ferehola&fecha=qwertyx&reincide=off";
 
         var request = new XMLHttpRequest({ mozSystem: true }); // for FFOS
         
@@ -382,11 +382,11 @@
               
               var data = request.responseText;
 
-              data = JSON.parse(data);
-
+              //data = JSON.parse(data);
+console.log('aqui'+data);
               var spanElement = document.createElement("span");
 
-              spanElement.innerHTML = 'Su Folio es: {{data.folio}}';
+              spanElement.innerHTML = data;
 
               $('#resultado').appendChild(spanElement);
               $('#title').innerHTML = 'Su reporte ha sido recibido y está siendo atendido';
