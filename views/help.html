@@ -5,29 +5,14 @@
   <meta name="viewport" content="width=device-width, user-scalable=no" />
   <title>Formulario</title>
   <!-- Building blocks -->
-  <link rel="stylesheet" href="../style/confirms.css">
-  <link rel="stylesheet" href="../style/action_menu.css">
-  <link rel="stylesheet" href="../style/buttons.css">
+  <link rel="stylesheet" href="../themes/whatev/buttons.css">
   <link rel="stylesheet" href="../style/confirm.css">
-  <link rel="stylesheet" href="../style/edit_mode.css">
-  <link rel="stylesheet" href="../style/headers.css">
-  <link rel="stylesheet" href="../style/input_areas.css">
-  <link rel="stylesheet" href="../style/status.css">
-  <link rel="stylesheet" href="../style/switches.css">
-  <link rel="stylesheet" href="../style_unstable/drawer.css">
+  <link rel="stylesheet" href="../themes/whatev/headers.css">
+  <link rel="stylesheet" href="../themes/whatev/drawer.css">
   <link rel="stylesheet" href="../style_unstable/lists.css">
-  <link rel="stylesheet" href="../style_unstable/progress_activity.css">
-  <link rel="stylesheet" href="../style_unstable/scrolling.css">
-  <link rel="stylesheet" href="../style_unstable/seekbars.css">
-  <link rel="stylesheet" href="../style_unstable/tabs.css">
-  <link rel="stylesheet" href="../style_unstable/toolbars.css">
-  <link rel="stylesheet" href="../style_unstable/value_selector.css">
 
   <!-- Icons -->
-  <link rel="stylesheet" href="../icons/styles/action_icons.css">
-  <link rel="stylesheet" href="../icons/styles/media_icons.css">
-  <link rel="stylesheet" href="../icons/styles/comms_icons.css">
-  <link rel="stylesheet" href="../icons/styles/settings_icons.css">
+ <link rel="stylesheet" href="../themes/whatev/icons.css">
 
   <!-- Transitions -->
   <link rel="stylesheet" href="../transitions.css">
@@ -215,9 +200,10 @@
   </style>
 </head>
 <body>
+<div class="theme-B">
 	<section id="drawer" role="region" class="primary">
       <header class="fixed">
-      <a id="btn-input-areas-back" href="../index.html"><span class="icon icon-back">back</span></a>
+      <a href="../index.html" class="icon icon-back">back</a>
       <h1>Ayuda</h1>
     </header>
       <article class="content scrollable header">
@@ -234,14 +220,11 @@
               </a>
             </li>
              <li>
-              <a href="#languaje">
-                <select id="select_lang">
-                        <option>Español</option>
-                        <option>Náhuatl</option>
-                      </select>
-                      <p>Idioma</p>
-                      
-              </a>
+              <select id="select_lang">
+                <option>Español</option>
+                <option>Náhuatl</option>
+              </select>
+              <p>Idioma</p>
             </li>
              <li>
               <a href="#privacy">
@@ -257,6 +240,7 @@
         </section>
       </article>
   </section>
+</div>
 
   <form role="dialog" data-type="confirm" id="about">
       <section>
@@ -271,16 +255,16 @@
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></h1>
-        <menu id="acept">
+        <menu>
           <button class="recommend affirmative full" onclick="newWindow()">OK</button>
         </menu>
       </section>
     </form>
 
-    <form data-position="right" id="questions">
+    <form data-position="right" id="questions" class="theme-B">
       <section role="region">
         <header class="fixed">
-      <a id="btn-switches-back" href="#primary"><span class="icon icon-back">back</span></a>
+      <a href="#primary" class="icon icon-back">back</a>
       <h1>Preguntas frecuentes</h1>
     </header>
       <article class="content scrollable header">

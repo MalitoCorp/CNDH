@@ -6,28 +6,19 @@
   <title>Formulario</title>
 
   <!-- Building blocks -->
-  <link rel="stylesheet" href="../style/action_menu.css">
+  <link rel="stylesheet" href="../themes/whatev/buttons.css">
   <link rel="stylesheet" href="../style/buttons.css">
   <link rel="stylesheet" href="../style/confirm.css">
-  <link rel="stylesheet" href="../style/edit_mode.css">
-  <link rel="stylesheet" href="../style/headers.css">
+  <link rel="stylesheet" href="../themes/whatev/headers.css">
   <link rel="stylesheet" href="../style/input_areas.css">
-  <link rel="stylesheet" href="../style/status.css">
-  <link rel="stylesheet" href="../style/switches.css">
-  <link rel="stylesheet" href="../style_unstable/drawer.css">
+  <link rel="stylesheet" href="../themes/whatev/switches.css">
+  <link rel="stylesheet" href="../themes/whatev/drawer.css">
   <link rel="stylesheet" href="../style_unstable/lists.css">
   <link rel="stylesheet" href="../style_unstable/progress_activity.css">
-  <link rel="stylesheet" href="../style_unstable/scrolling.css">
-  <link rel="stylesheet" href="../style_unstable/seekbars.css">
-  <link rel="stylesheet" href="../style_unstable/tabs.css">
-  <link rel="stylesheet" href="../style_unstable/toolbars.css">
   <link rel="stylesheet" href="../style_unstable/value_selector.css">
 
   <!-- Icons -->
-  <link rel="stylesheet" href="../icons/styles/action_icons.css">
-  <link rel="stylesheet" href="../icons/styles/media_icons.css">
-  <link rel="stylesheet" href="../icons/styles/comms_icons.css">
-  <link rel="stylesheet" href="../icons/styles/settings_icons.css">
+ <link rel="stylesheet" href="../themes/whatev/icons.css">
 
   <!-- Transitions -->
   <link rel="stylesheet" href="../transitions.css">
@@ -230,11 +221,12 @@
 <body>
 
   <!-- Form -->
+  <div class="theme-B content scrollable">
     <section id="drawer" role="region">
       <header class="fixed">
-      <a id="btn-input-areas-back" href="../index.html"><span class="icon icon-back">back</span></a>
-      <h1>Reportar queja</h1>
-    </header>
+        <a href="../index.html" class="icon icon-back">back</a>
+        <h1>Reportar queja</h1>
+      </header>
       <article class="content scrollable header">
         <header><h1>¡Bienvenido!</h1><h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2></header>
         <p>
@@ -304,10 +296,11 @@
           </ul>
         </section>
 
- <p><a href="#newcomment" id="go"><button class="recommend" >Enviar</button></a></p>
+        <p><a href="#newcomment" id="go"><button class="theme-B" role="button">Enviar</button></a></p>
 
-   </article>
+      </article>
     </section>
+  </div>
 
     <!-- Loading page -->
     <form role="dialog" data-type="confirm" id="newcomment">

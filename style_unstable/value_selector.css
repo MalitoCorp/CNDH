@@ -144,42 +144,41 @@ form[role="dialog"][data-type="value-selector"] menu button::-moz-focus-inner {
 }
 
 form[role="dialog"][data-type="value-selector"] menu button {
-  width: calc((100% - 1rem) / 2);
-  height: 3.8rem;
+  height: 3.5rem;
   margin: 0 0 1rem;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   -moz-box-sizing: border-box;
   display: inline-block;
   vertical-align: middle;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  background: #fafafa url(value_selector/images/ui/default.png) repeat-x left bottom/ auto 100%;
-  border: 0.1rem solid #a6a6a6;
-  border-radius: 0.3rem;
+  background: #FF6633;
   font-weight: 500;
   font-size: 1.6rem;
-  line-height: 3.8rem;
-  color: #333;
+  line-height: 3.5rem;
+  color: #fff;
   text-align: center;
-  text-shadow: 0.1rem 0.1rem 0 rgba(255,255,255,0.3);
   text-decoration: none;
   outline: none;
+  border: none;
+  position: relative;
+  min-width: 5rem;
 }
 
-/* Press (default & affirmative) */
+/* Press (default & affirmative)
 form[role="dialog"][data-type="value-selector"] menu button:active,
 form[role="dialog"][data-type="value-selector"] menu button.affirmative:active {
   border-color: #008aaa;
   color: #333;
-}
+} */
 
-/* affirmative */
-form[role="dialog"][data-type="value-selector"] menu button.affirmative {
+/* affirmativeform[role="dialog"][data-type="value-selector"] menu button.affirmative {
   background-image: url(value_selector/images/ui/affirmative.png);
   background-color: #00caf2;
   border-color: #008eab;
-}
+} */
+
 
 form[role="dialog"][data-type="value-selector"] menu button:last-child {
   margin-left: 1rem;
