@@ -1,5 +1,5 @@
-var online = navigator.onLine;
-//var online = false;
+//var online = navigator.onLine;
+var online = false;
 window.$ = document.querySelector.bind(document);
 
 setTimeout(function (){
@@ -55,8 +55,19 @@ $('.ocultar').addEventListener('click', function (){
 
         } else {
             alert('Para mejores resultados, active Wi-fi o datos');
+
+            // get screen dimentions
+
+            var screenWidth  = screen.width,
+                screenHeight = screen.height;
+
+                console.log(screenWidth + '  ll ' + screenHeight);
+
+
             var imagePath = this.getAttribute('data-image');
             var imageElement = document.createElement("img");
+
+            // loadOfflineMap(screenWidth, imagePath);
 
             imageElement.setAttribute('src', imagePath);
 
@@ -66,6 +77,20 @@ $('.ocultar').addEventListener('click', function (){
 
     }, false);
 });
+
+
+/*
+window.addEventListener("resize", function() {
+    // Get screen size (inner/outerWidth, inner/outerHeight)
+    console.log('lol');
+    return false;
+}, false);*/
+
+function loadOfflineMap(screenWidth, imagePath){
+    // show the offlime map
+}
+
+
 
 function newWindow() {
     location.href = "#primary";
