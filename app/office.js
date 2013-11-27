@@ -70,9 +70,9 @@ $('.ocultar').addEventListener('click', function (){
             // loadOfflineMap(screenWidth, imagePath);
 
             imageElement.setAttribute('src', imagePath);
-
+            //document.querySelector('[name="viewport"]').setAttribute('content','width=device-width');
             document.querySelector('#map').appendChild(imageElement);
-            console.log(imageElement);
+            //console.log(document.querySelector('[name="viewport"]'));
         }
 
     }, false);

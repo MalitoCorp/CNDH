@@ -171,6 +171,7 @@ html, body {
 
 #map_content {
     height: 100%;
+    overflow: hidden;
 }
 
 #map {
