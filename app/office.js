@@ -1,5 +1,5 @@
-//var online = navigator.onLine;
-var online = false;
+var online = navigator.onLine;
+//var online = false;
 window.$ = document.querySelector.bind(document);
 
 setTimeout(function (){
