@@ -67,7 +67,6 @@ $('.ocultar').addEventListener('click', function (){
 
             var imagePath = this.getAttribute('data-image');
             var imageElement = document.createElement("img");
-            console.log(imagePath);
 
             // set the 'city Title' in map screen
             document.querySelector('.city-title').innerHTML = city;
