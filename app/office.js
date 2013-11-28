@@ -59,18 +59,25 @@ $('.ocultar').addEventListener('click', function (){
             // get screen dimentions
 
             var screenWidth  = screen.width,
-                screenHeight = screen.height;
+                screenHeight = screen.height,
+                city = this.querySelector('.ciudad').innerHTML;
 
                 console.log(screenWidth + '  ll ' + screenHeight);
 
 
             var imagePath = this.getAttribute('data-image');
             var imageElement = document.createElement("img");
+            console.log(imagePath);
 
+            // set the 'city Title' in map screen
+            document.querySelector('.city-title').innerHTML = city;
+            
             // loadOfflineMap(screenWidth, imagePath);
 
             imageElement.setAttribute('src', imagePath);
-            //document.querySelector('[name="viewport"]').setAttribute('content','width=device-width');
+            // Delete previous map
+            document.querySelector('#map').innerHTML='';
+            // Load map
             document.querySelector('#map').appendChild(imageElement);
             //console.log(document.querySelector('[name="viewport"]'));
         }
