@@ -179,7 +179,7 @@
       position: absolute;
       width: 95%;
       height: 100%;
-      margin-left: -6%;
+      margin-left: -4%;
       font-size: 1em;
       padding-left: 5%;
     }
@@ -257,11 +257,11 @@
         </p>
         <p>
         <p>
-          <input id="nombre" type="text" placeholder="Nombre(s)">
+          <input id="nombre" type="text" placeholder="Nombre(s)" onkeyup="validation2()">
         </p>
 
         <p>
-          <input id="apellido" type="text" placeholder="Apellidos">
+          <input id="apellido" type="text" placeholder="Apellidos" onkeyup="validation2()">
         </p>
 
         <p>
@@ -269,7 +269,7 @@
         </p>
 
         <p>
-          <input id="telefono" type="text" placeholder="Teléfono contacto">
+          <input id="telefono" type="tel" placeholder="Teléfono contacto" onkeyup="validation(this,'-',patron,true)" maxlength="12">
         </p>
 
         <p>
@@ -279,7 +279,7 @@
         <p>
           <ul>
             <li>
-              <span class="button icon icon-dialog">
+              <span class="button icon icon-dialog" id="fechax">
                 <input id="fecha" type="date" placeholder="Fecha de incidente"/>
               </span>
             </li>
@@ -300,9 +300,9 @@
           </ul>
         </section>
 
-        <p><a href="#newcomment" id="go"><button class="theme-B" role="button">Enviar</button></a></p>
+        <p><a href="#" id="go"><button class="theme-B" role="button">Enviar</button></a></p>
 
-      </article>
+      </arcticle>
     </section>
   </div>
 
@@ -356,59 +356,82 @@
 
       var online = navigator.onLine;
 
-      if(online){
-        // se construye la url
-        // fields: dependencia, nombre, apellidos, correo, telefono, descripcion, fecha, reincide
-        var url = "http://firefox-cndh.herokuapp.com/search/?";
-            url += 'dependencia=1';
-            url += '&nombre=' + nombre;
-            url += '&apellidos=' + apellido;
-            url += '&correo=' + correo;
-            url += '&telefono=' + telefono;
-            url += '&descripcion=' + descripcion;
-            url += '&fecha=' + fecha;
-            url += '&reincide=' + reincide;
-            
-
-        var request = new XMLHttpRequest({ mozSystem: true }); // for FFOS
-        
-        request.open("get", url, true);
-
-        request.onreadystatechange = function() {
-          if (request.readyState == 4) {
-            if(request.status == 200 || request.status == 0){
+      if(otro != "" && nombre != "" && apellido != "" && telefono != "" && descripcion != "" && fecha != ""){
+        console.log(nombre+"-"+apellido);
+        go.href = '#newcomment';
+        if(online){
+          // se construye la url
+          // fields: dependencia, nombre, apellidos, correo, telefono, descripcion, fecha, reincide
+          var url = "http://firefox-cndh.herokuapp.com/search/?";
+              url += 'dependencia=1';
+              url += '&nombre=' + nombre;
+              url += '&apellidos=' + apellido;
+              url += '&correo=' + correo;
+              url += '&telefono=' + telefono;
+              url += '&descripcion=' + descripcion;
+              url += '&fecha=' + fecha;
+              url += '&reincide=' + reincide;
               
-              var data = request.responseText;
 
-              data = JSON.parse(data);
-              console.log(data[0].pk);
-              var spanElement = document.createElement("span");
+          var request = new XMLHttpRequest({ mozSystem: true }); // for FFOS
+          
+          request.open("get", url, true);
 
-              spanElement.innerHTML = 'Su folio es: ' + data[0].pk;
+          request.onreadystatechange = function() {
+            if (request.readyState == 4) {
+              if(request.status == 200 || request.status == 0){
+                
+                var data = request.responseText;
 
-              $('#resultado').appendChild(spanElement);
-              $('#title').innerHTML = 'Su reporte ha sido recibido y está siendo atendido';
-              $('#subtitle').innerHTML = '';
-              $('#progress').classList.add('hidden');
-              /*
-              $('#resultado').append('<span> Su Folio es: ' + fecha_s + '</span>');
-                $('#title').html('Su reporte ha sido recibido.');
-                $('#subtitle').html('');
-                $('#progress').hide();
-                $('#acept').show();
-              */
+                data = JSON.parse(data);
+                console.log(data[0].pk);
+                var spanElement = document.createElement("span");
 
-            }else{
-              // error 
+                spanElement.innerHTML = 'Su folio es: ' + data[0].pk;
+
+                $('#resultado').appendChild(spanElement);
+                $('#title').innerHTML = 'Su reporte ha sido recibido y está siendo atendido';
+                $('#subtitle').innerHTML = '';
+                $('#progress').classList.add('hidden');
+                /*
+                $('#resultado').append('<span> Su Folio es: ' + fecha_s + '</span>');
+                  $('#title').html('Su reporte ha sido recibido.');
+                  $('#subtitle').html('');
+                  $('#progress').hide();
+                  $('#acept').show();
+                */
+
+              }else{
+                // error 
+              }
             }
-          }
-        } // end request.onreadystatechange
-        request.send();
+          } // end request.onreadystatechange
+          request.send();
 
-      }else{  // no connected
+        }else{  // no connected
 
-      } // end if
-
+        } // end if
+      }
+      else{
+        if(otro == ""){
+          document.getElementById("otro").style.border="0.1rem solid #820000";
+        }
+        else if (nombre == "") {
+          document.getElementById("nombre").style.border="0.1rem solid #820000";
+        }
+        else if(apellido == ""){
+          document.getElementById("apellido").style.border="0.1rem solid #820000";
+        }
+        else if(telefono == ""){
+          document.getElementById("telefono").style.border="0.1rem solid #820000";
+        }
+        else if(descripcion == ""){
+          document.getElementById("descripcion").style.border="0.1rem solid #820000";
+        }
+        else if(fechax == ""){
+          document.getElementById("fechax").style.border="0.1rem solid #820000";
+        }
+      }
     });
 
 
@@ -416,6 +439,52 @@
       location.href="../index.html";
     }
 
+    //validation for telephone
+    var patron = new Array(3,3,4);
+    function validation(d,sep,pat,nums){
+    if(d.valant != d.value){
+      val = d.value
+      largo = val.length
+      val = val.split(sep)
+      val2 = ''
+      for(r=0;r<val.length;r++){
+        val2 += val[r]  
+      }
+      if(nums){
+        for(z=0;z<val2.length;z++){
+          if(isNaN(val2.charAt(z))){
+            letra = new RegExp(val2.charAt(z),"g")
+            val2 = val2.replace(letra,"")
+          }
+        }
+      }
+      val = ''
+      val3 = new Array()
+      for(s=0; s<pat.length; s++){
+        val3[s] = val2.substring(0,pat[s])
+        val2 = val2.substr(pat[s])
+      }
+      for(q=0;q<val3.length; q++){
+        if(q ==0){
+          val = val3[q]
+        }
+        else{
+          if(val3[q] != ""){
+            val += sep + val3[q]
+            }
+        }
+      }
+      d.value = val
+      d.valant = val
+      }
+    }
+  
+    function validation2() {
+      var name = document.getElementById("nombre");
+      var lastname = document.getElementById("apellido");
+      name.value = name.value.toUpperCase();
+      lastname.value = lastname.value.toUpperCase();
+    }
   </script>
 
   <script type="text/javascript">
