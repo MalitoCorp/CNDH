@@ -1,0 +1,255 @@
+{
+    "oficinas": [
+    {
+        "estado": "México D.F.",
+        "delegaciones": [
+            {
+              "data-image": "../images/maps/1.jpg",
+              "data-lat": 19.32150 ,
+              "data-lon": -99.22037,
+              "ciudad": "Del. Magdalena Contreras",
+              "direccion": "Periférico Sur #3469, San Jerónimo Lídice, C. P. 10200"
+            },
+            {
+              "data-image": "../images/maps/2.jpg",
+              "data-lat": 19.321757,
+              "data-lon": -99.220142,
+              "ciudad": "Del. Magdalena Contreras",
+              "direccion": "Periférico Sur #3453, San Jerónimo Lídice, C. P. 10200"
+            },
+            {
+
+              "data-image": "../images/maps/3.jpg",
+              "data-lat": 19.357551,
+              "data-lon": -99.195493,
+              "ciudad": "Del. Álvaro Obregón",
+              "direccion": "Avenida Periférico Sur #1922 Tlacopac, C. P. 01049"
+            },
+            {
+              "data-image": "../images/maps/4.jpg",
+              "data-lat": 19.298023 ,
+              "data-lon": -99.212313,
+              "ciudad": "Del. Tlalpan",
+              "direccion": "Carretera Picacho-Ajusco 238 Jardínes en la Montaña, C. P. 14210"
+            },
+            {
+              "data-image": "../images/maps/5.jpg",
+              "data-lat": 19.391403 ,
+              "data-lon": -99.179472,
+              "ciudad": "Del. Benito Juárez",
+              "direccion": "Oklahoma #133, Nápoles, C. P. 03810"
+            },
+            {
+              "data-image": "../images/maps/6.jpg",
+              "data-lat": 19.437222 ,
+              "data-lon": -99.136452,
+              "ciudad": "Del. Cuauhtémoc",
+              "direccion": "República de Cuba #60, Centro Histórico, C. P. 06010"
+            },
+            {
+              "data-image": "../images/maps/7.jpg",
+              "data-lat": 19.338003 ,
+              "data-lon": -99.195901,
+              "ciudad": "Del. Álvaro Obregón",
+              "direccion": "Río Magdalena #108, Tizapan San Ángel, C. P. 01090"
+            },
+            {
+              "data-image": "../images/maps/8.jpg",
+              "data-lat": 19.376443 ,
+              "data-lon": -99.193144,
+              "ciudad": "Del. Álvaro Obregón",
+              "direccion": "Sassoferrato #75 Col Alfonso XIII, C. P. 01460"
+            }
+         ]
+       },
+       {
+        "estado": "Aguascalientes",
+        "delegaciones": [
+            {
+              "data-image": "../images/maps/9.jpg" ,
+              "data-lat": 21.883077,
+              "data-lon": -102.288852,
+              "ciudad": "Aguascalientes",
+              "direccion": "Av. Francisco I. Madero #447 Zona Centro, C. P. 20000"
+            }
+          ]
+        },
+        {
+        "estado": "Baja California",
+         "delegaciones": [
+            {
+              "data-image": "../images/maps/10.jpg" ,
+              "data-lat": 32.518628 ,
+              "data-lon": -117.012711,
+              "ciudad": "Tijuana",
+              "direccion": "Boulevard Sánchez Taboada #4499, Locales 5 y 17 Plaza Guadalupe, Zona Río, C. P. 22010"
+            }
+          ]
+        },
+
+        {
+            "estado": "Baja California Sur",
+            "delegaciones":  [
+            {
+              "data-image": "../images/maps/11.jpg" ,
+              "data-lat": 24.158283 ,
+              "data-lon": -110.319139,
+              "ciudad": "La Paz",
+              "direccion": "Calle Mutualismo #460 Col. Centro, C. P. 23000"
+            }
+          ]
+        },
+        {
+            "estado": "Chiapas",
+          "delegaciones": [
+            {
+              "data-image": "../images/maps/12.jpg" ,
+              "data-lat": 16.734811,
+              "data-lon": -92.634714,
+              "ciudad": "San Cristóbal de las Casas",
+              "direccion": "Av. Josefa Ortiz de Domínguez #28, Col. Barrio Santa Lucía, C. P. 29250"
+            },
+            {
+              "data-image": "../images/maps/13.jpg" ,
+              "data-lat": 14.906243 ,
+              "data-lon": -92.265585,
+              "ciudad": "Tapachula",
+              "direccion": "2ª Calle Poniente, #20-A, Col. Centro, C. P. 30700"
+            }
+          ]
+        },
+        {
+            "estado": "Chihuahua",
+            "delegaciones": [
+            {
+              "data-image": "../images/maps/14.jpg" ,
+              "data-lat": 31.737324 ,
+              "data-lon": -106.455291,
+              "ciudad": "Cd. Juárez",
+              "direccion": "Av. Paseo Triunfo de la República #2416, local 1, Col. Partido Escobedo, C. P. 32300"
+            }
+          ]
+        },
+        {
+            "estado": "Coahuila",
+           "delegaciones": [
+            {
+              "data-image": "../images/maps/15.jpg",
+              "data-lat": 25.52261 ,
+              "data-lon": -103.403294,
+              "ciudad": "Torreón",
+              "direccion": "Calle Eulogio Ortíz #32 Col. Ampliación Los Ángeles, C. P. 27140"
+            }
+          ]
+        },
+        {
+            "estado": "Guerrero",
+          "delegaciones": [
+            {
+              "data-image": "../images/maps/16.jpg",
+              "data-lat": 16.850777 ,
+              "data-lon": -99.850107,
+              "ciudad": "Acapulco",
+              "direccion": "Calle Cristobal Colón #12 Fraccionamiento Costa Azul, C. P. 39850"
+            }
+          ]
+        },
+        {
+            "estado": "Michoacán",
+           "delegaciones": [
+            {
+              "data-image": "../images/maps/17.jpg",
+              "data-lat": 19.697673 ,
+              "data-lon": -101.167534,
+              "ciudad": "Morelia",
+              "direccion": "Avenida del Estudiante #102 entre Acueducto y Primer Privada del Estudiante Col. del Empleado, C. P. 58280"
+            }
+          ]
+        },
+                
+                {
+                 "estado": "Oaxaca",
+          "delegaciones": [
+            {
+              "data-image": "../images/maps/18.jpg",
+              "data-lat": 16.557518 ,
+              "data-lon": -95.095152,
+              "ciudad": "Ixtepec",
+              "direccion": "Av. México S/N, Esquina Nicolás Bravo Col. Estación, C. P. 70110"
+            }
+          ]
+        },
+        {
+            "estado": "San Luis Potosí",
+          "delegaciones": [
+            {
+              "data-image": "../images/maps/19.jpg" ,
+              "data-lat": 22.146678 ,
+              "data-lon": -101.007636,
+              "ciudad": "San Luis Potosí",
+              "direccion": "Calle Valentín Gama #865, Col. Las Águilas, C. P. 78260"
+            }
+          ]
+         },
+        {
+            "estado": "Sonora",
+          "delegaciones": [
+            {
+              "data-image": "../images/maps/20.jpg" ,
+              "data-lat": 31.325388 ,
+              "data-lon": -110.945907,
+              "ciudad": "Nogales",
+              "direccion": "Av. Álvaro Obregón #360 Altos, Col. Centro, C. P. 84000"
+            }
+          ]
+         },
+        {
+            "estado": "Tabasco",
+          "delegaciones": [
+            {
+              "data-image": "../images/maps/21.jpg" ,
+              "data-lat": 18.0017 ,
+              "data-lon": -92.92879,
+              "ciudad": "Villahermosa",
+              "direccion": "Av. Ruiz Cortines 54 Col. Magisterial, C. P. 86040"
+            }
+          ]
+        },
+        {
+            "estado": "Tamaulipas",
+          "delegaciones": [
+            {
+              "data-image": "../images/maps/22.jpg" ,
+              "data-lat": 26.089599 ,
+              "data-lon": -98.272271,
+              "ciudad": "Reynosa",
+              "direccion": "Calle Ortiz Rubio #801, Locales 6 y 10, Col. Medardo González, C. P. 88550"
+            }
+          ]
+        },
+        {
+            "estado": "Veracruz",
+            "delegaciones": [
+            {
+              "data-image": "../images/maps/23.jpg" ,
+              "data-lat": 18.147728 ,
+              "data-lon": -94.41158,
+              "ciudad": "Coatzacoalcos",
+              "direccion": "Av. Zaragoza #102, Col. Centro, C. P. 96400"
+            }
+          ]
+        },
+        {
+            "estado": "Yucatán",
+          "delegaciones": [
+            {
+              "data-image": "../images/maps/24.jpg" ,
+              "data-lat": 20.996571 ,
+              "data-lon": -89.621144,
+              "ciudad": "Mérida",
+              "direccion": "Calle 60 entre 23 y 25 Col. Alcala Martín, C. P. 97050"
+            }
+          ]
+      }
+]
+}

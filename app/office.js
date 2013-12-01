@@ -1,15 +1,36 @@
+//window.$ = document.querySelector.bind(document);
+var source   = document.querySelector('#oficinas').innerHTML;
+var template = Handlebars.compile(source);
+var oficinas = new db("oficinas");
+
+getJSON('http://localhost:8888/localdb/oficinas.json?' + Date.now(),
+  function (data) {
+    oficinas.clear();
+    oficinas.set(data);
+    listaRender(oficinas.data[0]);
+  },
+  function () {
+    listaRender(oficinas.data[0]);
+  }
+);
+
+var listaRender = function (_list) {
+  document.getElementById("content").innerHTML = template(_list);
+  var templaMap = document.querySelector('#mapa').innerHTML;
+  var renderMap = Handlebars.compile(templaMap);
+  document.getElementById("contentMap").innerHTML = renderMap();
+}
+
 var online = navigator.onLine;
 //var online = false;
-window.$ = document.querySelector.bind(document);
 
-setTimeout(function (){
-    $('.status').classList.add('down');
-}, 4000);
+// setTimeout(function (){ 
+//     $('.status').classList.add('down');
+// }, 4000);
 
-$('.ocultar').addEventListener('click', function (){
-    $('.status').classList.remove('down');
-});
-
+// $('.ocultar').addEventListener('click', function (){
+//     $('.status').classList.remove('down');
+// });
 
 [].forEach.call(document.querySelectorAll('.sede'), function (el) {
     el.addEventListener('click', function () {
@@ -58,11 +79,11 @@ $('.ocultar').addEventListener('click', function (){
 
             // get screen dimentions
 
-            var screenWidth  = screen.width,
+            var screenWidth = screen.width,
                 screenHeight = screen.height,
                 city = this.querySelector('.ciudad').innerHTML;
 
-                console.log(screenWidth + '  ll ' + screenHeight);
+            console.log(screenWidth + '  ll ' + screenHeight);
 
 
             var imagePath = this.getAttribute('data-image');
@@ -70,12 +91,12 @@ $('.ocultar').addEventListener('click', function (){
 
             // set the 'city Title' in map screen
             document.querySelector('.city-title').innerHTML = city;
-            
+
             // loadOfflineMap(screenWidth, imagePath);
 
             imageElement.setAttribute('src', imagePath);
             // Delete previous map
-            document.querySelector('#map').innerHTML='';
+            document.querySelector('#map').innerHTML = '';
             // Load map
             document.querySelector('#map').appendChild(imageElement);
             //console.log(document.querySelector('[name="viewport"]'));
@@ -92,7 +113,7 @@ window.addEventListener("resize", function() {
     return false;
 }, false);*/
 
-function loadOfflineMap(screenWidth, imagePath){
+function loadOfflineMap(screenWidth, imagePath) {
     // show the offlime map
 }
 
