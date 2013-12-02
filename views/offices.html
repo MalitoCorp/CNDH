@@ -47,7 +47,7 @@
         <ul>
         {{#each delegaciones}}
           <li>
-          <a href="#df" class="sede" 
+          <a href="#mostrarMapa" class="sede" 
               data-image="{{data-image}}" 
               data-lat="{{data-lat}}"
               data-lon="{{data-lon }}"
@@ -63,7 +63,7 @@
   </script>
 
   <script id="mapa" type="text/x-handlebars-template">
-  <form data-position="right" id="df">
+  <form data-position="right" id="mostrarMapa">
     <section role="region">
       <header class="fixed">
         <a href="#primary" class="icon icon-back">back</a>
@@ -85,12 +85,12 @@
   </script>
     <!-- Google maps API -->
   
-  <script type="text/javascript" defer src="../app/handlebars-v1.1.2.js"></script>
-  <script type="text/javascript" defer src="../app/tools.js"></script>
-  <script type="text/javascript" defer src="../app/office.js"></script>
   <script type="text/javascript"
     src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0XYLMBbNN3vsy7PqgzgjnnSc90Dc9ItE&sensor=true">
   </script>
+  <script type="text/javascript" defer src="../app/handlebars-v1.1.2.js"></script>
+  <script type="text/javascript" defer src="../app/tools.js"></script>
+  <script type="text/javascript" defer src="../app/office.js"></script>
   
 </body>
 </html>

@@ -1,7 +1,20 @@
-//window.$ = document.querySelector.bind(document);
 var source   = document.querySelector('#oficinas').innerHTML;
 var template = Handlebars.compile(source);
+var online = navigator.onLine;
 var oficinas = new db("oficinas");
+var DOMcollection = [];
+
+var listaRender = function (_list) {
+  document.getElementById("content").innerHTML = template(_list);
+  var templaMap = document.querySelector('#mapa').innerHTML;
+  var renderMap = Handlebars.compile(templaMap);
+  document.getElementById("contentMap").innerHTML = renderMap();
+  DOMcollection = document.querySelectorAll('.sede');
+  
+  Array.prototype.forEach.call( DOMcollection, function ( DOMelement ) {
+    DOMelement.addEventListener( 'click', mostrarMapa, false );
+  });
+}
 
 getJSON('http://localhost:8888/localdb/oficinas.json?' + Date.now(),
   function (data) {
@@ -14,27 +27,7 @@ getJSON('http://localhost:8888/localdb/oficinas.json?' + Date.now(),
   }
 );
 
-var listaRender = function (_list) {
-  document.getElementById("content").innerHTML = template(_list);
-  var templaMap = document.querySelector('#mapa').innerHTML;
-  var renderMap = Handlebars.compile(templaMap);
-  document.getElementById("contentMap").innerHTML = renderMap();
-}
-
-var online = navigator.onLine;
-//var online = false;
-
-// setTimeout(function (){ 
-//     $('.status').classList.add('down');
-// }, 4000);
-
-// $('.ocultar').addEventListener('click', function (){
-//     $('.status').classList.remove('down');
-// });
-
-[].forEach.call(document.querySelectorAll('.sede'), function (el) {
-    el.addEventListener('click', function () {
-
+var mostrarMapa = function () {
         if (online) {
             // Get data element
             var city = this.querySelector('.ciudad').innerHTML,
@@ -42,13 +35,11 @@ var online = navigator.onLine;
                 latitude = this.getAttribute('data-lat'),
                 longitude = this.getAttribute('data-lon');
 
-            // set the 'city Title' in map screen
             document.querySelector('.city-title').innerHTML = city;
 
             function initMap(lat, lon, title) {
 
                 var latlon = new google.maps.LatLng(lat, lon);
-
                 var mapOptions = {
                     center: latlon,
                     zoom: 18,
@@ -69,56 +60,30 @@ var online = navigator.onLine;
                 });
 
                 marker.setMap(map);
-
             }
-
             initMap(latitude, longitude, city);
-
         } else {
             alert('Para mejores resultados, active Wi-fi o datos');
 
-            // get screen dimentions
-
-            var screenWidth = screen.width,
-                screenHeight = screen.height,
-                city = this.querySelector('.ciudad').innerHTML;
-
-            console.log(screenWidth + '  ll ' + screenHeight);
-
-
+            var city = this.querySelector('.ciudad').innerHTML;
             var imagePath = this.getAttribute('data-image');
             var imageElement = document.createElement("img");
 
-            // set the 'city Title' in map screen
             document.querySelector('.city-title').innerHTML = city;
-
-            // loadOfflineMap(screenWidth, imagePath);
-
             imageElement.setAttribute('src', imagePath);
-            // Delete previous map
             document.querySelector('#map').innerHTML = '';
-            // Load map
             document.querySelector('#map').appendChild(imageElement);
-            //console.log(document.querySelector('[name="viewport"]'));
         }
+};
 
-    }, false);
-});
-
-
-/*
-window.addEventListener("resize", function() {
-    // Get screen size (inner/outerWidth, inner/outerHeight)
-    console.log('lol');
-    return false;
-}, false);*/
-
-function loadOfflineMap(screenWidth, imagePath) {
-    // show the offlime map
-}
-
-
-
-function newWindow() {
-    location.href = "#primary";
-}
+// [].forEach.call( document.querySelectorAll('.sede'), function (el) {
+//     el.addEventListener( 'click', mostrarMapa, false );
+// });
+//window.$ = document.querySelector.bind(document);
+//var online = false;
+// setTimeout(function (){ 
+//     $('.status').classList.add('down');
+// }, 4000);
+// $('.ocultar').addEventListener('click', function (){
+//     $('.status').classList.remove('down');
+// });

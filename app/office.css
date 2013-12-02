@@ -229,13 +229,13 @@ div.ocultar span {
     padding: 1px 5px;
 }
 
-#df {
+#mostrarMapa {
     position: fixed;
     -moz-transform: translateX(100%);
     -moz-transition: -moz-transform 1s;
 }
 
-#df:target {
+#mostrarMapa:target {
     -moz-transform: translateX(0%);
 }
 
