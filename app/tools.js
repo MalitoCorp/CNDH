@@ -20,7 +20,7 @@ function db(_name) {
     this.data = this.get() || [];
 }
 
-var getJSON = function (url, callback, errorCallback) {
+var getJSON = function (url, callback, error) {
     var xhr = new XMLHttpRequest();
     xhr.open('get', url, true);
     xhr.responseType = 'json';

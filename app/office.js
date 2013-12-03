@@ -76,9 +76,7 @@ var mostrarMapa = function () {
         }
 };
 
-// [].forEach.call( document.querySelectorAll('.sede'), function (el) {
-//     el.addEventListener( 'click', mostrarMapa, false );
-// });
+
 //window.$ = document.querySelector.bind(document);
 //var online = false;
 // setTimeout(function (){ 
