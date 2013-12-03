@@ -16,7 +16,7 @@ var listaRender = function (_list) {
   });
 }
 
-getJSON('https://raw.github.com/MalitoCorp/CNDH/master/localdb/oficinas.json?' + Date.now(),
+getJSON('http://www.hiramperez.net/ffos/sedes.php',
   function (data) {
     oficinas.clear();
     oficinas.set(data);
