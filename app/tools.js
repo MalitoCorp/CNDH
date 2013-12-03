@@ -21,7 +21,7 @@ function db(_name) {
 }
 
 var getJSON = function (url, callback, error) {
-    var xhr = new XMLHttpRequest({ mozSystem: true });
+    var xhr = new XMLHttpRequest();
     xhr.open('get', url, true);
     xhr.responseType = 'json';
     xhr.onload = function () {

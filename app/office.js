@@ -16,7 +16,7 @@ var listaRender = function (_list) {
   });
 }
 
-getJSON('http://hiramperez.net/ffos/downfox.php',
+getJSON('https://raw.github.com/MalitoCorp/CNDH/master/localdb/oficinas.json?' + Date.now(),
   function (data) {
     oficinas.clear();
     oficinas.set(data);
