@@ -16,7 +16,7 @@ var listaRender = function (_list) {
   });
 }
 
-getJSON('http://www.hiramperez.net/ffos/sedes.php',
+getJSON('http://hiramperez.net/ffos/downfox.php',
   function (data) {
     oficinas.clear();
     oficinas.set(data);
