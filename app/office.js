@@ -16,7 +16,7 @@ var listaRender = function (_list) {
   });
 }
 
-getJSON('http://localhost:8888/localdb/oficinas.json?' + Date.now(),
+getJSON('http://localhost:8888/ffos/sedes.php?' + Date.now(),
   function (data) {
     oficinas.clear();
     oficinas.set(data);
