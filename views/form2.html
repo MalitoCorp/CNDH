@@ -26,199 +26,11 @@
   <!-- Util CSS: some extra tricks -->
   <link rel="stylesheet" href="../util.css">
   <link rel="stylesheet" href="../fonts.css">
-<style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-    [data-position="right"] {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      transform: translateX(100%);
-      -webkit-transform: translateX(100%);
-      z-index: 15;
-      z-index: 100; /* -> drawer */
-    }
-    section[role="region"][data-position="right"] {
-      position: absolute;
-    }
-    [data-position="right"].current {
-      animation: rightToCurrent 0.4s forwards;
-      -webkit-animation: rightToCurrent 0.4s forwards;
-    }
-    [data-position="right"].right {
-      animation: currentToRight 0.4s forwards;
-      -webkit-animation: currentToRight 0.4s forwards;
-    }
-    [data-position="current"].left {
-      animation: currentToLeft 0.4s forwards;
-      -webkit-animation: currentToLeft 0.4s forwards;
-    }
-    [data-position="current"].current {
-      animation: leftToCurrent 0.4s forwards;
-      -webkit-animation: leftToCurrent 0.4s forwards;
-    }
-    [data-position="back"] {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: -1;
-      opacity: 0;
-      /* z-index: 100; -> drawer */
-    }
-    [data-position="back"].fade-in {
-      z-index: 120;
-      animation: fadeIn 0.2s forwards;
-      -webkit-animation: fadeIn 0.2s forwards;
-    }
-    [data-position="back"].fade-out {
-      animation: fadeOut 0.2s forwards;
-      -webkit-animation: fadeOut 0.2s forwards;
-    }
 
-    [data-position="edit-mode"] {
-      position: absolute;
-      top: -5rem;
-      left: 0;
-      right: 0;
-      bottom: -7rem;
-      z-index: -1;
-      opacity: 0;
-      transition: all 0.3s ease;
-    }
-    [data-position="edit-mode"].edit {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 120;
-      opacity: 1;
-    }
-
-    /* Headers */
-    #headers section[role="region"] {
-      margin-bottom: 1.5rem;
-    }
-    #headers section[role="region"]:not(#drawer) {
-      display: inline;
-    }
-    #headers article header:first-child {
-      margin-top: 1.5rem;
-    }
-    #headers section[role="region"] header h2 {
-      margin: 0 0 1.5rem 0;
-    }
-
-    /* Lists */
-    /* to avoid double background effect on press */
-    [data-type=list] li>a:active { 
-      background-color: transparent;
-    }
-
-    /* Drawer */
-    section[role="region"]:not(#drawer) {
-      transition: none;
-      left: 0;
-      z-index: 0;
-      padding-left: 0;
-    }
-    section[data-type="sidebar"] + section[role="region"] > header:first-child > button, 
-    section[data-type="sidebar"] + section[role="region"] > header:first-child > a {
-      background-position: 3.5rem center;
-    }
-
-    /* Switches */
-    #switches label:last-child {
-      margin-left: 2rem;  
-    }
-
-    /* Scrolling */
-    nav[data-type="scrollbar"] {
-      padding-top: 1rem;
-    }
-    nav[data-type="scrollbar"] p {
-      opacity: 1;
-    }
-
-    /* Seek bars */
-    div[role="slider"] > label.icon {
-      background: no-repeat right top;
-      background-size: 3rem auto;
-    }
-    
-    /* Tabs */
-    #tabs .content {
-      padding: 0;
-    }
-    #tabs .content .content {
-      padding: 1.5rem 3rem;
-    }
-
-    /* Filters */
-    [role="tablist"][data-type="filter"] {
-      margin-bottom: 2rem;
-    }
-
-    .bottom[role="tablist"][data-type="filter"] {
-      bottom: auto;
-    }
-
-    /* Device rotation */
-    .landscape section[role="region"]#drawer > header:first-child {
-      /* Whatever needs to be changed on landscape */
-    }
-
-    #fecha {
-      position: absolute;
-      width: 95%;
-      height: 100%;
-      margin-left: -4%;
-      font-size: 1em;
-      padding-left: 5%;
-    }
-
-    #dependencia {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      margin-left: -6%;
-      border:none;
-      background: transparent;
-      opacity: 0;
-    }
-
-    #option {
-      position: absolute;
-      opacity: 0.6;
-      font-weight: 400;
-    }
-
-    #newcomment {
-      position: fixed;
-      -moz-transform: translateX(100%);
-      -moz-transition: -moz-transform 1s;
-    }
-
-    #newcomment:target {
-      -moz-transform: translateX(0%);
-    }
-    
-    li > h2 {
-      padding-left: 5%;
-    }
-
-    .hidden{ display: none; }
-</style>
+  <link rel="stylesheet" href="../app/form2.css">
 
 </head>
-<body>
+<body onload='getLocalData()'>
 
   <!-- Form -->
   <div class="theme-B content scrollable">
@@ -227,14 +39,13 @@
         <a href="../index.html" class="icon icon-back">back</a>
         <h1>Reportar queja</h1>
       </header>
-      <article class="content scrollable header">
+      <article class="content scrollable header" onkeyup='setLocalData()'>
         <header><h1>¡Bienvenido!</h1><h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2></header>
         <p>
           <ul>
             <li>
               <span class="button icon icon-dialog">
-                <span id="option"></span>
-                <select name="region.current" id="dependencia">
+                 <select name="region.current" id="dependencia" onchange='setLocalData()'>
                   <option>Selecciona dependencia</option>
                   <option>IMSS</option>
                   <option>SEDENA</option>
@@ -269,6 +80,10 @@
         </p>
 
         <p>
+          <input id="direccion" type="text" placeholder="Dirección">
+        </p>
+
+        <p>
           <input id="telefono" type="tel" placeholder="Teléfono contacto" onkeyup="validation(this,'-',patron,true)" maxlength="12">
         </p>
 
@@ -291,7 +106,7 @@
             <li>
               <aside class="pack-end">
                 <label class="pack-checkbox">
-                <input type="checkbox" id="reincide">
+                <input type="checkbox" id="reincide" onchange='setLocalData()'>
                 <span></span>
               </label>
               </aside>
@@ -324,168 +139,9 @@
   <script type="text/javascript" defer src="../js/status.js"></script>
   <script type="text/javascript" defer src="../js/seekbars.js"></script>
 
-  <script type="text/javascript">
 
-    var $ = function(selector){
-      return document.querySelector(selector);
-    }
-
-  </script>
-
-  <script type="text/javascript">
-
-    // Form fields
-    var dependencia = "", 
-        nombre = "", 
-        apellido = "", 
-        correo = "", 
-        descripcion = "", 
-        telefono   = "", 
-        fecha       = "", 
-        reincide    = "";
-
-    $('#go').addEventListener('click', function(){
-
-      nombre = $('#nombre').value;
-      apellido = $('#apellido').value;
-      correo = $('#correo').value;
-      descripcion = $('#descripcion').value;
-      telefono = $('#telefono').value;
-      fecha = $('#fecha').value;
-      reincide = $('#reincide').checked;
-
-      var online = navigator.onLine;
-
-      if(otro != "" && nombre != "" && apellido != "" && telefono != "" && descripcion != "" && fecha != ""){
-        console.log(nombre+"-"+apellido);
-        go.href = '#newcomment';
-        if(online){
-          // se construye la url
-          // fields: dependencia, nombre, apellidos, correo, telefono, descripcion, fecha, reincide
-          var url = "http://firefox-cndh.herokuapp.com/search/?";
-              url += 'dependencia=1';
-              url += '&nombre=' + nombre;
-              url += '&apellidos=' + apellido;
-              url += '&correo=' + correo;
-              url += '&telefono=' + telefono;
-              url += '&descripcion=' + descripcion;
-              url += '&fecha=' + fecha;
-              url += '&reincide=' + reincide;
-              
-
-          var request = new XMLHttpRequest({ mozSystem: true }); // for FFOS
-          
-          request.open("get", url, true);
-
-          request.onreadystatechange = function() {
-            if (request.readyState == 4) {
-              if(request.status == 200 || request.status == 0){
-                
-                var data = request.responseText;
-
-                data = JSON.parse(data);
-                console.log(data[0].pk);
-                var spanElement = document.createElement("span");
-
-                spanElement.innerHTML = 'Su folio es: ' + data[0].pk;
-
-                $('#resultado').appendChild(spanElement);
-                $('#title').innerHTML = 'Su reporte ha sido recibido y está siendo atendido';
-                $('#subtitle').innerHTML = '';
-                $('#progress').classList.add('hidden');
-                /*
-                $('#resultado').append('<span> Su Folio es: ' + fecha_s + '</span>');
-                  $('#title').html('Su reporte ha sido recibido.');
-                  $('#subtitle').html('');
-                  $('#progress').hide();
-                  $('#acept').show();
-                */
-
-              }else{
-                // error 
-              }
-            }
-          } // end request.onreadystatechange
-          request.send();
-
-        }else{  // no connected
-
-        } // end if
-      }
-      else{
-        if(otro == ""){
-          document.getElementById("otro").style.border="0.1rem solid #820000";
-        }
-        if (nombre == "") {
-          document.getElementById("nombre").style.border="0.1rem solid #820000";
-        }
-        if(apellido == ""){
-          document.getElementById("apellido").style.border="0.1rem solid #820000";
-        }
-        if(telefono == ""){
-          document.getElementById("telefono").style.border="0.1rem solid #820000";
-        }
-        if(descripcion == ""){
-          document.getElementById("descripcion").style.border="0.1rem solid #820000";
-        }
-        if(fecha == ""){
-          document.getElementById("fechax").style.border="0.1rem solid #820000";
-        }
-      }
-    });
-
-
-    function newWindow() {
-      location.href="../index.html";
-    }
-
-    //validation for telephone
-    var patron = new Array(3,3,4);
-    function validation(d,sep,pat,nums){
-    if(d.valant != d.value){
-      val = d.value
-      largo = val.length
-      val = val.split(sep)
-      val2 = ''
-      for(r=0;r<val.length;r++){
-        val2 += val[r]  
-      }
-      if(nums){
-        for(z=0;z<val2.length;z++){
-          if(isNaN(val2.charAt(z))){
-            letra = new RegExp(val2.charAt(z),"g")
-            val2 = val2.replace(letra,"")
-          }
-        }
-      }
-      val = ''
-      val3 = new Array()
-      for(s=0; s<pat.length; s++){
-        val3[s] = val2.substring(0,pat[s])
-        val2 = val2.substr(pat[s])
-      }
-      for(q=0;q<val3.length; q++){
-        if(q ==0){
-          val = val3[q]
-        }
-        else{
-          if(val3[q] != ""){
-            val += sep + val3[q]
-            }
-        }
-      }
-      d.value = val
-      d.valant = val
-      }
-    }
-  
-    function validation2() {
-      var name = document.getElementById("nombre");
-      var lastname = document.getElementById("apellido");
-      name.value = name.value.toUpperCase();
-      lastname.value = lastname.value.toUpperCase();
-    }
-  </script>
+  <script type="text/javascript" src="../app/tools.js"></script>
+  <script type="text/javascript" src="../app/form2.js"></script>
 
   <script type="text/javascript">
     /*
