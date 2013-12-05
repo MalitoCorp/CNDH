@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -175,13 +175,13 @@
     #settings-list aside label { margin: 0 1rem 0 0; height: 100%; }
     #settings-list > header h2 { margin: 0 1.5rem; }
 
-    #about, #languaje, #privacy, #questions, #question1, #question2, #question3, #question4, #question5, #question6 {
+    #about, #languaje, #transparency, #questions, #question1, #question2, #question3, #question4, #question5, #question6, #question7, #question8, #question9, #question10, #question11, #question12, #question13, #question14, #question15, #question16, #question17, #question18, #question19, #question20, #question21 {
       position: fixed;
       -moz-transform: translateX(100%);
       -moz-transition: -moz-transform 1s;
     }
 
-    #about:target, #languaje:target, #privacy:target, #questions:target, #question1:target, #question2:target, #question3:target, #question4:target, #question5:target, #question6:target {
+    #about:target, #languaje:target, #transparency:target, #questions:target, #question1:target, #question2:target, #question3:target, #question4:target, #question5:target, #question6:target, #question7:target, #question8:target, #question9:target, #question10:target, #question11:target, #question12:target, #question13:target, #question14:target, #question15:target, #question16:target, #question17:target, #question18:target, #question19:target, #question20:target, #question21:target {
       -moz-transform: translateX(0%);
     }
 
@@ -210,7 +210,7 @@
         <section data-type="list">
           <ul>
             <li>
-              <a href="#about">
+              <a href="#about" id="acerca">
                 <p>Acerca</p>
               </a>
             </li>
@@ -227,8 +227,8 @@
               <p>Idioma</p>
             </li>
              <li>
-              <a href="#privacy">
-                <p>Políticas de privacidad</p>
+              <a href="#transparency">
+                <p>Transparencia</p>
               </a>
             </li>
             <li id="settings-list" role="region" class="skin-organic">
@@ -244,19 +244,28 @@
 
   <form role="dialog" data-type="confirm" id="about">
       <section>
-        <h1><span id="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></h1>
+        <h1>Acerca</h1>
+        <ul>
+          <li>
+            <span>Reporte CNDH</span>
+          </li>
+          <li>
+            <span>Versión: 1.1</span>
+          </li>
+          <li>
+            <span>
+              Es un herramientas de reportes integral para la presentación de quejas ante la CNDH
+            </span> 
+          </li>
+          <li>
+            <span>
+              Jorge A. Díaz Lara, Kyoko Natalia Takahashi, Armando Reyes García, Iddar Olivares Morales, Ángel de Jesús Lira,
+              Hiram E. Pérez Sánchez, Carlos Hernández Anza, Eduardo Martínez Ramírez, Carlo Bautista Hernández, Alejandro Sánchez Bautista, Rodolfo Lugo García, Elesban Landero Berriozábal.
+            </span>
+          </li>
+        </ul>
         <menu>
-          <button class="recommend affirmative full" onclick="newWindow()">OK</button>
+          <button class="recommend affirmative full" onclick="newWindow()">Aceptar</button>
         </menu>
       </section>
     </form>
@@ -272,42 +281,131 @@
           <ul>
             <li>
               <a href="#question1">
-                <p>¿Qué quejas son competentes ante la CNDH?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua</p>
+                <p>¿Qué es la CNDH?</p>
+                <p>La protección y defensa de los Derechos Humanos en México fue elevada a rango constitucional el 28 de enero de 1992, así el Congreso de la Unión y a las legislaturas de los estados estarían facultados para crear organismos especializados que atendieran las quejas en contra de actos u omisiones de naturaleza administrativa violatorios de Derechos Humanos, por parte de cualquier autoridad o servidor público, con excepción de los del Poder Judicial de la Federación, así como para formular recomendaciones públicas autónomas, no vinculatorias, denuncias y quejas ante las autoridades correspondientes. La Comisión Nacional de los Derechos Humanos es un organismo que cuenta con autonomía de gestión y presupuestaria, así como personalidad jurídica y patrimonio propios. El objetivo esencial de este organismo es la protección, observancia, promoción, estudio y divulgación de los Derechos Humanos reconocidos por el Estado mexicano.</p>
               </a>
             </li>
             <li>
               <a href="#question2">
-                <p>¿Qué quejas no son competentes ante la CNDH?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua</p>
+                <p>¿Qué características deben tener las recomendaciones, denuncias y quejas de la CNDH a las autoridades?</p>
+                <p>Deben ser públicas y no vinculatorias.</p>
               </a>
             </li>
             <li>
               <a href="#question3">
-                <p>¿Cómo llamar a la CNDH?</p>
-                <p>Ingresar a la opción "ayuda", y presionar el botón "llamar"</p>
+                <p>¿Qué otras actividades cumple la CNDH?</p>
+                <p>Impulsa la observancia de los Derechos Humanos. Elabora y ejecuta programas preventivos. Seguimiento, evaluación y monitoreo en materia de equidad de género. Formular programas y proponer acciones conjuntas para impulsar el cumplimiento de tratados, convenciones y acuerdos internacionales en el ámbito de los Derechos Humanos de los que México es suscriptor. Supervisar el respeto a los Derechos Humanos en el Sistema Penitenciario Mexicano y de Readaptación Social del país.</p>
               </a>
             </li>
             <li>
               <a href="#question4">
-                <p>¿Cuánto tiempo pasa para dar seguimiento a mi caso?</p>
-                <p>Por lo general, el operador designado de la CNDH determina el tiempo indicado</p>
+                <p>¿Qué asuntos no son competencia de la CNDH?</p>
+                <p>Actos y resoluciones de organismos y autoridades electorales. Resoluciones de carácter jurisdiccional. Consultas formuladas por autoridades, particulares u otras entidades, sobre la interpretación de las disposicion es constitucionales y legales. Por ningún motivo podrá examinar cuestiones jurisdiccionales de fondo. Conflictos entre particulares.</p>
               </a>
             </li>
-             <li>
+            <li>
               <a href="#question5">
-                <p>¿Cómo saber que centro es el más cercano?</p>
-                <p>En la opción "oficinas" se puede visualizar las distintas ubicaciones de la CNDH</p>
+                <p>¿La Comisión es un agente conciliador?</p>
+                <p>Sí, es importante procurar la conciliación entre los quejosos y las autoridades para que se de solución a los conflictos planteados en cuanto antes y de la mejor manera.</p>
               </a>
             </li>
-             <li>
+            <li>
               <a href="#question6">
-                <p>¿Dónde llevo el seguimiento de mi caso?</p>
-                <p>En la opción "reportes", se visualiza los distintos reportes creados y el status de este</p>
+                <p>¿Las acciones de la CNDH suspenden o interrumpen otros procesos?</p>
+                <p>Cabe hacer mención que las quejas y denuncias, las resoluciones y recomendaciones formuladas por la CNDH no afectan el ejercicio de otros derechos y medios de defensa que puedan corresponder a los afectados conforme a las leyes.</p>
               </a>
             </li>
+            <li>
+              <a href="#question7">
+                <p>¿Qué tipo de inconformidades se pueden presentar ante la Comisión?</p>
+                <p>Existen dos tipos de recursos, la queja y la impugnación.</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question8">
+                <p>¿Quién puede presentar una queja?</p>
+                <p>Cualquier persona puede denunciar presuntas violaciones a los Derechos Humanos y acudir ante las oficinas de la Comisión Nacional, ya sea personalmente o por medio de un representante para presentar su queja, así como por teléfono o fax.</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question9">
+                <p>¿Qué procede si el agraviado no puede acudir personalmente?</p>
+                <p>Cuando los interesados estén privados de su libertad o se desconozca su paradero, los hechos pueden ser denunciados por los parientes o vecinos de los afectados, inclusive por menores de edad. Asimismo, las Organizaciones No Gubernamentales legalmente constituidas tienen la facultad para acudir ante la Comisión Nacional y notificar violaciones de derechos humanos de personas que, por sus condiciones físicas, mentales, económicas y culturales, no tengan la capacidad efectiva de presentar quejas de manera directa.</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question10">
+                <p>¿Cuánto tiempo tengo para presentar la queja?</p>
+                <p>La queja debe presentarse dentro del plazo de un año, a partir de la ejecución de los hechos que se estimen violatorios o de que el quejoso hubiese tenido conocimiento de los mismos. En casos excepcionales y tratándose de infracciones graves, la Comisión Nacional puede ampliar el plazo. Menores de edad también pueden denunciar, para lo cual cuentan con la asesoría de personal especializado que recibe la queja en forma oral. En caso de extranjeros o indígenas que no hablen o entiendan español, se les proporciona gratuitamente un traductor.</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question11">
+                <p>¿Puedo presentar una queja anónimamente?</p>
+                <p>No, ya que es de suma importancia conocer los datos del agraviado para resolver el caso. De ser necesario la Comisión mantiene estricta confidencialidad sobre el nombre y demás datos del quejoso.</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question12">
+                <p>¿Cuándo es competente la CNDH para conocer de quejas por presuntos actos u omisiones en contra de los Derechos Humanos?</p>
+                <p>Por actos u omisiones de autoridades administrativas de carácter federal. Cuando los particulares o algún otro agente social cometan ilícitos con la tolerancia o anuencia de algún servidor público o autoridad. O bien cuando servidores públicos o autoridades se nieguen infundadamente a ejercer las atribuciones que legalmente les correspondan en relación con dichos ilícitos, particularmente tratándose de conductas que afecten la integridad física de las personas.</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question13">
+                <p>¿Qué se necesita para presentar una queja ante la CNDH?</p>
+                <p>Ser interpuesto ante la Comisión Nacional. Suscrito por la persona o personas que tengan el carácter de quejosos o agraviados. Que contenga la expresión de las acciones u omisiones atribuibles al organismo local en el trámite de la queja; o, hayan transcurrido por lo menos seis meses desde la fecha de presentación del escrito de queja ante el organismo local y exista una inactividad manifiesta durante ese lapso. Que el referido Organismo Local, respecto del procedimiento de queja que se recurre, no haya dictado recomendación alguna o establecido resolución definitiva sobre el mismo. El recurso de queja deberá presentarse por escrito ante la Comisión Nacional y, en caso de urgencia por correo, fax o telégrafo. En ese documento se indicarán con precisión la omisión o actitud del Organismo Local, los agravios generados, así como las pruebas correspondientes.</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question14">
+                <p>¿Cuál es el paso siguiente a la presentación de queja?</p>
+                <p>La CNDH solicita al Organismo presuntamente responsable un informe del caso, las constancias y fundamentos que justifiquen su conducta, los cuales serán analizados para la emisión de una resolución que puede ser: Recomendación dirigida al Organismo Local correspondiente, a fin de que subsane la omisión o inactividad recurrida. Acuerdo de no responsabilidad dirigido al Organismo Local correspondiente, cuando los agravios hechos valer por el recurrente sean falsos o infundados. Acuerdo de atracción de la queja cuando se considere que el asunto es importante y el Organismo Local puede tardar mucho en expedir su recomendación.</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question15">
+                <p>¿Quién se encarga de llevar el proceso de la queja?</p>
+                <p>Una vez recibida la queja en la CNDH, se le asigna un número de expediente y la Dirección General de Quejas y Orientación la turna de inmediato a la Visitaduría General correspondiente para los efectos de su calificación.</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question16">
+                <p>¿Cuáles son las calificaciones que puede recibir la queja?</p>
+                <p>Presunta violación a Derechos Humanos. No competencia de la Comisión Nacional para conocer de la queja. No competencia de la Comisión Nacional con la necesidad de realizar orientación jurídica. Acuerdo de calificación pendiente, cuando la queja no reúna los requisitos legales o reglamentarios o que sea confusa.</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question17">
+                <p>¿Qué pasa si al concluir la investigación de la queja se demuestra que los actos u omisiones no trasgreden los Derechos Humanos del individuo?</p>
+                <p>La Comisión elabora un "acuerdo de no responsabilidad" publicados en la "Gaceta de la Comisión Nacional de los Derechos Humanos" que debe contener los siguientes aspectos: Antecedentes de los hechos que fueron alegados como violatorios de Derechos Humanos. Enumeración de las evidencias que demuestran la no violación de Derechos Humanos o la inexistencia de aquellas en las que se soporta la violación. Análisis de las causas de no violación a Derechos Humanos. Conclusiones.</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question18">
+                <p>¿Qué son los Derechos Humanos?</p>
+                <p>Los Derechos Humanos son el conjunto de prerrogativas inherentes a la naturaleza de la persona, cuya realización efectiva resulta indispensable para el desarrollo integral del individuo que vive en una sociedad jurídicamente organizada. Estos derechos, establecidos en la Constitución y en las leyes, deben ser reconocidos y garantizados por el Estado.</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question19">
+                <p>¿Quién debe respetar los Derechos Humanos?</p>
+                <p>Todos estamos obligados a respetar los Derechos Humanos de las demás personas. Sin embargo, según el mandato constitucional, quienes tienen mayor responsabilidad en este sentido son las autoridades gubernamentales, es decir, los hombres y mujeres que ejercen la función de servidores públicos.</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question20">
+                <p>¿El bien común se construye a partir del respeto a los Derechos Humanos?</p>
+                <p>La tarea de proteger los Derechos Humanos representa para el Estado la exigencia de proveer y mantener las condiciones necesarias para que, dentro de una situación de justicia, paz y libertad, las personas puedan gozar realmente de todos sus derechos. El bienestar común supone que el poder público debe hacer todo lo necesario para que, de manera paulatina, sean superadas la desigualdad, la pobreza y la discriminación.</p>
+              </a>
+            </li>
+            <li>
+              <a href="#question21">
+                <p>¿Para que sirve la protección y defensa de los Derechos Humanos?</p>
+                <p>Contribuir al desarrollo integral de la persona. Delimitar, para todas las personas, una esfera de autonomía dentro de la cual puedan actuar libremente, protegidas contra los abusos de autoridades, servidores públicos y de particulares. Establecer límites a las actuaciones de todos los servidores públicos, sin importar su nivel jerárquico o institución gubernamental, sea Federal, Estatal o Municipal, siempre con el fin de prevenir los abusos de poder, negligencia o simple desconocimiento de la función. Crear canales y mecanismos de participación que faciliten a todas las personas tomar parte activa en el manejo de los asuntos públicos y en la adopción de las decisiones comunitarias.</p>
+              </a>
+            </li>
+          </ul>
         </section>
       </article>
       </section>
@@ -325,17 +423,12 @@
         </menu>
     </form-->
 
-    <form role="dialog" data-type="confirm" id="privacy">
+    <form role="dialog" data-type="confirm" id="transparency">
       <section>
-        <h1><span id="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.</span></h1>
+        <h1><span id="title">Transparencia</span></h1>
+        <p>La transparencia y el acceso a la información pública se han consolidado como derechos fundamentales de las personas e instrumentos esenciales de una sociedad democrática. Desde su creación, la actuación de la CNDH se rige por valores de calidad, eficiencia, transparencia y rendición de cuentas, por lo que asegurar el ejercicio del acceso a la información constituye también una herramienta que complementa la defensa y promoción de los derechos humanos, motivo por el cual se ha impulsado en todo momento la transparencia. La CNDH garantiza el acceso a la información conforme a los principios de máxima publicidad, transparencia de la gestión pública, resguardo de datos personales para evitar su difusión no autorizada y resolución de controversias originadas por inconformidades derivadas de la negativa a su acceso, modalidad de entrega o información proporcionada.</p>
         <menu id="acept">
-          <button class="recommend affirmative full" onclick="newWindow()">OK</button>
+          <button class="recommend affirmative full" onclick="newWindow()">Aceptar</button>
         </menu>
       </section>
     </form>
@@ -344,68 +437,265 @@
     <!-- Questions -->
     <form role="dialog" data-type="confirm" id="question1">
       <section>
-        <h1>¿Qué quejas son competentes ante la CNDH?</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+        <h1>¿Qué es la CNDH?</h1>
+        <p>La protección y defensa de los Derechos Humanos en México fue elevada a rango constitucional el 28 de enero de 1992, así el Congreso de la Unión y a las legislaturas de los estados estarían facultados para crear organismos especializados que atendieran las quejas en contra de actos u omisiones de naturaleza administrativa violatorios de Derechos Humanos, por parte de cualquier autoridad o servidor público, con excepción de los del Poder Judicial de la Federación, así como para formular recomendaciones públicas autónomas, no vinculatorias, denuncias y quejas ante las autoridades correspondientes. La Comisión Nacional de los Derechos Humanos es un organismo que cuenta con autonomía de gestión y presupuestaria, así como personalidad jurídica y patrimonio propios. El objetivo esencial de este organismo es la protección, observancia, promoción, estudio y divulgación de los Derechos Humanos reconocidos por el Estado mexicano.</p>
       </section>
       <menu id="acept">
-        <button class="recommend affirmative full" onclick="back_question()">OK</button>
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
       </menu>
     </form>
 
     <form role="dialog" data-type="confirm" id="question2">
       <section>
-        <h1>¿Qué quejas no son competentes ante la CNDH?</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+        <h1>¿Qué características deben tener las recomendaciones, denuncias y quejas de la CNDH a las autoridades?</h1>
+        <p>Deben ser públicas y no vinculatorias.</p>
       </section>
       <menu id="acept">
-        <button class="recommend affirmative full" onclick="back_question()">OK</button>
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
       </menu>
     </form>
 
     <form role="dialog" data-type="confirm" id="question3">
       <section>
-        <h1>¿Cómo llamar a la CNDH?</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+        <h1>¿Qué otras actividades cumple la CNDH?</h1>
+        <ul>
+          <li>1. Impulsa la observancia de los Derechos Humanos.</li>
+          <li>2. Elabora y ejecuta programas preventivos.</li>
+          <li>3. Seguimiento, evaluación y monitoreo en materia de equidad de género.</li>
+          <li>4. Formular programas y proponer acciones conjuntas para impulsar el cumplimiento de tratados, convenciones y acuerdos internacionales en el ámbito de los Derechos Humanos de los que México es suscriptor.</li>
+          <li>5. Supervisar el respeto a los Derechos Humanos en el Sistema Penitenciario Mexicano y de Readaptación Social del país.</li>
+        </ul>
       </section>
       <menu id="acept">
-        <button class="recommend affirmative full" onclick="back_question()">OK</button>
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
       </menu>
     </form>
 
     <form role="dialog" data-type="confirm" id="question4">
       <section>
-        <h1>¿Cuánto tiempo pasa para dar seguimiento a mi caso?</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+        <h1>¿Qué asuntos no son competencia de la CNDH?</h1>
+        <ul>
+          <li>1. Actos y resoluciones de organismos y autoridades electorales.</li>
+          <li>2. Resoluciones de carácter jurisdiccional.</li>
+          <li>3. Consultas formuladas por autoridades, particulares u otras entidades, sobre la interpretación de las disposicion es constitucionales y legales.</li>
+          <li>4. Por ningún motivo podrá examinar cuestiones jurisdiccionales de fondo.</li>
+          <li>5. Conflictos entre particulares.</li>
+        </ul>
       </section>
       <menu id="acept">
-        <button class="recommend affirmative full" onclick="back_question()">OK</button>
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
       </menu>
     </form>
 
     <form role="dialog" data-type="confirm" id="question5">
       <section>
-        <h1>¿Cómo saber que centro es el más cercano?</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+        <h1>¿La Comisión es un agente conciliador?</h1>
+        <p>Sí, es importante procurar la conciliación entre los quejosos y las autoridades para que se de solución a los conflictos planteados en cuanto antes y de la mejor manera.</p>
       </section>
       <menu id="acept">
-        <button class="recommend affirmative full" onclick="back_question()">OK</button>
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
       </menu>
     </form>
 
     <form role="dialog" data-type="confirm" id="question6">
       <section>
-        <h1>¿Dónde llevo el seguimiento de mi caso?</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+        <h1>¿Las acciones de la CNDH suspenden o interrumpen otros procesos?</h1>
+        <p>Cabe hacer mención que las quejas y denuncias, las resoluciones y recomendaciones formuladas por la CNDH no afectan el ejercicio de otros derechos y medios de defensa que puedan corresponder a los afectados conforme a las leyes.</p>
       </section>
       <menu id="acept">
-        <button class="recommend affirmative full" onclick="back_question()">OK</button>
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question7">
+      <section>
+        <h1>¿Qué tipo de inconformidades se pueden presentar ante la Comisión?</h1>
+        <p>Existen dos tipos de recursos, la queja y la impugnación.</p>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question8">
+      <section>
+        <h1>¿Quién puede presentar una queja?</h1>
+        <p>Cualquier persona puede denunciar presuntas violaciones a los Derechos Humanos y acudir ante las oficinas de la Comisión Nacional, ya sea personalmente o por medio de un representante para presentar su queja, así como por teléfono o fax.</p>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question9">
+      <section>
+        <h1>¿Qué procede si el agraviado no puede acudir personalmente?</h1>
+        <p>Cuando los interesados estén privados de su libertad o se desconozca su paradero, los hechos pueden ser denunciados por los parientes o vecinos de los afectados, inclusive por menores de edad. Asimismo, las Organizaciones No Gubernamentales legalmente constituidas tienen la facultad para acudir ante la Comisión Nacional y notificar violaciones de derechos humanos de personas que, por sus condiciones físicas, mentales, económicas y culturales, no tengan la capacidad efectiva de presentar quejas de manera directa.</p>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question10">
+      <section>
+        <h1>¿Cuánto tiempo tengo para presentar la queja?</h1>
+        <ul>
+          <li>La queja debe presentarse dentro del plazo de un año, a partir de la ejecución de los hechos que se estimen violatorios o de que el quejoso hubiese tenido conocimiento de los mismos. En casos excepcionales y tratándose de infracciones graves, la Comisión Nacional puede ampliar el plazo.</li>
+          <li>Menores de edad también pueden denunciar, para lo cual cuentan con la asesoría de personal especializado que recibe la queja en forma oral. En caso de extranjeros o indígenas que no hablen o entiendan español, se les proporciona gratuitamente un traductor.</li>
+        </ul>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question11">
+      <section>
+        <h1>¿Puedo presentar una queja anónimamente?</h1>
+        <p>No, ya que es de suma importancia conocer los datos del agraviado para resolver el caso. De ser necesario la Comisión mantiene estricta confidencialidad sobre el nombre y demás datos del quejoso.</p>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question12">
+      <section>
+        <h1>¿Cuándo es competente la CNDH para conocer de quejas por presuntos actos u omisiones en contra de los Derechos Humanos?</h1>
+        <ul>
+          <li>1. Por actos u omisiones de autoridades administrativas de carácter federal.</li>
+          <li>2. Cuando los particulares o algún otro agente social cometan ilícitos con la tolerancia o anuencia de algún servidor público o autoridad.</li>
+          <li>3. O bien cuando servidores públicos o autoridades se nieguen infundadamente a ejercer las atribuciones que legalmente les correspondan en relación con dichos ilícitos, particularmente tratándose de conductas que afecten la integridad física de las personas.</li>
+        </ul>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question13">
+      <section>
+        <h1>¿Qué se necesita para presentar una queja ante la CNDH?</h1>
+        <ul>
+          <li>1. Ser interpuesto ante la Comisión Nacional.</li>
+          <li>2. Suscrito por la persona o personas que tengan el carácter de quejosos o agraviados.</li>
+          <li>3. Que contenga la expresión de las acciones u omisiones atribuibles al organismo local en el trámite de la queja; o, hayan transcurrido por lo menos seis meses desde la fecha de presentación del escrito de queja ante el organismo local y exista una inactividad manifiesta durante ese lapso.</li>
+          <li>4. Que el referido Organismo Local, respecto del procedimiento de queja que se recurre, no haya dictado recomendación alguna o establecido resolución definitiva sobre el mismo.</li>
+          <li>5. El recurso de queja deberá presentarse por escrito ante la Comisión Nacional y, en caso de urgencia por correo, fax o telégrafo. En ese documento se indicarán con precisión la omisión o actitud del Organismo Local, los agravios generados, así como las pruebas correspondientes.</li>
+        </ul>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question14">
+      <section>
+        <h1>¿Cuál es el paso siguiente a la presentación de queja?</h1>
+        <ul>
+          <li>La CNDH solicita al Organismo presuntamente responsable un informe del caso, las constancias y fundamentos que justifiquen su conducta, los cuales serán analizados para la emisión de una resolución que puede ser:</li>
+          <li>1. Recomendación dirigida al Organismo Local correspondiente, a fin de que subsane la omisión o inactividad recurrida.</li>
+          <li>2. Acuerdo de no responsabilidad dirigido al Organismo Local correspondiente, cuando los agravios hechos valer por el recurrente sean falsos o infundados.</li>
+          <li>3. Acuerdo de atracción de la queja cuando se considere que el asunto es importante y el Organismo Local puede tardar mucho en expedir su recomendación.</li>
+        </ul>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question15">
+      <section>
+        <h1>¿Quién se encarga de llevar el proceso de la queja?</h1>
+        <p>Una vez recibida la queja en la CNDH, se le asigna un número de expediente y la Dirección General de Quejas y Orientación la turna de inmediato a la Visitaduría General correspondiente para los efectos de su calificación.</p>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question16">
+      <section>
+        <h1>¿Cuáles son las calificaciones que puede recibir la queja?</h1>
+        <ul>
+          <li>1. Presunta violación a Derechos Humanos.</li>
+          <li>2. No competencia de la Comisión Nacional para conocer de la queja.</li>
+          <li>3. No competencia de la Comisión Nacional con la necesidad de realizar orientación jurídica.</li>
+          <li>4. Acuerdo de calificación pendiente, cuando la queja no reúna los requisitos legales o reglamentarios o que sea confusa.</li>
+        </ul>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question17">
+      <section>
+        <h1>¿Qué pasa si al concluir la investigación de la queja se demuestra que los actos u omisiones no trasgreden los Derechos Humanos del individuo?</h1>
+        <ul>
+          <li>La Comisión elabora un "acuerdo de no responsabilidad" publicados en la "Gaceta de la Comisión Nacional de los Derechos Humanos" que debe contener los siguientes aspectos:</li>
+          <li>1. Antecedentes de los hechos que fueron alegados como violatorios de Derechos Humanos.</li>
+          <li>2. Enumeración de las evidencias que demuestran la no violación de Derechos Humanos o la inexistencia de aquellas en las que se soporta la violación.</li>
+          <li>3. Análisis de las causas de no violación a Derechos Humanos.</li>
+          <li>4. Conclusiones.</li>
+        </ul>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question18">
+      <section>
+        <h1>¿Qué son los Derechos Humanos?</h1>
+        <p>Los Derechos Humanos son el conjunto de prerrogativas inherentes a la naturaleza de la persona, cuya realización efectiva resulta indispensable para el desarrollo integral del individuo que vive en una sociedad jurídicamente organizada. Estos derechos, establecidos en la Constitución y en las leyes, deben ser reconocidos y garantizados por el Estado.</p>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question19">
+      <section>
+        <h1>¿Quién debe respetar los Derechos Humanos?</h1>
+        <p>Todos estamos obligados a respetar los Derechos Humanos de las demás personas. Sin embargo, según el mandato constitucional, quienes tienen mayor responsabilidad en este sentido son las autoridades gubernamentales, es decir, los hombres y mujeres que ejercen la función de servidores públicos.</p>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question20">
+      <section>
+        <h1>¿El bien común se construye a partir del respeto a los Derechos Humanos?</h1>
+        <p>La tarea de proteger los Derechos Humanos representa para el Estado la exigencia de proveer y mantener las condiciones necesarias para que, dentro de una situación de justicia, paz y libertad, las personas puedan gozar realmente de todos sus derechos. El bienestar común supone que el poder público debe hacer todo lo necesario para que, de manera paulatina, sean superadas la desigualdad, la pobreza y la discriminación.</p>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
+      </menu>
+    </form>
+
+    <form role="dialog" data-type="confirm" id="question21">
+      <section>
+        <h1>¿Para que sirve la protección y defensa de los Derechos Humanos?</h1>
+        <ul>
+          <li>1. Contribuir al desarrollo integral de la persona.</li>
+          <li>2. Delimitar, para todas las personas, una esfera de autonomía dentro de la cual puedan actuar libremente, protegidas contra los abusos de autoridades, servidores públicos y de particulares.</li>
+          <li>3. Establecer límites a las actuaciones de todos los servidores públicos, sin importar su nivel jerárquico o institución gubernamental, sea Federal, Estatal o Municipal, siempre con el fin de prevenir los abusos de poder, negligencia o simple desconocimiento de la función.</li>
+          <li>4. Crear canales y mecanismos de participación que faciliten a todas las personas tomar parte activa en el manejo de los asuntos públicos y en la adopción de las decisiones comunitarias.</li>
+        </ul>
+      </section>
+      <menu id="acept">
+        <button class="recommend affirmative full" onclick="back_question()">Aceptar</button>
       </menu>
     </form>
 
 	<script type="text/javascript" defer src="../js/status.js"></script>
 	<script type="text/javascript" defer src="../js/seekbars.js"></script>
-	<script type="text/javascript" defer src="../js/app.js"></script>
+	<script type="text/javascript" defer src=""></script>
   <script>
+
       document.getElementById('call').addEventListener('click', call, false);
       function call(){
         var call = new MozActivity({
