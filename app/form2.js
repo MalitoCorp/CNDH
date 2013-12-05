@@ -228,3 +228,14 @@ var getLocalData = function () {
   $('#fecha').value = datos.fecha;
   $('#reincide').checked = datos.reincide;
 }
+
+var oter = function (element) {
+  var value = element.value;
+  if( value == "Otro" ) {
+    $('.cajaOtro').classList.remove('hidden');
+  }else{
+    $('.cajaOtro').classList.add('hidden');
+  }
+}
+
+

@@ -45,7 +45,7 @@
           <ul>
             <li>
               <span class="button icon icon-dialog">
-                 <select name="region.current" id="dependencia" onchange='setLocalData()'>
+                 <select name="region.current" id="dependencia" onchange='setLocalData(); oter(this)'>
                   <option>Selecciona dependencia</option>
                   <option>IMSS</option>
                   <option>SEDENA</option>
@@ -63,13 +63,13 @@
             </li>
           </ul>
         </p>
-        <p>
+        <p class="cajaOtro" class="hidden">
           <input id="otro" type="text" placeholder="Dependencia">
         </p>
         <p>
         <p>
           <input id="nombre" type="text" placeholder="Nombre(s)" onkeyup="validation2()">
-        </p>
+        </p> 
 
         <p>
           <input id="apellido" type="text" placeholder="Apellidos" onkeyup="validation2()">
