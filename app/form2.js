@@ -67,13 +67,8 @@ $('#go').addEventListener('click', function () {
                         $('#title').innerHTML = 'Su reporte ha sido recibido y está siendo atendido';
                         $('#subtitle').innerHTML = '';
                         $('#progress').classList.add('hidden');
-                        /*
-            $('#resultado').append('<span> Su Folio es: ' + fecha_s + '</span>');
-              $('#title').html('Su reporte ha sido recibido.');
-              $('#subtitle').html('');
-              $('#progress').hide();
-              $('#acept').show();
-            */
+                        datosFormulario.clear();
+                      
 
                     } 
                 }
@@ -183,7 +178,8 @@ function validation2() {
     lastname.value = lastname.value.toUpperCase();
 }
 
-
+// name: Set LocalData
+// Desc: Tomal los valores de los campos del formularios y los almacena en local storage.
 var setLocalData = function(){
 
   dependencia = $('#dependencia').value;
@@ -214,9 +210,10 @@ var setLocalData = function(){
   datosFormulario.set(data);
 }
 
+// name: get LocalData
+// Desc: Recupera los datos del local storage y los muestras en lsus respectivos campos
 var getLocalData = function () {
   var datos = datosFormulario.data[0];
-
   $('#dependencia').value = datos.dependencia;
   $('#otro').value = datos.otro;
   $('#nombre').value = datos.nombre;
@@ -229,13 +226,19 @@ var getLocalData = function () {
   $('#reincide').checked = datos.reincide;
 }
 
+// var valHTML = $('.opcionDependencia').innerHTML;
+
+// name: oter
+// Desc: Muestra el imput 'otro' al selecionar la opcion del mismo nombre del select list.
+// Param: Se pasa el elemento this.
 var oter = function (element) {
-  var value = element.value;
-  if( value == "Otro" ) {
+  var value = $('#dependencia').value;
+  $('.opcionDependencia').innerHTML = value;
+  if( value == "Otro") {
     $('.cajaOtro').classList.remove('hidden');
   }else{
     $('.cajaOtro').classList.add('hidden');
   }
 }
-
+oter();
 
