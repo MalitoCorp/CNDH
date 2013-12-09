@@ -218,5 +218,3 @@ var otherAgency = function (element) {
 
 // Agrego el listener Click al Boton con id='go'
 $('#go').addEventListener('click', sendForm);
-
-
