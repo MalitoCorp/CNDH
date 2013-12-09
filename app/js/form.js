@@ -13,8 +13,14 @@ var //Se acostumbra esta estructura para poder comentar una variable sin rimpar 
   , direccion = ""
   ;
 
+var folio = '';
 // Instancia del objeto db para almacenar datos JSON con LocalStorage
 var datosFormulario = new db("datosFormulario");
+
+// addReport: Redirige a 'notifications.html' y pasa el folio del reporte como parametro.
+function addReport() {
+  location.href = "notifications.html?folio=" + folio;
+}
 
 // !IMPORTANTE: Esta función se debe optimizar para la siguiente version
 // sendForm:
@@ -60,7 +66,7 @@ var sendForm = function () {
             data = JSON.parse(data);
             console.log(data[0].pk);
             var spanElement = document.createElement("span");
-
+            folio = data[0].pk;
             spanElement.innerHTML = 'Su folio es: ' + data[0].pk;
 
             $('#resultado').appendChild(spanElement);

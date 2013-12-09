@@ -8,10 +8,10 @@ var DOMcollection = [];
 // params:  
 //    _list: coleccion de objetos oficina.
 var listaRender = function (_list) {
-  document.getElementById("content").innerHTML = template(_list);
-  var templaMap = document.querySelector('#mapa').innerHTML;
+  $("#content").innerHTML = template(_list);
+  var templaMap = $('#mapa').innerHTML;
   var renderMap = Handlebars.compile(templaMap);
-  document.getElementById("contentMap").innerHTML = renderMap();
+  $("#contentMap").innerHTML = renderMap();
   DOMcollection = document.querySelectorAll('.sede');
   
   Array.prototype.forEach.call( DOMcollection, function ( DOMelement ) {
@@ -40,9 +40,10 @@ var mostrarMapa = function () {
         address = this.querySelector('.direccion').innerHTML,
         latitude = this.getAttribute('data-lat'),
         longitude = this.getAttribute('data-lon');
+    
     $('.city-title').innerHTML = city;
     $('#address').innerHTML = address;
-    
+
     function initMap(lat, lon, title) {
       var latlon = new google.maps.LatLng( lat, lon );
       var mapOptions = {
@@ -70,10 +71,10 @@ var mostrarMapa = function () {
     var imagePath = this.getAttribute('data-image');
     var imageElement = document.createElement("img");
 
-    document.querySelector('.city-title').innerHTML = city;
+    $('.city-title').innerHTML = city;
     imageElement.setAttribute('src', imagePath);
-    document.querySelector('#map').innerHTML = '';
-    document.querySelector('#map').appendChild(imageElement);
+    $('#map').innerHTML = '';
+    $('#map').appendChild(imageElement);
   }
 };
 

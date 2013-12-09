@@ -31,18 +31,26 @@
     </header>
     <article class="content scrollable header">
       <section data-type="list">
-        <ul>
-          <li>
-            <a href="#" data-folio="" data-status="" data-date="" data-message="">
-              <p>Folio: 32534546</p>
-              <p>Fecha: 2013-10-30</p>
-            </a>
-          </li>
+        <ul id="reportes">
         </ul>
       </section>
     </article>
   </section>
 </div>
 
+<script id="reportesTemplate" type="text/x-handlebars-template">
+  {{#each folios}} 
+    <li>
+      <a href="#" data-folio="" data-status="" data-date="" data-message="">
+        <p>Folio: {{folio}}</p>
+        <p>Fecha: 2013-10-30</p>
+      </a>
+    </li>
+  {{/each}}
+</script>
+
+  <script type="text/javascript" defer src="../app/js/handlebars-v1.1.2.js"></script>
+  <script type="text/javascript" defer src="../app/js/tools.js"></script>
+  <script type="text/javascript" defer src="../app/js/notifications.js"></script>
 </body>
 </html>

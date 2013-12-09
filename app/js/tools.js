@@ -57,3 +57,11 @@ var getJSON = function (url, callback, error) {
   };
   xhr.send();
 };
+
+// getURLParameter: Devuelve un objeto con todos los parametros get.
+// return: Objeto JSON
+function getURLParameter(name) {
+    return decodeURIComponent(
+        (location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,null])[1]
+    );  
+}
