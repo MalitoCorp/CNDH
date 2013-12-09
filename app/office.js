@@ -4,6 +4,9 @@ var online = navigator.onLine;
 var oficinas = new db("oficinas");
 var DOMcollection = [];
 
+// Lista render: Dibuja la lista de oficinas.
+// params:  
+//    _list: coleccion de objetos oficina.
 var listaRender = function (_list) {
   document.getElementById("content").innerHTML = template(_list);
   var templaMap = document.querySelector('#mapa').innerHTML;
@@ -16,6 +19,8 @@ var listaRender = function (_list) {
   });
 }
 
+// Descargo la colección de oficinas y la almaceno en local storar
+// o la recupero del local storage cuando no hay conexión 
 getJSON('http://localhost:8888/ffos/sedes.php?' + Date.now(),
   function (data) {
     oficinas.clear();
@@ -27,9 +32,10 @@ getJSON('http://localhost:8888/ffos/sedes.php?' + Date.now(),
   }
 );
 
+
+// Morstar Mapa: Dibuja el mapa de la oficina que lo invoca
 var mostrarMapa = function () {
         if (online) {
-            // Get data element
             var city = this.querySelector('.ciudad').innerHTML,
                 address = this.querySelector('.direccion').innerHTML,
                 latitude = this.getAttribute('data-lat'),
@@ -75,7 +81,6 @@ var mostrarMapa = function () {
             document.querySelector('#map').appendChild(imageElement);
         }
 };
-
 
 //window.$ = document.querySelector.bind(document);
 //var online = false;

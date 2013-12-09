@@ -1,187 +1,164 @@
-var $ = function (selector) {
-    return document.querySelector(selector);
-}
-// Form fields
-var dependencia = "",
-    nombre = "",
-    apellido = "",
-    correo = "",
-    descripcion = "",
-    telefono = "",
-    fecha = "",
-    reincide = "",
-    direccion = "";
-
-var datosFormulario = new db("datosFormulario");
-
-$('#go').addEventListener('click', function () {
-
-    nombre = $('#nombre').value;
-    apellido = $('#apellido').value;
-    correo = $('#correo').value;
-    correo = $('#direccion').value;
-    descripcion = $('#descripcion').value;
-    telefono = $('#telefono').value;
-    fecha = $('#fecha').value;
-    reincide = $('#reincide').checked;
-
-    var online = navigator.onLine;
-
-    if (otro != "" && nombre != "" && apellido != "" && telefono != "" && descripcion != "" && fecha != "") {
-        // console.log(nombre + "-" + apellido);
-        if (online) {
-            go.href = '#newcomment';
-            // se construye la url
-            // fields: dependencia, nombre, apellidos, correo, telefono, descripcion, fecha, reincide
-            var url = "http://firefox-cndh.herokuapp.com/search/?";
-            url += 'dependencia=1';
-            url += '&nombre=' + nombre;
-            url += '&apellidos=' + apellido;
-            url += '&correo=' + correo;
-            url += '&direccion=' + direccion;
-            url += '&telefono=' + telefono;
-            url += '&descripcion=' + descripcion;
-            url += '&fecha=' + fecha;
-            url += '&reincide=' + reincide;
-
-
-            var request = new XMLHttpRequest({
-                mozSystem: true
-            }); // for FFOS
-
-            request.open("get", url, true);
-
-            request.onreadystatechange = function () {
-                if (request.readyState == 4) {
-                    if (request.status == 200 || request.status == 0) {
-
-                        var data = request.responseText;
-
-                        data = JSON.parse(data);
-                        console.log(data[0].pk);
-                        var spanElement = document.createElement("span");
-
-                        spanElement.innerHTML = 'Su folio es: ' + data[0].pk;
-
-                        $('#resultado').appendChild(spanElement);
-                        $('#title').innerHTML = 'Su reporte ha sido recibido y está siendo atendido';
-                        $('#subtitle').innerHTML = '';
-                        $('#progress').classList.add('hidden');
-                        datosFormulario.clear();
-                      
-
-                    } 
-                }
-            } // end request.onreadystatechange
-            request.send();
-
-        } else { // no connected
-
-                        // error 
-                        setLocalData();
-                        alert("Su dispositivo no tiene conexion a internet intentelo mas tarde.");                  
-                    
-        } // end if
-    } else {
-        if (otro == "") {
-            document.getElementById("otro").style.border = "0.1rem solid #820000";
-        }
-        if (nombre == "") {
-            document.getElementById("nombre").style.border = "0.1rem solid #820000";
-        }
-        if (apellido == "") {
-            document.getElementById("apellido").style.border = "0.1rem solid #820000";
-        }
-        if (telefono == "") {
-            document.getElementById("telefono").style.border = "0.1rem solid #820000";
-        }if (direccion == "") {
-            document.getElementById("direccion").style.border = "0.1rem solid #820000";
-        }
-        if (descripcion == "") {
-            document.getElementById("descripcion").style.border = "0.1rem solid #820000";
-        }
-        if (fecha == "") {
-            document.getElementById("fechax").style.border = "0.1rem solid #820000";
-        }
-    }
-});
-
-
-function newWindow() {
-    location.href = "../index.html";
-}
-
-var formatoTelefono = function ( event , element ){
-  // console.log( event.keyCode );
-  var tel  = element.value;
-  var size = tel.length;
-
-  console.log(tel.length);
-  if( tel.length == 3  || tel.length == 7 )
-    element.value += '-';
-  
-  if( event.keyCode == 8 )
-    if( (tel.length == 5 || tel.length == 9) && tel[ tel.length - 2 ] == '-' )
-       element.value = tel.substring( 0, tel.length - 1 );
-    //else
-      //element.value = tel.substring( 0, tel.length - 1 );
-
-  console.log(tel.length);
-
-}
-//validation for telephone
+// Patron para la validacion del Telefono
 var patron = new Array(3, 3, 4);
 
-function validation(d, sep, pat, nums) {
-    if (d.valant != d.value) {
-        val = d.value;
-        largo = val.length;
-        val = val.split(sep);
-        val2 = '';
-        for (r = 0; r < val.length; r++) {
-            val2 += val[r];
+var //Se acostumbra esta estructura para poder comentar una variable sin rimpar el codigo.
+    dependencia = ""
+  , nombre = ""
+  , apellido = ""
+  , correo = ""
+  , descripcion = ""
+  , telefono = ""
+  , fecha = ""
+  , reincide = ""
+  , direccion = ""
+  ;
+
+// Instancia del objeto db para almacenar datos JSON con LocalStorage
+var datosFormulario = new db("datosFormulario");
+
+// name:  newWindow
+// Desc:  Redirige al inicio de la aplicacón
+function newWindow() {
+  location.href = "../index.html";
+}
+
+// !IMPORTANTE: Esta función se debe optimizar para la siguiente version
+// Emviar Formulario:
+//  Valida e envia el formulario, 
+//  de ser enviado correcta mente muestra el Folio del reporte,
+//  de los contrario almacena los datos para emviarlos posterios mente. 
+var enviarForm = function () {
+  var online = navigator.onLine;
+  
+  nombre = $('#nombre').value;
+  apellido = $('#apellido').value;
+  correo = $('#correo').value;
+  correo = $('#direccion').value;
+  descripcion = $('#descripcion').value;
+  telefono = $('#telefono').value;
+  fecha = $('#fecha').value;
+  reincide = $('#reincide').checked;
+
+  if ( nombre != "" && apellido != "" && telefono != "" && descripcion != "" && fecha != "") {
+    if (online) {
+      go.href = '#newcomment';
+
+      // se construye la url
+      // fields: dependencia, nombre, apellidos, correo, telefono, descripcion, fecha, reincide
+      var url = "http://firefox-cndh.herokuapp.com/search/?";
+      url += 'dependencia=1';
+      url += '&nombre=' + nombre;
+      url += '&apellidos=' + apellido;
+      url += '&correo=' + correo;
+      url += '&direccion=' + direccion;
+      url += '&telefono=' + telefono;
+      url += '&descripcion=' + descripcion;
+      url += '&fecha=' + fecha;
+      url += '&reincide=' + reincide;
+
+      var request = new XMLHttpRequest( { mozSystem: true } ); // for FFOS
+      request.open("get", url, true);
+
+      request.onreadystatechange = function () {
+        if (request.readyState == 4) {
+          if (request.status == 200 || request.status == 0) {
+            var data = request.responseText;
+            data = JSON.parse(data);
+            console.log(data[0].pk);
+            var spanElement = document.createElement("span");
+
+            spanElement.innerHTML = 'Su folio es: ' + data[0].pk;
+
+            $('#resultado').appendChild(spanElement);
+            $('#title').innerHTML = 'Su reporte ha sido recibido y está siendo atendido';
+            $('#subtitle').innerHTML = '';
+            $('#progress').classList.add('hidden');
+            datosFormulario.clear();
+          } 
         }
-        if (nums) {
-            for (z = 0; z < val2.length; z++) {
-                if (isNaN(val2.charAt(z))) {
-                    letra = new RegExp(val2.charAt(z), "g");
-                    val2 = val2.replace(letra, "");
-                }
-            }
-        }
-        val = '';
-        val3 = new Array()
-        for (s = 0; s < pat.length; s++) {
-            val3[s] = val2.substring(0, pat[s]);
-            val2 = val2.substr(pat[s]);
-        }
-        for (q = 0; q < val3.length; q++) {
-            if (q == 0) {
-                val = val3[q];
-            } else {
-                if (val3[q] != "") {
-                    val += sep + val3[q];
-                }
-            }
-        }
-        d.value = val;
-        // console.log(d.value);
-        // setLocalData();
-        d.valant = val;
+      }
+      request.send();
+    } else {
+        setLocalData();
+        alert("Su dispositivo no tiene conexion a internet intentelo mas tarde.");                  
     }
+  } else {
+    if (otro == "") {
+      document.getElementById("otro").style.border = "0.1rem solid #820000";
+    }
+    if (nombre == "") {
+      document.getElementById("nombre").style.border = "0.1rem solid #820000";
+    }
+    if (apellido == "") {
+      document.getElementById("apellido").style.border = "0.1rem solid #820000";
+    }
+    if (telefono == "") {
+      document.getElementById("telefono").style.border = "0.1rem solid #820000";
+    }if (direccion == "") {
+      document.getElementById("direccion").style.border = "0.1rem solid #820000";
+    }
+    if (descripcion == "") {
+      document.getElementById("descripcion").style.border = "0.1rem solid #820000";
+    }
+    if (fecha == "") {
+      document.getElementById("fechax").style.border = "0.1rem solid #820000";
+    }
+  }
 }
 
-function validation2() {
-    var name = document.getElementById("nombre");
-    var lastname = document.getElementById("apellido");
-    name.value = name.value.toUpperCase();
-    lastname.value = lastname.value.toUpperCase();
+// !IMPORTANTE: Esta función se debe optimizar para la siguiente version
+// formatoTelefono: Da el formato con guiones al telefono
+// params:
+//    d: 'Elemento del DOM this'
+//    sep: 'Separador'
+//    pat: 'Patron del formato'
+//    nums: 'isnum' 
+function formatoTelefono(d, sep, pat, nums) {
+  if (d.valant != d.value) {
+    val = d.value;
+    largo = val.length;
+    val = val.split(sep);
+    val2 = '';
+    for (r = 0; r < val.length; r++) {
+      val2 += val[r];
+    }
+    if (nums) {
+      for (z = 0; z < val2.length; z++) {
+        if (isNaN(val2.charAt(z))) {
+          letra = new RegExp(val2.charAt(z), "g");
+          val2 = val2.replace(letra, "");
+        }
+      }
+    }
+    val = '';
+    val3 = new Array()
+    for (s = 0; s < pat.length; s++) {
+      val3[s] = val2.substring(0, pat[s]);
+      val2 = val2.substr(pat[s]);
+    }
+    for (q = 0; q < val3.length; q++) {
+      if (q == 0) {
+        val = val3[q];
+      } else {
+        if (val3[q] != "") {
+          val += sep + val3[q];
+        }
+      }
+    }
+    d.value = val;
+        d.valant = val;
+  }
 }
 
-// name: Set LocalData
-// Desc: Tomal los valores de los campos del formularios y los almacena en local storage.
-var setLocalData = function(){
+var validation2 = function () {
+  var name = document.getElementById("nombre");
+  var lastname = document.getElementById("apellido");
+  name.value = name.value.toUpperCase();
+  lastname.value = lastname.value.toUpperCase();
+}
 
+// Set LocalData: Tomal los valores de los campos del formularios y los almacena en local storage.
+var setLocalData = function () {
   dependencia = $('#dependencia').value;
   otro = $('#otro').value;
   nombre = $('#nombre').value;
@@ -193,7 +170,7 @@ var setLocalData = function(){
   fecha = $('#fecha').value;
   reincide = $('#reincide').checked;
 
-  var data = {
+  var data = { //Se crea el objeto
     dependencia: dependencia,
     otro: otro,
     nombre : nombre,
@@ -205,13 +182,12 @@ var setLocalData = function(){
     fecha: fecha,
     reincide: reincide
   };
-
   datosFormulario.clear();
   datosFormulario.set(data);
+  data = null;
 }
 
-// name: get LocalData
-// Desc: Recupera los datos del local storage y los muestras en lsus respectivos campos
+// Get LocalData: Recupera los datos del local storage y los muestras en lsus respectivos campos
 var getLocalData = function () {
   var datos = datosFormulario.data[0];
   $('#dependencia').value = datos.dependencia;
@@ -226,11 +202,9 @@ var getLocalData = function () {
   $('#reincide').checked = datos.reincide;
 }
 
-// var valHTML = $('.opcionDependencia').innerHTML;
-
-// name: oter
-// Desc: Muestra el imput 'otro' al selecionar la opcion del mismo nombre del select list.
-// Param: Se pasa el elemento this.
+// oter: Muestra el imput 'otro' al selecionar la opcion del mismo nombre del select list.
+// params:  
+//   element: Se pasa el elemento this.
 var oter = function (element) {
   var value = $('#dependencia').value;
   $('.opcionDependencia').innerHTML = value;
@@ -240,5 +214,8 @@ var oter = function (element) {
     $('.cajaOtro').classList.add('hidden');
   }
 }
-oter();
 
+// Agrego el listener Click al Boton con id='go'
+$('#go').addEventListener('click', enviarForm);
+
+oter();
