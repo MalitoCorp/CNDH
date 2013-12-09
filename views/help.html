@@ -20,7 +20,7 @@
   <!-- Util CSS: some extra tricks -->
   <link rel="stylesheet" href="../util.css">
   <link rel="stylesheet" href="../fonts.css">
-  <link rel="stylesheet" href="../app/help.css">
+  <link rel="stylesheet" href="../app/css/help.css">
 
   <style>
 
@@ -30,7 +30,7 @@
 <div class="theme-B">
 	<section id="drawer" role="region" class="primary">
       <header class="fixed">
-      <a href="../index.html" class="icon icon-back">back</a>
+      <a href="index.html" class="icon icon-back">back</a>
       <h1>Ayuda</h1>
     </header>
       <article class="content scrollable header">
@@ -518,11 +518,8 @@
       </menu>
     </form>
 
-	<script type="text/javascript" defer src="../js/status.js"></script>
-	<script type="text/javascript" defer src="../js/seekbars.js"></script>
-	<script type="text/javascript" defer src=""></script>
-  <script>
 
+	<script type="text/javascript">
       document.getElementById('call').addEventListener('click', call, false);
       function call(){
         var call = new MozActivity({

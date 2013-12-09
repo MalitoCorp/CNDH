@@ -1,4 +1,4 @@
-var source   = document.querySelector('#oficinas').innerHTML;
+var source = document.querySelector('#oficinas').innerHTML;
 var template = Handlebars.compile(source);
 var online = navigator.onLine;
 var oficinas = new db("oficinas");
@@ -19,9 +19,9 @@ var listaRender = function (_list) {
   });
 }
 
-// Descargo la colección de oficinas y la almaceno en local storar
+// Descargo la colección de oficinas y la almaceno en local storage
 // o la recupero del local storage cuando no hay conexión 
-getJSON('http://localhost:8888/ffos/sedes.php?' + Date.now(),
+getJSON( 'http://localhost:8888/ffos/sedes.php?' + Date.now(),
   function (data) {
     oficinas.clear();
     oficinas.set(data);
@@ -35,17 +35,15 @@ getJSON('http://localhost:8888/ffos/sedes.php?' + Date.now(),
 
 // Morstar Mapa: Dibuja el mapa de la oficina que lo invoca
 var mostrarMapa = function () {
-        if (online) {
+        if ( online ) {
             var city = this.querySelector('.ciudad').innerHTML,
                 address = this.querySelector('.direccion').innerHTML,
                 latitude = this.getAttribute('data-lat'),
                 longitude = this.getAttribute('data-lon');
-
-            document.querySelector('.city-title').innerHTML = city;
+            $('.city-title').innerHTML = city;
 
             function initMap(lat, lon, title) {
-
-                var latlon = new google.maps.LatLng(lat, lon);
+                var latlon = new google.maps.LatLng( lat, lon );
                 var mapOptions = {
                     center: latlon,
                     zoom: 18,
@@ -54,22 +52,18 @@ var mostrarMapa = function () {
                     },
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 }
-
-                var el_map = document.getElementById("map");
-
+                var el_map = $("#map");
                 var map = new google.maps.Map(el_map, mapOptions);
-
                 var marker = new google.maps.Marker({
                     position: latlon,
                     title: title,
                     animation: google.maps.Animation.DROP
                 });
-
-                marker.setMap(map);
+                marker.setMap( map );
             }
-            initMap(latitude, longitude, city);
+            initMap( latitude, longitude, city );
         } else {
-            alert('Para mejores resultados, active Wi-fi o datos');
+            alert( 'Para mejores resultados, active Wi-fi o datos' );
 
             var city = this.querySelector('.ciudad').innerHTML;
             var imagePath = this.getAttribute('data-image');

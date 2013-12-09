@@ -6,55 +6,52 @@
   <title>Comision nacional de los derechos humanos</title>
   <!-- Building blocks -->
 
-  <link rel="stylesheet" href="themes/whatev/tabs.css">
-  <link rel="stylesheet" href="themes/whatev/buttons.css">
-  <link rel="stylesheet" href="themes/whatev/drawer.css">
+  <link rel="stylesheet" href="../themes/whatev/tabs.css">
+  <link rel="stylesheet" href="../themes/whatev/buttons.css">
+  <link rel="stylesheet" href="../themes/whatev/drawer.css">
   
   <!-- Icons -->
   <link rel="stylesheet" href="themes/whatev/icons.css">
 
   <!-- Transitions -->
-  <link rel="stylesheet" href="transitions.css">
+  <link rel="stylesheet" href="../transitions.css">
   
   <!-- Util CSS: some extra tricks -->
-  <link rel="stylesheet" href="util.css">
-  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="../util.css">
+  <link rel="stylesheet" href="../fonts.css">
 
   <!-- Additional markup to make Building Blocks kind of cross browser -->
-  <link rel="stylesheet" href="cross_browser.css">
+  <link rel="stylesheet" href="../cross_browser.css">
   
 
-  <link rel="stylesheet" href="app/main.css">
+  <link rel="stylesheet" href="../app/css/main.css">
 
 </head>
 <body>
     <section id="drawer" role="region">
-        <img id="logo" src="images/logo_cndh.jpg">
+        <img id="logo" src="../images/logo_cndh.jpg">
         <button class="theme-B" role="button" onclick="newWindow()">Reportar queja</button>
         <ul role="tablist" data-items="3" class="bottom">
           <li id="panel1" role="tab">
-            <a id="help" href="views/help.html">Ayuda</a>
+            <a id="help" href="help.html">Ayuda</a>
             <div role="tabpanel"></div>
           </li>
           <li id="panel2" role="tab">
-            <a id="ubicacion" href="views/offices.html">Oficinas</a>
+            <a id="ubicacion" href="offices.html">Oficinas</a>
             <div role="tabpanel"></div>
           </li>
           <li id="panel3" role="tab">
-            <a id="notification" href="views/notifications.html">Reportes</a>
+            <a id="notification" href="notifications.html">Reportes</a>
             <div role="tabpanel"></div>
           </li>
         </ul>
         
         <script type="text/javascript">
           function newWindow() {
-            location.href="views/form2.html";
+            location.href="form.html";
           }
         </script>
     </section>
-
-  <script type="text/javascript" defer src="js/status.js"></script>
-  <script type="text/javascript" defer src="js/seekbars.js"></script>
 
 </body>
 </html>

@@ -1,3 +1,7 @@
+// Mozillians-CTIM Team
+// Nobiembre 2013
+// Github: https://raw.github.com/MalitoCorp/CNDH/master/app/js/tools.js
+
 // $: cache del metodo querySelector
 window.$ = document.querySelector.bind(document);
 

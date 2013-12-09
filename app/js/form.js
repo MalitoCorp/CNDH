@@ -23,11 +23,11 @@ function newWindow() {
 }
 
 // !IMPORTANTE: Esta función se debe optimizar para la siguiente version
-// Emviar Formulario:
+// sendForm:
 //  Valida e envia el formulario, 
 //  de ser enviado correcta mente muestra el Folio del reporte,
 //  de los contrario almacena los datos para emviarlos posterios mente. 
-var enviarForm = function () {
+var sendForm = function () {
   var online = navigator.onLine;
   
   nombre = $('#nombre').value;
@@ -107,13 +107,13 @@ var enviarForm = function () {
 }
 
 // !IMPORTANTE: Esta función se debe optimizar para la siguiente version
-// formatoTelefono: Da el formato con guiones al telefono
+// formatPhone: Da el formato con guiones al telefono
 // params:
 //    d: 'Elemento del DOM this'
 //    sep: 'Separador'
 //    pat: 'Patron del formato'
 //    nums: 'isnum' 
-function formatoTelefono(d, sep, pat, nums) {
+function formatPhone(d, sep, pat, nums) {
   if (d.valant != d.value) {
     val = d.value;
     largo = val.length;
@@ -150,7 +150,8 @@ function formatoTelefono(d, sep, pat, nums) {
   }
 }
 
-var validation2 = function () {
+// upperCase: Pasa a mayusculas los campos nombre y apellido
+var upperCase = function () {
   var name = document.getElementById("nombre");
   var lastname = document.getElementById("apellido");
   name.value = name.value.toUpperCase();
@@ -202,10 +203,10 @@ var getLocalData = function () {
   $('#reincide').checked = datos.reincide;
 }
 
-// oter: Muestra el imput 'otro' al selecionar la opcion del mismo nombre del select list.
+// otherAgency: Muestra el imput 'otro' al selecionar la opcion del mismo nombre del select list.
 // params:  
 //   element: Se pasa el elemento this.
-var oter = function (element) {
+var otherAgency = function (element) {
   var value = $('#dependencia').value;
   $('.opcionDependencia').innerHTML = value;
   if( value == "Otro") {
@@ -216,6 +217,6 @@ var oter = function (element) {
 }
 
 // Agrego el listener Click al Boton con id='go'
-$('#go').addEventListener('click', enviarForm);
+$('#go').addEventListener('click', sendForm);
 
-oter();
+
