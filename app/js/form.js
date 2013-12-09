@@ -16,12 +16,6 @@ var //Se acostumbra esta estructura para poder comentar una variable sin rimpar 
 // Instancia del objeto db para almacenar datos JSON con LocalStorage
 var datosFormulario = new db("datosFormulario");
 
-// name:  newWindow
-// Desc:  Redirige al inicio de la aplicacón
-function newWindow() {
-  location.href = "../index.html";
-}
-
 // !IMPORTANTE: Esta función se debe optimizar para la siguiente version
 // sendForm:
 //  Valida e envia el formulario, 

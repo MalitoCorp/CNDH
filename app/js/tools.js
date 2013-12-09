@@ -17,25 +17,25 @@ window.$ = document.querySelector.bind(document);
 //  clear: Limpia la colección.
 //  data:  Envoltorio del metodo get que devuelve nulo en caso de error.
 function db(_name) {
-    this.name = _name;
+  this.name = _name;
 
-    this.length = function () {
-        return this.data.length;
-    }
-    this.set = function (_data) {
-        this.data.push(_data);
-        var data_string = JSON.stringify(this.data);
-        localStorage.setItem(this.name, data_string);
-    }
-    this._get = function () {
-        var data_string = localStorage.getItem(this.name);
-        return JSON.parse(data_string);
-    }
-    this.clear = function () {
-        localStorage.setItem(this.name, '[]');
-        this.data = [];
-    }
-    this.data = this._get() || [];
+  this.length = function () {
+    return this.data.length;
+  }
+  this.set = function (_data) {
+    this.data.push(_data);
+    var data_string = JSON.stringify(this.data);
+    localStorage.setItem(this.name, data_string);
+  }
+  this._get = function () {
+    var data_string = localStorage.getItem(this.name);
+    return JSON.parse(data_string);
+  }
+  this.clear = function () {
+    localStorage.setItem(this.name, '[]');
+    this.data = [];
+  }
+  this.data = this._get() || [];
 }
 
 // Get JSON: Descargar un Archivo JSON de manera asincrona.
@@ -44,16 +44,16 @@ function db(_name) {
 //    callback: función callback (se pasa como parametro el objeto JSON descargado)
 //    error: funcion que se ejecuta en caso de error al descargar el archivo.
 var getJSON = function (url, callback, error) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('get', url, true);
-    xhr.responseType = 'json';
-    xhr.onload = function () {
-        var status = xhr.status;
-        if (status == 200) {
-            callback && callback(xhr.response);
-        } else {
-            error && error(status);
-        }
-    };
-    xhr.send();
+  var xhr = new XMLHttpRequest();
+  xhr.open('get', url, true);
+  xhr.responseType = 'json';
+  xhr.onload = function () {
+    var status = xhr.status;
+    if (status == 200) {
+      callback && callback(xhr.response);
+    } else {
+      error && error(status);
+    }
+  };
+  xhr.send();
 };
