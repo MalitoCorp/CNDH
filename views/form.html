@@ -40,6 +40,7 @@
       </header>
       <article class="content scrollable header" onkeyup='setLocalData()'>
         <header><h1>¡Bienvenido!</h1><h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2></header>
+        <form action="#confirm" method="get">
         <p>
           <ul>
             <li>
@@ -62,7 +63,7 @@
           </ul>
         </p>
         <p class="cajaOtro" class="hidden">
-          <input id="otro" type="text" placeholder="Dependencia">
+          <input id="otro" type="text" placeholder="Dependencia" required>
         </p>
         <p>
         <p>
@@ -113,8 +114,10 @@
           </ul>
         </section>
 
-        <p><a href="#" id="go"><button class="theme-B" role="button">Enviar</button></a></p>
-
+        <p><!--a href="#" id="go"><button class="theme-B" role="button">Enviar</button></a-->
+          <input type="submit" value="Enviar" class="theme-B" role="button">
+        </p>
+        </form>
       </arcticle>
     </section>
   </div>
