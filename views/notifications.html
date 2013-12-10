@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, user-scalable=no" />
   <title>Formulario</title>
   <!-- Building blocks -->
+  <link rel="stylesheet" href="../themes/whatev/buttons.css">
   <link rel="stylesheet" href="../style/confirm.css">
   <link rel="stylesheet" href="../themes/whatev/headers.css">
   <link rel="stylesheet" href="../themes/whatev/drawer.css">
-  <link rel="stylesheet" href="../style_unstable/lists.css">
+  <link rel="stylesheet" href="../style/lists.css">
 
   <!-- Icons -->
   <link rel="stylesheet" href="../themes/whatev/icons.css">
@@ -23,7 +24,7 @@
   <link rel="stylesheet" href="../app/css/notifications.css">
 </head>
 <body>
-<div class="theme-B">
+<div class="theme-B" id="primary">
 	<section id="drawer" role="region">
     <header class="fixed">
       <a href="../index.html" class="icon icon-back">back</a>
@@ -41,13 +42,29 @@
 <script id="reportesTemplate" type="text/x-handlebars-template">
   {{#each folios}} 
     <li>
-      <a class="reporte" href="#" data-folio="" data-status="" data-date="" data-message="">
+      <a class="reporte" href="#confirm" data-folio="" data-status="" data-date="" data-message="">
         <p>Folio: <span>{{folio}}</span></p>
         <p>Fecha: 2013-10-30</p>
       </a>
     </li>
   {{/each}}
 </script>
+
+    <form role="dialog" data-type="confirm" id="confirm">
+      <section>
+        <h1><span id="title">Folio: 3243424</span></h1>
+        <p>Su queja tiene el estado de: Recibido</p>
+        <menu id="acept">
+          <button class="recommend affirmative full" onclick="newWindow()">Aceptar</button>
+        </menu>
+      </section>
+    </form>
+
+  <script type="text/javascript">
+    function newWindow() {
+      location.href="#primary";
+    }
+  </script>
 
   <script type="text/javascript" defer src="../app/js/handlebars-v1.1.2.js"></script>
   <script type="text/javascript" defer src="../app/js/tools.js"></script>

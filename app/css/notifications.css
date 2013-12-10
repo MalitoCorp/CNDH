@@ -147,3 +147,17 @@ div[role="slider"] > label.icon {
 #recommend {
   width: 100%;
 }
+
+#confirm {
+  position: fixed;
+  -moz-transform: translateX(100%);
+  -moz-transition: -moz-transform 1s;
+}
+
+#confirm:target {
+  -moz-transform: translateX(0%);
+}
+
+.primary:target {
+  -moz-transform: translateX(0%);
+}
