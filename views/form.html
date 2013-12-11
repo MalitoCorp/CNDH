@@ -40,7 +40,7 @@
       </header>
       <article class="content scrollable header" onkeyup='setLocalData()'>
         <header><h1>¡Bienvenido!</h1><h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2></header>
-        <form action="#newcomment" method="get">
+        <!--form action="#confirm" method="get"-->
         <p>
           <ul>
             <li>
@@ -67,7 +67,7 @@
         </p>
         <p>
         <p>
-          <input id="nombre" type="text" placeholder="Nombre(s)" onkeyup="upperCase()" required>
+          <input id="nombre" type="text" placeholder="Nombre(s)" onkeyup="upperCase()">
         </p> 
 
         <p>
@@ -114,10 +114,10 @@
           </ul>
         </section>
 
-        <p><!--a href="#" id="go"><button class="theme-B" role="button">Enviar</button></a-->
-          <input type="submit" value="Enviar" class="theme-B full" role="button">
+        <p><a href="#" id="go"><button class="theme-B" role="button">Enviar</button></a>
+          <!--input type="submit" value="Enviar" class="theme-B full" role="button">
         </p>
-        </form>
+        </form-->
       </arcticle>
     </section>
   </div>
@@ -131,7 +131,7 @@
         <!-- Note: inline style only for demo purposes -->
         <p style="text-align: center;" id="progress"><progress></progress></p>
         <menu id="acept">
-          <button class="recommend affirmative full" onclick="addReport()">Aceptar</button>
+          <button class="recommend affirmative full" onclick="addReport()">OK</button>
         </menu>
       </section>
     </form>
