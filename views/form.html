@@ -40,7 +40,7 @@
       </header>
       <article class="content scrollable header" onkeyup='setLocalData()'>
         <header><h1>¡Bienvenido!</h1><h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2></header>
-        <form action="#confirm" method="get">
+        <form action="#newcomment" method="get">
         <p>
           <ul>
             <li>
@@ -63,11 +63,11 @@
           </ul>
         </p>
         <p class="cajaOtro" class="hidden">
-          <input id="otro" type="text" placeholder="Dependencia" required>
+          <input id="otro" type="text" placeholder="Dependencia">
         </p>
         <p>
         <p>
-          <input id="nombre" type="text" placeholder="Nombre(s)" onkeyup="upperCase()">
+          <input id="nombre" type="text" placeholder="Nombre(s)" onkeyup="upperCase()" required>
         </p> 
 
         <p>
@@ -131,7 +131,7 @@
         <!-- Note: inline style only for demo purposes -->
         <p style="text-align: center;" id="progress"><progress></progress></p>
         <menu id="acept">
-          <button class="recommend affirmative full" onclick="addReport()">OK</button>
+          <button class="recommend affirmative full" onclick="addReport()">Aceptar</button>
         </menu>
       </section>
     </form>
