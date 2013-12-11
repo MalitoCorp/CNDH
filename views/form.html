@@ -40,7 +40,7 @@
       </header>
       <article class="content scrollable header" onkeyup='setLocalData()'>
         <header><h1>¡Bienvenido!</h1><h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2></header>
-        <!--form action="#confirm" method="get"-->
+        <form>
         <p>
           <ul>
             <li>
@@ -67,7 +67,7 @@
         </p>
         <p>
         <p>
-          <input id="nombre" type="text" placeholder="Nombre(s)" onkeyup="upperCase()">
+          <input id="nombre" type="text" placeholder="Nombre(s)" onkeyup="upperCase()" required>
         </p> 
 
         <p>
@@ -114,10 +114,10 @@
           </ul>
         </section>
 
-        <p><a href="#" id="go"><button class="theme-B" role="button">Enviar</button></a>
-          <!--input type="submit" value="Enviar" class="theme-B full" role="button">
+        <p><!--a href="#" id="go"><button class="theme-B" role="button">Enviar</button></a-->
+          <input type="submit" onclick="sendForm()" value="Enviar" class="theme-B full" role="button">
         </p>
-        </form-->
+        </form>
       </arcticle>
     </section>
   </div>

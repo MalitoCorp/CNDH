@@ -41,7 +41,8 @@ var sendForm = function () {
 
   if ( nombre != "" && apellido != "" && telefono != "" && descripcion != "" && fecha != "") {
     if (online) {
-      go.href = '#newcomment';
+      //go.href = '#newcomment';
+
 
       // se construye la url
       // fields: dependencia, nombre, apellidos, correo, telefono, descripcion, fecha, reincide
@@ -57,9 +58,11 @@ var sendForm = function () {
       url += '&reincide=' + reincide;
 
       var request = new XMLHttpRequest( { mozSystem: true } ); // for FFOS
-      request.open("get", url, true);
+        console.log("entro");      
+        request.open("get", url, true);
 
       request.onreadystatechange = function () {
+
         if (request.readyState == 4) {
           if (request.status == 200 || request.status == 0) {
             var data = request.responseText;
@@ -83,26 +86,8 @@ var sendForm = function () {
         alert("Su dispositivo no tiene conexion a internet intentelo mas tarde.");                  
     }
   } else {
-    if (otro == "") {
-      document.getElementById("otro").style.border = "0.1rem solid #820000";
-    }
-    if (nombre == "") {
-      document.getElementById("nombre").style.border = "0.1rem solid #820000";
-    }
-    if (apellido == "") {
-      document.getElementById("apellido").style.border = "0.1rem solid #820000";
-    }
-    if (telefono == "") {
-      document.getElementById("telefono").style.border = "0.1rem solid #820000";
-    }if (direccion == "") {
-      document.getElementById("direccion").style.border = "0.1rem solid #820000";
-    }
-    if (descripcion == "") {
-      document.getElementById("descripcion").style.border = "0.1rem solid #820000";
-    }
-    if (fecha == "") {
-      document.getElementById("fechax").style.border = "0.1rem solid #820000";
-    }
+    return false;
+    console.log("aqui estoy");
   }
 }
 
@@ -217,4 +202,15 @@ var otherAgency = function (element) {
 }
 
 // Agrego el listener Click al Boton con id='go'
-$('#go').addEventListener('click', sendForm);
+//$('#go').addEventListener('click', sendForm);
+
+/*var saludar = function(){
+  if ( nombre != "" && apellido != "" && telefono != "" && descripcion != "" && fecha != "") {
+    console.log("invalido");
+    return false;
+    console.log("esta cosa no se ejecuta");
+  }
+  else{
+    console.log("esta cosa funciona");
+  }
+}*/
