@@ -39,10 +39,9 @@ var sendForm = function () {
   fecha = $('#fecha').value;
   reincide = $('#reincide').checked;
 
-  if ( nombre != "" && apellido != "" && telefono != "" && descripcion != "" && fecha != "") {
+  if ( nombre != "" && apellido != "" && direccion != "" && telefono != "" && descripcion != "" && fecha != "") {
     if (online) {
-      //go.href = '#newcomment';
-
+      go.href = '#newcomment';
 
       // se construye la url
       // fields: dependencia, nombre, apellidos, correo, telefono, descripcion, fecha, reincide
@@ -58,11 +57,9 @@ var sendForm = function () {
       url += '&reincide=' + reincide;
 
       var request = new XMLHttpRequest( { mozSystem: true } ); // for FFOS
-        console.log("entro");      
-        request.open("get", url, true);
+      request.open("get", url, true);
 
       request.onreadystatechange = function () {
-
         if (request.readyState == 4) {
           if (request.status == 200 || request.status == 0) {
             var data = request.responseText;
@@ -87,7 +84,6 @@ var sendForm = function () {
     }
   } else {
     return false;
-    console.log("aqui estoy");
   }
 }
 
@@ -202,15 +198,4 @@ var otherAgency = function (element) {
 }
 
 // Agrego el listener Click al Boton con id='go'
-//$('#go').addEventListener('click', sendForm);
-
-/*var saludar = function(){
-  if ( nombre != "" && apellido != "" && telefono != "" && descripcion != "" && fecha != "") {
-    console.log("invalido");
-    return false;
-    console.log("esta cosa no se ejecuta");
-  }
-  else{
-    console.log("esta cosa funciona");
-  }
-}*/
+$('#go').addEventListener('click', sendForm);

@@ -40,7 +40,7 @@
       </header>
       <article class="content scrollable header" onkeyup='setLocalData()'>
         <header><h1>¡Bienvenido!</h1><h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2></header>
-        <form>
+        <!--form action="#confirm" method="get"-->
         <p>
           <ul>
             <li>
@@ -71,7 +71,7 @@
         </p> 
 
         <p>
-          <input id="apellido" type="text" placeholder="Apellidos" onkeyup="upperCase()">
+          <input id="apellido" type="text" placeholder="Apellidos" onkeyup="upperCase()" required>
         </p>
 
         <p>
@@ -79,22 +79,22 @@
         </p>
 
         <p>
-          <input id="direccion" type="text" placeholder="Dirección">
+          <input id="direccion" type="text" placeholder="Dirección" required>
         </p>
 
         <p>
-          <input id="telefono" type="tel" placeholder="Teléfono contacto" onkeyup="formatPhone(this,'-',patron,true)" maxlength="12">
+          <input id="telefono" type="tel" placeholder="Teléfono contacto" onkeyup="formatPhone(this,'-',patron,true)" maxlength="12" required>
         </p>
 
         <p>
-          <textarea id="descripcion" placeholder="Descripción de la situación"></textarea>
+          <textarea id="descripcion" placeholder="Descripción de la situación" required></textarea>
         </p>
 
         <p>
           <ul>
             <li>
               <span class="button icon icon-dialog" id="fechax">
-                <input id="fecha" type="date" placeholder="Fecha de incidente"/>
+                <input id="fecha" type="date" placeholder="Fecha de incidente" required>
               </span>
             </li>
         </ul>
@@ -114,10 +114,10 @@
           </ul>
         </section>
 
-        <p><!--a href="#" id="go"><button class="theme-B" role="button">Enviar</button></a-->
-          <input type="submit" onclick="sendForm()" value="Enviar" class="theme-B full" role="button">
+        <p><a href="#" id="go"><button class="theme-B" role="button">Enviar</button></a>
+          <!--input type="submit" value="Enviar" class="theme-B full" role="button">
         </p>
-        </form>
+        </form-->
       </arcticle>
     </section>
   </div>
