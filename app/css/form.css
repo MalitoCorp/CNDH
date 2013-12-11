@@ -190,3 +190,4 @@ li > h2 {
 
 .hidden{ display: none; }
 .opcionDependencia{color: rgba(0,0,0,.4);}
+input[class*="full"]{width: 100%}
