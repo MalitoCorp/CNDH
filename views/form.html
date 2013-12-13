@@ -38,20 +38,18 @@
         <a href="../index.html" class="icon icon-back">back</a>
         <h1>Reportar queja</h1>
       </header>
-      <article class="content scrollable header" onkeyup='setLocalData()'>
-        <header><h1>¡Bienvenido!</h1><h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2></header>
-        <!-- http://firefox-cndh.herokuapp.com/search/?dependencia=1&nombre=SWD&apellidos=DCF&correo=fq&direccion=fq&telefono=090-909-09&descripcion=kpokop&fecha=12/12/8256&reincide=true
+      <article class="content scrollable header">
+        <header>
+          <h1>¡Bienvenido!</h1>
+          <h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2>
+        </header>
 
-http://firefox-cndh.herokuapp.com/search/?dependencia=1&otro=%22weqw%22&nombre=hola&apellidos=adios&correo=hio%40gojo&direccion=fdsk&telefono=423498239048&descripcion=asdsaq&fecha=12%2F12%2F2012
-
-http://firefox-cndh.herokuapp.com/search/?dependencia=1&nombre=SWD&apellidos=DCF&correo=fq&direccion=fq&telefono=090-909-09&descripcion=kpokop&fecha=12/12/8256&reincide=true
-      -->
         <form action="http://firefox-cndh.herokuapp.com/search/" method="get" >
         <p>
           <ul>
             <li>
               <span class="button icon icon-dialog opcionDependencia"> </span>
-                 <select name="dependencia" id="dependencia" onchange='setLocalData(); otherAgency()'>
+                 <select name="dependencia" id="dependencia">
                   <option value="1">Selecciona dependencia</option>
                   <option value="1">IMSS</option>
                   <option value="1">SEDENA</option>
@@ -68,50 +66,31 @@ http://firefox-cndh.herokuapp.com/search/?dependencia=1&nombre=SWD&apellidos=DCF
             </li>
           </ul>
         </p>
-        <p class="cajaOtro" class="hidden">
-          <input name="otro" id="otro" type="text" placeholder="Dependencia">
-        </p>
+        <p class="cajaOtro" class="hidden"><input name="otro" id="otro" type="text" placeholder="Dependencia"></p>
         <p>
-        <p>
-          <input name="nombre" id="nombre" type="text" placeholder="Nombre(s)" onkeyup="upperCase()" required>
-        </p> 
+          <p><input name="nombre"     id="nombre"     type="text"   placeholder="Nombre(s)"           required></p> 
+          <p><input name="apellidos"  id="apellido"   type="text"   placeholder="Apellidos"           required></p>
+          <p><input name="correo"     id="correo"     type="email"  placeholder="Correo electrónico"></p>
+          <p><input name="direccion"  id="direccion"  type="text"   placeholder="Dirección"           required></p>
+          <p><input name="telefono"   id="telefono"   type="tel"    placeholder="Teléfono contacto" maxlength="12" required></p>
+          <p><textarea name="descripcion" id="descripcion" placeholder="Descripción de la situación" required></textarea></p>
 
-        <p>
-          <input name="apellidos" id="apellido" type="text" placeholder="Apellidos" onkeyup="upperCase()" required>
-        </p>
-
-        <p>
-          <input name="correo" id="correo" type="email" placeholder="Correo electrónico">
-        </p>
-
-        <p>
-          <input name="direccion" id="direccion" type="text" placeholder="Dirección" required>
-        </p>
-
-        <p>
-          <input name="telefono" id="telefono" type="tel" placeholder="Teléfono contacto" onkeyup="formatPhone( this, patron )" maxlength="12" required>
-        </p>
-
-        <p>
-          <textarea name="descripcion" id="descripcion" placeholder="Descripción de la situación" required></textarea>
-        </p>
-
-        <p>
-          <ul>
-            <li>
-              <span class="button icon icon-dialog" id="fechax">
-                <input name="fecha" id="fecha" type="date" placeholder="Fecha de incidente" required>
-              </span>
-            </li>
-        </ul>
-        </p>
+          <p>
+            <ul>
+              <li>
+                <span class="button icon icon-dialog" id="fechax">
+                  <input name="fecha" id="fecha" type="date" placeholder="Fecha de incidente" required>
+                </span>
+              </li>
+          </ul>
+          </p>
 
         <section data-type="list">
           <ul>
             <li>
               <aside class="pack-end">
                 <label class="pack-checkbox">
-                <input name="reincide" value="true" type="checkbox" id="reincide" onchange='setLocalData()'>
+                <input name="reincide" value="true" type="checkbox" id="reincide">
                 <span></span>
               </label>
               </aside>
@@ -120,10 +99,7 @@ http://firefox-cndh.herokuapp.com/search/?dependencia=1&nombre=SWD&apellidos=DCF
           </ul>
         </section>
 
-        <!-- <p>  -->
-          <!-- <a href="#" id="go"><button class="theme-B" role="button">Enviar</button></a> -->
-          <input type="submit" value="Enviar" class="theme-B full" role="button">
-          <!--</p>-->
+          <P><input type="submit" value="Enviar" class="theme-B full" role="button"></P>
         </form>
       </arcticle>
     </section>

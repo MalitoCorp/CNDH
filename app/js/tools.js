@@ -99,10 +99,13 @@ function formToJSON( form ) {
       case 'text':
       case 'radio':
       case 'tel':
-      case 'checkbox':
       case 'textarea':
       case 'select-one':
         jsonForm[ name ] = value;
+      break;
+      case 'checkbox':
+        if ( element.checked )
+          jsonForm[ name ] = value;
       break;
       default: break;
     }
