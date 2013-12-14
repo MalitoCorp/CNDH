@@ -4,24 +4,23 @@ var folios = new db( 'folios' );
 var folio = getURLParameter( 'folio' );
 
 if ( folio != 'null' ) {
-	folios.set( { folio: folio } );
+	var fechaActual = dateFormat();
+	folios.set( { folio: folio, fecha: fechaActual} );
 }
 
+function dateFormat() {
+	var d = new Date();
+	var curr_date = d.getDate();
+	var curr_month = d.getMonth() + 1; //Months are zero based
+	var curr_year = d.getFullYear();
+	return curr_year + "-" + curr_month + "-" + curr_date;
+}
 
 var render = function () {
 	var source = $('#reportesTemplate').innerHTML;
 	var template = Handlebars.compile(source);
-	$('#reportes').innerHTML = template( {folios: folios.data} );
-
-	// getJSON( 'http://localhost/reportes/' + folio,
-	//   function (data) {
-	//     reportes.set(data);
-	//     reportesRender(reportes.data[0]);
-	//   },
-	//   function () {
-	//     reportesRender(reportes.data[0]);
-	//   }
-	// );
+	
+	$('#reportes').innerHTML = template( { folios: folios.data } );
 
 	var DOMcollection = document.querySelectorAll('.reporte');
 
@@ -30,8 +29,20 @@ var render = function () {
 	});
 }
 
-var verReporte = function () {
-	console.log( this.getElementsByTagName('span')[0].innerHTML );
+var verReporte = function (e) {
+	e.preventDefault();
+	var idFolio = this.getElementsByTagName('span')[0].innerHTML;
+
+	getJSON( 'http://localhost:3000/folios/' + idFolio,
+		function (data) {
+			$('#folio').innerHTML = data.folio;
+			$('#status').innerHTML = data.status;
+		},
+		function () {
+			console.log("Malo");
+		}
+	);
+	location.href="#confirm";
 }
 
 render();

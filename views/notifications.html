@@ -44,7 +44,7 @@
     <li>
       <a class="reporte" href="#confirm" data-folio="" data-status="" data-date="" data-message="">
         <p>Folio: <span>{{folio}}</span></p>
-        <p>Fecha: 2013-10-30</p>
+        <p>Fecha: {{fecha}}</p>
       </a>
     </li>
   {{/each}}
@@ -52,8 +52,8 @@
 
     <form role="dialog" data-type="confirm" id="confirm">
       <section>
-        <h1><span id="title">Folio: 3243424</span></h1>
-        <p>Su queja tiene el estado de: Recibido</p>
+        <h1>Folio: <span id="folio"> 3243424</span></h1>
+        <p>Su queja tiene el estado de: <span id="status">Recibido</span></p>
         <menu id="acept">
           <button class="recommend affirmative full" onclick="newWindow()">Aceptar</button>
         </menu>

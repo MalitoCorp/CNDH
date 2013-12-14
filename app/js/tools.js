@@ -63,5 +63,52 @@ var getJSON = function (url, callback, error) {
 function getURLParameter(name) {
     return decodeURIComponent(
         (location.search.match(RegExp("[?|&]"+name+'=(.+?)(&|$)'))||[,null])[1]
-    );  
+    );
+}
+
+// formToJSON: Encapsula el formulario en un objeto JSOM
+// params: un objeto DOM o vacio para el primer formulario del documento
+// return: un objeto JSON con el contenido del formulario
+function formToJSON( form ) {
+  form = document.querySelector( form ) || document.forms[0];
+  var elems = form.elements;
+  var i, len = elems.length;
+  var jsonForm = {};
+  
+  for( i = 0 ; i < len ; i++ ) {
+  
+    var element = elems[i];
+    var type = element.type;
+    var name = element.name;
+    var value = element.value;
+    
+    switch(type) {
+      case 'color':
+      case 'date':
+      case 'datetime':
+      case 'datetime-local':
+      case 'email':
+      case 'month':
+      case 'number':
+      case 'range':
+      case 'search':
+      case 'tel':
+      case 'time':
+      case 'url':
+      case 'week':
+      case 'text':
+      case 'radio':
+      case 'tel':
+      case 'textarea':
+      case 'select-one':
+        jsonForm[ name ] = value;
+      break;
+      case 'checkbox':
+        if ( element.checked )
+          jsonForm[ name ] = value;
+      break;
+      default: break;
+    }
+  }
+  return jsonForm;
 }

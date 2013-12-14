@@ -3,15 +3,15 @@ var template = Handlebars.compile(source);
 var online = navigator.onLine;
 var oficinas = new db("oficinas");
 var DOMcollection = [];
-
+var timer;
 // Lista render: Dibuja la lista de oficinas.
 // params:  
 //    _list: coleccion de objetos oficina.
 var listaRender = function (_list) {
   $("#content").innerHTML = template(_list);
-  var templaMap = $('#mapa').innerHTML;
-  var renderMap = Handlebars.compile(templaMap);
-  $("#contentMap").innerHTML = renderMap();
+  // var templaMap = $('#mapa').innerHTML;
+  // var renderMap = Handlebars.compile(templaMap);
+  // $("#contentMap").innerHTML = renderMap();
   DOMcollection = document.querySelectorAll('.sede');
   
   Array.prototype.forEach.call( DOMcollection, function ( DOMelement ) {
@@ -21,7 +21,7 @@ var listaRender = function (_list) {
 
 // Descargo la colección de oficinas y la almaceno en local storage
 // o la recupero del local storage cuando no hay conexión 
-getJSON( 'http://localhost:8888/ffos/sedes.php?' + Date.now(),
+getJSON( 'http://localhost:3000/mapas?' + Date.now(),
   function (data) {
     oficinas.clear();
     oficinas.set(data);
@@ -76,13 +76,28 @@ var mostrarMapa = function () {
     $('#map').innerHTML = '';
     $('#map').appendChild(imageElement);
   }
+
+  $('.dir').classList.remove('down');
+  time = setTimeout(function (){ 
+    $('.dir').classList.add('down');
+    clearTimeout(timer);
+  }, 4000);
+
 };
+
+$('.ocultar').addEventListener('click', function (){
+    $('.dir').classList.remove('down');
+    time = setTimeout(function (){ 
+      $('.dir').classList.add('down');
+      clearTimeout(timer);
+    }, 4000);
+});
+
+$('.clean').addEventListener('click', function (){
+    $('.dir').classList.add('down');
+    clearTimeout(timer);
+});
+
 
 //window.$ = document.querySelector.bind(document);
 //var online = false;
-// setTimeout(function (){ 
-//     $('.status').classList.add('down');
-// }, 4000);
-// $('.ocultar').addEventListener('click', function (){
-//     $('.status').classList.remove('down');
-// });

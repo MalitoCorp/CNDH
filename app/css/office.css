@@ -1,4 +1,4 @@
-body, {
+body {
   overflow: hidden !important;
 }
 
@@ -169,20 +169,25 @@ html, body {
     height: 100%;
 }
 
+.arc{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
 #map_content {
-    height: 100%;
+    height: calc(100% - 8px );
     overflow: hidden;
 }
 
 #map {
-    position: inherit !important;
+ /*   position: inherit !important;*/
     overflow: visible !important;
     height: 100%;
 }
 
 section.status {
     z-index: 999 !important;
-    background: rgba(0,0,0,.8);
+    background: rgba(0,0,0,.9);
     overflow: hidden;
     position: absolute;
     left: 0;
@@ -190,13 +195,14 @@ section.status {
     bottom: 0;
     color: #fff;
     text-align: left;
+    display: inherit;
     transition: bottom 1s;
 }
 
 section .down {
   bottom: -6.3rem;
   /*display: none;*/
-  transition:bottom 1s;
+  transition: bottom 1s;
 }
 
 
@@ -227,6 +233,10 @@ div.ocultar span {
     background: #E66000;
     font-weight: bold;
     padding: 1px 5px;
+}
+
+.noscroll{
+    overflow: hidden !important;
 }
 
 #mostrarMapa {
