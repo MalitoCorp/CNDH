@@ -38,6 +38,33 @@
 </div>
 <div class="theme-B" id="contentMap">
   <!-- Rellenado por el template mapa -->
+    <form data-position="right" id="mostrarMapa">
+    <section role="region">
+      <header class="fixed">
+        <a href="#primary" class="icon icon-back clean">back</a>
+        <h1 class="city-title"></h1>
+      </header>
+      <article class="scrollable header noscroll">
+        
+        <div id="map_content">
+          <div id="map"></div>
+        </div>
+
+        <section class="status">
+          <div class="ocultar">
+            <span>
+              <img src="../app/img/arrow.png" alt="">
+            </span>
+          <div>
+        </section>
+        
+        <section class="status dir down">
+          <p id="address"></p>
+        </section>
+
+      </article>
+    </section>
+  </form>
 </div>
           
   <script id="oficinas" type="text/x-handlebars-template">
@@ -62,32 +89,7 @@
       
   </script>
 
-  <script id="mapa" type="text/x-handlebars-template">
-  <form data-position="right" id="mostrarMapa">
-    <section role="region">
-      <header class="fixed">
-        <a href="#primary" class="icon icon-back">back</a>
-        <h1 class="city-title"></h1>
-      </header>
-      <article class="scrollable header">
-        
-        <div id="map_content">
-          <div id="map"></div>
-        </div>
-        
-        <section class="status">
-          <div class="ocultar">
-            <span>
-              <img src="../app/img/arrow.png" alt="">
-            </span>
-          <div>
-          <p id="address"></p>
-        </section>
-
-      </article>
-    </section>
-  </form>
-  </script>
+  <!--<script id="mapa" type="text/x-handlebars-template"></script>-->
   
   <script type="text/javascript"
     src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0XYLMBbNN3vsy7PqgzgjnnSc90Dc9ItE&sensor=true">
