@@ -3,11 +3,9 @@
 
 // Instancia del objeto db para almacenar datos JSON con LocalStorage
 var datosFormulario = new db("datosFormulario");
+var folio = '';
 
 // formatPhone: Da el formato con guiones al telefono
-// params:
-//    element: 'Elemento del DOM this'
-//    patron: 'Patron del formato'
 function formatPhone() {
   if ( this.tempValue != this.value ) {
     // Patron para la validacion del Telefono
@@ -61,7 +59,9 @@ function saveForm(){
 // Get LocalData: Recupera los datos del local storage y los muestras en lsus respectivos campos
 function getLocalData() {
   var datos = datosFormulario.data[0];
-  $('#dependencia').value = datos.dependencia;
+  if ( !datos ) return;
+  
+  $('#dependencia').selectedIndex = datos.dependencia - 1; //Fix para usar el selectIndex el cual es un array que inicia en 0
   $('#otro').value = datos.otro;
   $('#nombre').value = datos.nombre;
   $('#apellido').value = datos.apellido;
@@ -73,26 +73,70 @@ function getLocalData() {
   $('#reincide').checked = datos.reincide;
 }
 
-function evalDependencia () {
+// evalDependencia: Muestra el imput 'otro' al selecionar la opcion del mismo nombre del select list.
+function evalDependencia() {
   var value = $('#dependencia').selectedOptions[0].text;
-  $('.opcionDependencia').innerHTML = value;
   if ( value == "Otro" )
     $('.cajaOtro').classList.remove('hidden');
   else
     $('.cajaOtro').classList.add('hidden');
+  $('.opcionDependencia').innerHTML = value;
 }
 
+// sendForm:
+//  Valida y envia el formulario, 
+//  de ser enviado correcta mente muestra el Folio del reporte,
+//  de lo contrario almacena los datos para emviarlos posterios mente. 
 function sendForm(event) {
-    event.preventDefault();
-    var a = formToJSON();
-    console.dir(a);
+  event.preventDefault();
+  var formData = formToJSON('#reporte');
+  var form = $('#reporte');
+  var actionURL = form.action;
+  var request = new XMLHttpRequest( { mozSystem: true } );
+  request.open('post', actionURL, true);
+  request.responseType = 'json';
+  
+  request.onload = function () {
+    var status = request.status;
+    if (status == 200) {
+      location.href="#newcomment";
+      var data = request.response;
+      var spanElement = document.createElement("span");
+      spanElement.innerHTML = 'Su folio es: ' + data.folio;
+      $('#resultado').appendChild(spanElement);
+      $('#title').innerHTML = 'Su reporte ha sido recibido y está siendo atendido';
+      $('#subtitle').innerHTML = '';
+      $('#progress').classList.add('hidden');
+      folio = data.folio;
+      delete data;
+    }
+  };
+
+  request.onerror = function() {
+    saveForm();
+    alert("El servidor no responde intentalo mas tarde.");
+  };
+
+  request.send( JSON.stringify( formData ) );
+  //form.reset(); //Temporar
+  datosFormulario.clear();
+  delete formData;
+}
+
+// saveFolio: Redirige a 'notifications.html' y pasa el folio del reporte como parametro.
+function saveFolio() {
+  location.href = "notifications.html?folio=" + folio;
 }
 
 // load: Metodo que inicializa todos los eventos y demas acciones.
-window.onload = function( ) {
-  //Preguntar por que el UPERCASE
+window.onload = function() {
   $('#telefono').addEventListener( 'keyup', formatPhone );
-  $('#dependencia').addEventListener( 'change', evalDependencia )
+  $('#saveFolio').addEventListener( 'click', saveFolio );
+  $('#dependencia').addEventListener( 'change', function() {
+    evalDependencia();
+    saveForm();
+  });
+
   document.forms[0].addEventListener( 'keyup', saveForm );
   document.forms[0].addEventListener( 'change', saveForm );
   document.forms[0].addEventListener('submit', sendForm );
@@ -100,8 +144,3 @@ window.onload = function( ) {
   getLocalData();
   evalDependencia();
 };
-
-
-
-
-

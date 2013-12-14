@@ -44,24 +44,24 @@
           <h2>Por favor llene los siguientes campos detalladamente para brindarle un mejor servicio.</h2>
         </header>
 
-        <form action="http://firefox-cndh.herokuapp.com/search/" method="get" >
+        <form action="http://localhost:3000/reporte" method="get" id="reporte">
         <p>
-          <ul>
+          <ul class="listDependencias">
             <li>
               <span class="button icon icon-dialog opcionDependencia"> </span>
                  <select name="dependencia" id="dependencia">
                   <option value="1">Selecciona dependencia</option>
-                  <option value="1">IMSS</option>
-                  <option value="1">SEDENA</option>
-                  <option value="1">OADPRS</option>
-                  <option value="1">CFE</option>
-                  <option value="1">SEP</option>
-                  <option value="1">PF</option>
-                  <option value="1">PGR</option>
-                  <option value="1">ISSSTE</option>
-                  <option value="1">INM</option>
-                  <option value="1">SEMAR</option>
-                  <option value="1">Otro</option>
+                  <option value="2">IMSS</option>
+                  <option value="3">SEDENA</option>
+                  <option value="4">OADPRS</option>
+                  <option value="5">CFE</option>
+                  <option value="6">SEP</option>
+                  <option value="7">PF</option>
+                  <option value="8">PGR</option>
+                  <option value="9">ISSSTE</option>
+                  <option value="10">INM</option>
+                  <option value="11">SEMAR</option>
+                  <option value="12">Otro</option>
                 </select>
             </li>
           </ul>
@@ -69,17 +69,23 @@
         <p class="cajaOtro" class="hidden"><input name="otro" id="otro" type="text" placeholder="Dependencia"></p>
         <p>
           <p><input name="nombre"     id="nombre"     type="text"   placeholder="Nombre(s)"           required></p> 
-          <p><input name="apellidos"  id="apellido"   type="text"   placeholder="Apellidos"           required></p>
+          <p><input name="apellido"  id="apellido"   type="text"   placeholder="Apellidos"           required></p>
           <p><input name="correo"     id="correo"     type="email"  placeholder="Correo electrónico"></p>
           <p><input name="direccion"  id="direccion"  type="text"   placeholder="Dirección"           required></p>
-          <p><input name="telefono"   id="telefono"   type="tel"    placeholder="Teléfono contacto" maxlength="12" required></p>
+          <p><input name="telefono"   id="telefono"   type="tel"    placeholder="Teléfono contacto" 
+            maxlength="12" 
+            pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
+            required
+          ></p>
           <p><textarea name="descripcion" id="descripcion" placeholder="Descripción de la situación" required></textarea></p>
 
           <p>
             <ul>
               <li>
                 <span class="button icon icon-dialog" id="fechax">
-                  <input name="fecha" id="fecha" type="date" placeholder="Fecha de incidente" required>
+                  <input name="fecha" id="fecha" type="date" placeholder="Fecha de incidente" 
+                  pattern="^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+                  required>
                 </span>
               </li>
           </ul>
@@ -114,7 +120,7 @@
         <!-- Note: inline style only for demo purposes -->
         <p style="text-align: center;" id="progress"><progress></progress></p>
         <menu id="acept">
-          <button class="recommend affirmative full" onclick="addReport()">OK</button>
+          <button class="recommend affirmative full" id="saveFolio">Aceptar</button>
         </menu>
       </section>
     </form>

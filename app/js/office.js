@@ -21,7 +21,7 @@ var listaRender = function (_list) {
 
 // Descargo la colección de oficinas y la almaceno en local storage
 // o la recupero del local storage cuando no hay conexión 
-getJSON( 'http://localhost:8888/ffos/sedes.php?' + Date.now(),
+getJSON( 'http://localhost:3000/mapas?' + Date.now(),
   function (data) {
     oficinas.clear();
     oficinas.set(data);
