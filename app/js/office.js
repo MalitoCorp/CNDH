@@ -17,11 +17,12 @@ var listaRender = function (_list) {
   Array.prototype.forEach.call( DOMcollection, function ( DOMelement ) {
     DOMelement.addEventListener( 'click', mostrarMapa, false );
   });
-}
+};
 
+listaRender(oficinas.data[0]);
 // Descargo la colección de oficinas y la almaceno en local storage
 // o la recupero del local storage cuando no hay conexión 
-getJSON( 'http://localhost:3000/mapas?' + Date.now(),
+getJSON( 'http://beta-firefox-cndh.herokuapp.com/oficinas.json/?' + Date.now(),
   function (data) {
     oficinas.clear();
     oficinas.set(data);
